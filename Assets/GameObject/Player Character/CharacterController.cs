@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
+    [SerializeField] private Camera _camera;
     [SerializeField] private float _moveSpeed = 5;
     [SerializeField] private float _rotateSpeed = 5;
 
+    public Camera Camera { get => _camera; set => _camera = value; }
 
     void Start()
     {
-
+        //GameManager.Instance.Player = this;
     }
 
 
