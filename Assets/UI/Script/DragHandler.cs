@@ -5,40 +5,45 @@ using UnityEngine;
 
 public class DragHandler : MonoBehaviour
 {
-    [SerializeField] private RectTransform _uiElement;
+    [SerializeField] private DetachableUi _uiElement;
     [SerializeField] private float _shakeRate = 1.0f;
     [SerializeField] private float _maxDistanceBeforeBreaking = 20;
     [SerializeField] private Vector2 _initialPosition = Vector2.zero;
-    [SerializeField] private bool _attached = true;
     private bool _dragging = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        _uiElement = GetComponent<RectTransform>();
-        _initialPosition = _uiElement.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Drag();
+        if (_uiElement != null)
+        {
+            ShakeLogic();
+        }
+    }
+
+    private void ShakeLogic()
+    {
         if (Input.GetKey(KeyCode.Mouse0) && _dragging)
         {
             float distance = Vector2.Distance(_initialPosition, Input.mousePosition);
-            if (_attached)
+            if (_uiElement.Attached)
             {
                 ShakeElement(distance);
                 if (distance >= _maxDistanceBeforeBreaking)
-                    _attached = false;
+                    _uiElement.Attached = false;
             }
             else
             {
-                _uiElement.position = Input.mousePosition;
+                _uiElement.transform.position = Input.mousePosition;
             }
         }
-        else if (_attached)
-            _uiElement.position = _initialPosition;
+        else if (_uiElement.Attached)
+            _uiElement.transform.position = _initialPosition;
     }
 
     public void EnterDrag()
@@ -61,7 +66,7 @@ public class DragHandler : MonoBehaviour
     private void ShakeElement(float distance)
     {
         Vector2 shakePosition = _initialPosition + Random.insideUnitCircle * _shakeRate * distance;
-        _uiElement.position = shakePosition;
+        _uiElement.transform.position = shakePosition;
     }
 
     private void OnDrawGizmosSelected()
