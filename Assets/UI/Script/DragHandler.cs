@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class DragHandler : MonoBehaviour
 {
-    [SerializeField] private DetachableUi _uiElement;
+    [Header("Input")]
+    [SerializeField] private KeyCode _holdBreakMode = KeyCode.None;
+    [Header("Settings")]
+    [SerializeField] private DetachableUi _uiElement = null;
     [SerializeField] private float _shakeRate = 1.0f;
     [SerializeField] private float _maxDistanceBeforeBreaking = 20;
-    [SerializeField] private Vector2 _initialPosition = Vector2.zero;
+    [SerializeField] private float _maxToSnapBack = 10;
     private bool _dragging = false;
 
     // Start is called before the first frame update
@@ -28,9 +31,9 @@ public class DragHandler : MonoBehaviour
 
     private void ShakeLogic()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && _dragging)
+        if (Input.GetKey(_holdBreakMode) && _dragging)
         {
-            float distance = Vector2.Distance(_initialPosition, Input.mousePosition);
+            float distance = Vector2.Distance(_uiElement.InitialPosition, Input.mousePosition);
             if (_uiElement.Attached)
             {
                 ShakeElement(distance);
@@ -43,13 +46,24 @@ public class DragHandler : MonoBehaviour
             }
         }
         else if (_uiElement.Attached)
-            _uiElement.transform.position = _initialPosition;
+            _uiElement.SetToInitialPosition();
     }
 
-    public void EnterDrag()
+    private void SnapBackLogic()
+    {
+        float distance = Vector2.Distance(_uiElement.InitialPosition, _uiElement.transform.position);
+        if (distance < _maxToSnapBack)
+        {
+            _uiElement.Attached = true;
+            _uiElement.SetToInitialPosition();
+        }
+    }
+
+    public void EnterDrag(DetachableUi ui)
     {
         Debug.Log("enter drag");
         _dragging = true;
+        _uiElement = ui;
     }
 
     public void Drag()
@@ -60,19 +74,27 @@ public class DragHandler : MonoBehaviour
     public void ExitDrag()
     {
         Debug.Log("exit drag");
+        SnapBackLogic();
         _dragging = false;
+        _uiElement = null;
     }
 
     private void ShakeElement(float distance)
     {
-        Vector2 shakePosition = _initialPosition + Random.insideUnitCircle * _shakeRate * distance;
+        Vector2 shakePosition = _uiElement.InitialPosition + Random.insideUnitCircle * _shakeRate * distance;
         _uiElement.transform.position = shakePosition;
     }
 
     private void OnDrawGizmosSelected()
     {
-        float shakeRadius = _maxDistanceBeforeBreaking;
-        Gizmos.DrawSphere(_initialPosition, shakeRadius);
-        Gizmos.color = Color.yellow;
+        if (_dragging)
+        {
+            float shakeRadius = _maxDistanceBeforeBreaking;
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(_uiElement.InitialPosition, shakeRadius);
+            Gizmos.color = Color.red;
+            float snapRadius = _maxToSnapBack;
+            Gizmos.DrawWireSphere(_uiElement.InitialPosition, snapRadius);
+        }
     }
 }

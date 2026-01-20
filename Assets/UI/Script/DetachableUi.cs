@@ -5,6 +5,7 @@ using UnityEngine;
 public class DetachableUi : MonoBehaviour
 {
     [SerializeField] private bool _attached = true;
+    private Vector2 _initialPosition = Vector2.zero;
 
     public bool Attached
     {
@@ -18,15 +19,16 @@ public class DetachableUi : MonoBehaviour
         }
     }
 
+    public Vector2 InitialPosition => _initialPosition;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _initialPosition = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetToInitialPosition()
     {
-        
+        transform.position = InitialPosition;
     }
 }
