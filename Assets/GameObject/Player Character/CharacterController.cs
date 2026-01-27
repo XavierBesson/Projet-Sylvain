@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -10,9 +11,15 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _rotateSpeed = 5;
 
     [SerializeField] private bool _oldSchoolMove = false;
-    [SerializeField] private float stepDistance = 1.5f;   
+    [SerializeField] private float stepDistance = 1.5f;
     [SerializeField] private float snapRotation = 45f;
-    [SerializeField]  private LayerMask obstacles;
+    [SerializeField] private LayerMask _obstacles;
+
+
+    [SerializeField] private float _interactRange = 100000f;
+    [SerializeField] private LayerMask _interactile;
+    [SerializeField] private Vector3 _mousePosition;
+
 
     public Camera Camera { get => _camera; set => _camera = value; }
 
@@ -26,6 +33,10 @@ public class CharacterController : MonoBehaviour
     {
         Move();
         Rotate();
+       // MousePosition();
+        MouseClic();
+        _mousePosition = Input.mousePosition;
+        
     }
 
     #region Déplacement
@@ -45,13 +56,14 @@ public class CharacterController : MonoBehaviour
 
     void TryMove(Vector3 dir)
     {
-        if (!Physics.Raycast(transform.position, dir, stepDistance, obstacles))
+        if (!Physics.Raycast(transform.position, dir, stepDistance, _obstacles))
         {
             transform.position += dir * stepDistance;
         }
     }
     private void Rotate()
     {
+
         if (_oldSchoolMove == false)
         {
             float horizontal = Input.GetAxis("Horizontal");
@@ -74,5 +86,32 @@ public class CharacterController : MonoBehaviour
     }
     #endregion Déplacement
 
+    void MousePosition()
+    {
 
-}
+    }
+
+    void MouseClic()
+
+    { if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("clic"); 
+           RaycastHit hit;
+           Ray ray = Camera.ScreenPointToRay(Input.mousePosition);
+            
+
+            Physics.Raycast(ray, out hit, _interactile);
+
+            Debug.Log(hit.collider.gameObject);
+
+                    if (hit.collider.gameObject.GetComponentInParent<Door>() != null)
+                    {
+                        hit.collider.gameObject.GetComponentInParent<Door>().RevealHint();
+                    }
+                    //Rajouter des else If pour tous les autres objets interactible 
+                }
+
+            }
+        }
+    
+
