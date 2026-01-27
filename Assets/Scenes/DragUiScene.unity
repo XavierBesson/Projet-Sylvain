@@ -543,6 +543,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 129576021}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Unhover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 129576021}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &199760740
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +995,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 384173323}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Unhover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 384173323}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &454484405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,7 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1428,6 +1492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _holdBreakMode: 32
   _uiElement: {fileID: 0}
+  _detachableUis: []
+  _minShake: 0.5
   _shakeRate: 1
   _maxDistanceBeforeBreaking: 40
   _maxToSnapBack: 20
@@ -1612,6 +1678,38 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 719277813}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Unhover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 719277813}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -2375,6 +2473,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1265534206}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Unhover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1265534206}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1272597730
 GameObject:
   m_ObjectHideFlags: 0
@@ -2763,6 +2893,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1451069940}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Unhover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1451069940}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1451069937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3044,6 +3206,38 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1476219279}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Unhover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1476219279}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -3473,6 +3667,38 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Hover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1714138099}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 651805226}
+          m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
+          m_MethodName: Unhover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1714138099}
+            m_ObjectArgumentAssemblyTypeName: DetachableUi, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

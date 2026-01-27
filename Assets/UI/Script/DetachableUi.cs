@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DetachableUi : MonoBehaviour
 {
@@ -19,7 +20,11 @@ public class DetachableUi : MonoBehaviour
         }
     }
 
-    public Vector2 InitialPosition => _initialPosition;
+    public Vector2 InitialPosition
+    {
+        get { return _initialPosition; }
+        set { _initialPosition = value; }
+    }
 
     // Start is called before the first frame update
     void Start()

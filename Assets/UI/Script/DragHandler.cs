@@ -1,22 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DragHandler : MonoBehaviour
 {
     [Header("Input")]
     [SerializeField] private KeyCode _holdBreakMode = KeyCode.None;
+    private bool _breakMode = false;
+    [SerializeField] private GameObject _breakParticle = null;
+
     [Header("Settings")]
     [SerializeField] private DetachableUi _uiElement = null;
     [SerializeField] private DetachableUi[] _detachableUis = null;
+    [SerializeField] private float _minShake = 0.1f;
     [SerializeField] private float _shakeRate = 1.0f;
     [SerializeField] private float _maxDistanceBeforeBreaking = 20;
     [SerializeField] private float _maxToSnapBack = 10;
     private bool _dragging = false;
 
+    #region Methods
+    #region Native
     // Start is called before the first frame update
     void Start()
     {
@@ -28,17 +30,21 @@ public class DragHandler : MonoBehaviour
     {
         if (Input.GetKey(_holdBreakMode))
         {
-            if (_uiElement.GetComponent<Selectable>() != null)
-                _uiElement.GetComponent<Selectable>().interactable = false;
-            ShakeLogic();
+            SwitchInteractable(false);
+            if (_uiElement != null)
+                DragShakeLogic();
+            else
+                IdleShakeLogic();
         }
         else
-            _uiElement.GetComponent<Selectable>().interactable = true;
+            SwitchInteractable(true);
     }
+    #endregion Native
 
-    private void ShakeLogic()
+    #region Custom
+    private void DragShakeLogic()
     {
-        if (_uiElement != null && _dragging)
+        if (_dragging)
         {
 
             if (_uiElement.GetComponent<Selectable>() != null)
@@ -47,9 +53,12 @@ public class DragHandler : MonoBehaviour
             float distance = Vector2.Distance(_uiElement.InitialPosition, Input.mousePosition);
             if (_uiElement.Attached)
             {
-                ShakeElement(distance);
+                ShakeElement(_uiElement, distance);
                 if (distance >= _maxDistanceBeforeBreaking)
+                {
                     _uiElement.Attached = false;
+                    Instantiate(_breakParticle, _uiElement.InitialPosition, Quaternion.identity, transform);
+                }
             }
             else
             {
@@ -58,6 +67,15 @@ public class DragHandler : MonoBehaviour
         }
         else if (_uiElement.Attached)
             _uiElement.SetToInitialPosition();
+    }
+
+    private void IdleShakeLogic()
+    {
+        foreach (DetachableUi ui in _detachableUis)
+        {
+            if(ui.Attached)
+                ShakeElement(ui, 0);
+        }
     }
 
     private void SnapBackLogic()
@@ -70,11 +88,38 @@ public class DragHandler : MonoBehaviour
         }
     }
 
+    private void SwitchInteractable(bool interactible)
+    {
+        
+        if (_breakMode == interactible)
+        {
+            return;
+        }
+        else
+            _breakMode = interactible;
+
+        foreach (DetachableUi uiElement in _detachableUis)
+        {
+            if (uiElement.GetComponent<Selectable>() != null)
+                uiElement.GetComponent<Selectable>().interactable = interactible;
+            //uiElement.InitialPosition = uiElement.transform.position;
+        }
+    }
+    private void ShakeElement(DetachableUi target, float distance)
+    {
+        Vector2 shakePosition = target.InitialPosition + Random.insideUnitCircle * _shakeRate * (_minShake + distance);
+        target.transform.position = shakePosition;
+    }
+
+    #region EventTrigger
     public void EnterDrag(DetachableUi ui)
     {
-        Debug.Log("enter drag");
-        _dragging = true;
-        _uiElement = ui;
+        if (!_dragging)
+        {
+            Debug.Log("enter drag");
+            _dragging = true;
+            _uiElement = ui;
+        }
     }
 
     public void Drag()
@@ -82,19 +127,37 @@ public class DragHandler : MonoBehaviour
         
     }
 
-    public void ExitDrag()
+    public void Hover(DetachableUi ui)
     {
-        Debug.Log("exit drag");
-        SnapBackLogic();
-        _dragging = false;
-        _uiElement = null;
+        if (!_dragging)
+        {
+            Debug.Log("hover on");
+            _uiElement = ui;
+        }
     }
 
-    private void ShakeElement(float distance)
+    public void Unhover(DetachableUi ui)
     {
-        Vector2 shakePosition = _uiElement.InitialPosition + Random.insideUnitCircle * _shakeRate * distance;
-        _uiElement.transform.position = shakePosition;
+        if (!_dragging)
+        {
+            Debug.Log("hover off");
+            _uiElement = null;
+        }
     }
+
+    public void ExitDrag()
+    {
+        if (_dragging)
+        {
+            Debug.Log("exit drag");
+            SnapBackLogic();
+            _dragging = false;
+            //_uiElement = null;
+        }
+    }
+    #endregion EventTrigger
+    #endregion Custom
+    #endregion Methods
 
     private void OnDrawGizmosSelected()
     {
