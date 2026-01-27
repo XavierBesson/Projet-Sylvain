@@ -9,6 +9,11 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _moveSpeed = 5;
     [SerializeField] private float _rotateSpeed = 5;
 
+    [SerializeField] private bool _oldSchoolMove = false;
+    [SerializeField] private float stepDistance = 1.5f;   
+    [SerializeField] private float snapRotation = 45f;
+    [SerializeField]  private LayerMask obstacles;
+
     public Camera Camera { get => _camera; set => _camera = value; }
 
     void Start()
@@ -23,19 +28,51 @@ public class CharacterController : MonoBehaviour
         Rotate();
     }
 
-
-
+    #region Déplacement
     private void Move()
     {
-        float vertical = Input.GetAxis("Vertical");
-        _rb.velocity = new Vector3(transform.forward.x * vertical * _moveSpeed, _rb.velocity.y, transform.forward.z * vertical * _moveSpeed);
+        if (_oldSchoolMove == false)
+        {
+            float vertical = Input.GetAxis("Vertical");
+            _rb.velocity = new Vector3(transform.forward.x * vertical * _moveSpeed, _rb.velocity.y, transform.forward.z * vertical * _moveSpeed);
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+                TryMove(this.transform.forward);
+        }
     }
 
+    void TryMove(Vector3 dir)
+    {
+        if (!Physics.Raycast(transform.position, dir, stepDistance, obstacles))
+        {
+            transform.position += dir * stepDistance;
+        }
+    }
     private void Rotate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0f, _rb.rotation.x + horizontal * _rotateSpeed, 0f)
-    );
+        if (_oldSchoolMove == false)
+        {
+            float horizontal = Input.GetAxis("Horizontal");
+            _rb.MoveRotation(_rb.rotation * Quaternion.Euler(0f, _rb.rotation.x + horizontal * _rotateSpeed, 0f));
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                transform.Rotate(0f, -snapRotation, 0f);
+            }
+
+            // Rotation droite
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                transform.Rotate(0f, snapRotation, 0f);
+            }
+
+        }
     }
+    #endregion Déplacement
+
 
 }
