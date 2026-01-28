@@ -15,6 +15,7 @@ public class DragHandler : MonoBehaviour
     [SerializeField] private float _shakeRate = 1.0f;
     [SerializeField] private float _maxDistanceBeforeBreaking = 20;
     [SerializeField] private float _maxToSnapBack = 10;
+    private float _uiScale = 1.0f;
     private bool _dragging = false;
 
     #region Methods
@@ -23,6 +24,8 @@ public class DragHandler : MonoBehaviour
     void Start()
     {
         _detachableUis = FindObjectsOfType<DetachableUi>();
+        if (GetComponent<Canvas>())
+            _uiScale = GetComponent<Canvas>().transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -54,7 +57,7 @@ public class DragHandler : MonoBehaviour
             if (_uiElement.Attached)
             {
                 ShakeElement(_uiElement, distance);
-                if (distance >= _maxDistanceBeforeBreaking)
+                if (distance >= _maxDistanceBeforeBreaking * _uiScale)
                 {
                     _uiElement.Attached = false;
                     Instantiate(_breakParticle, _uiElement.InitialPosition, Quaternion.identity, transform);
@@ -81,7 +84,7 @@ public class DragHandler : MonoBehaviour
     private void SnapBackLogic()
     {
         float distance = Vector2.Distance(_uiElement.InitialPosition, _uiElement.transform.position);
-        if (distance < _maxToSnapBack)
+        if (distance < _maxToSnapBack * _uiScale)
         {
             _uiElement.Attached = true;
             _uiElement.SetToInitialPosition();
@@ -102,11 +105,11 @@ public class DragHandler : MonoBehaviour
         {
             if (uiElement.GetComponent<Selectable>() != null)
                 uiElement.GetComponent<Selectable>().interactable = interactible;
-            if (!_breakMode)
+            if (!_breakMode && uiElement.Attached)
             {
                 uiElement.InitialPosition = uiElement.transform.position;
             }
-            else
+            else if (uiElement.Attached)
                 uiElement.SetToInitialPosition();
         }
     }
@@ -168,11 +171,11 @@ public class DragHandler : MonoBehaviour
     {
         if (_dragging)
         {
-            float shakeRadius = _maxDistanceBeforeBreaking;
+            float shakeRadius = _maxDistanceBeforeBreaking * _uiScale;
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(_uiElement.InitialPosition, shakeRadius);
             Gizmos.color = Color.red;
-            float snapRadius = _maxToSnapBack;
+            float snapRadius = _maxToSnapBack * _uiScale;
             Gizmos.DrawWireSphere(_uiElement.InitialPosition, snapRadius);
         }
     }
