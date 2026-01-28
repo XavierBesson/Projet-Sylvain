@@ -102,7 +102,12 @@ public class DragHandler : MonoBehaviour
         {
             if (uiElement.GetComponent<Selectable>() != null)
                 uiElement.GetComponent<Selectable>().interactable = interactible;
-            //uiElement.InitialPosition = uiElement.transform.position;
+            if (!_breakMode)
+            {
+                uiElement.InitialPosition = uiElement.transform.position;
+            }
+            else
+                uiElement.SetToInitialPosition();
         }
     }
     private void ShakeElement(DetachableUi target, float distance)
