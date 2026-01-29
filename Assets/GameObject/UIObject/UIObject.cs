@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class UIObject : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rb;
+    [SerializeField] protected Rigidbody _rb;
     [SerializeField] private float _dragDistance = 5;
-
+    [SerializeField] private LayerMask _mask = 0;
+    private bool _isDragging = false;
 
     void Start()
     {
@@ -16,20 +17,8 @@ public class UIObject : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {/*
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            _rb.isKinematic = true;
-            //GameManager.Instance.GameLoop += MoveOnMouse;
-        }
+    {
 
-
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            _rb.isKinematic = false;
-            //GameManager.Instance.GameLoop -= MoveOnMouse;
-        }
-            */
     }
 
 
@@ -44,12 +33,16 @@ public class UIObject : MonoBehaviour
 
     private void OnMouseDown()
     {
+       
+        _isDragging = true;
         _rb.isKinematic = true;
+        
     }
 
     private void OnMouseUp()
     {
         _rb.isKinematic = false;
+        _isDragging = false;
     }
 
 
@@ -57,19 +50,11 @@ public class UIObject : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        print(GameManager.Instance.Player.Camera.name);
-        Ray ray = GameManager.Instance.Player.Camera.ScreenPointToRay(Input.mousePosition);
-        Vector3 targetPos;
-
-        if (Physics.Raycast(ray, out RaycastHit hit, _dragDistance, 3))
+        if (_isDragging)
         {
-            targetPos = hit.point + transform.forward;
+            Vector3 mousePos = GameManager.Instance.Player.Camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, GameManager.Instance.Player.Camera.nearClipPlane + _dragDistance));
+            _rb.position = mousePos;
         }
-        else
-        {
-            targetPos = ray.origin + ray.direction * _dragDistance;
-        }
-        _rb.MovePosition(targetPos);
     }
 
 

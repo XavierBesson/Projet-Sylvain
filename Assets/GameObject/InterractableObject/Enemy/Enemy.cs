@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Enemy : EnigmeObject
 {
-    // Start is called before the first frame update
+    [SerializeField] private int _maxHp = 3;
+    private int _currentHp;
+
+    
     void Start()
     {
-        
+        _currentHp = _maxHp;
     }
 
     // Update is called once per frame
@@ -15,4 +18,13 @@ public class Enemy : EnigmeObject
     {
         
     }
+
+
+    public void TakeDamage(int damage)
+    {
+        _currentHp -= damage;
+        print(_currentHp);
+    }
+
+
 }
