@@ -57,6 +57,7 @@ public class UIObject : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        print(GameManager.Instance.Player.Camera.name);
         Ray ray = GameManager.Instance.Player.Camera.ScreenPointToRay(Input.mousePosition);
         Vector3 targetPos;
 
