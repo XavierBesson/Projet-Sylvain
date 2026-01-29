@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class DetachableUi : MonoBehaviour
 {
+    [SerializeField] private GameObject _uiObject = null;
     [SerializeField] private GameObject _uiSlot = null;
     [SerializeField] private bool _attached = true;
     private Vector2 _initialPosition = Vector2.zero;
@@ -20,6 +21,8 @@ public class DetachableUi : MonoBehaviour
             _attached = value;
         }
     }
+
+    public GameObject UiObject => _uiObject;
 
     public Vector2 InitialPosition
     {

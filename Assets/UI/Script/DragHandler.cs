@@ -1,3 +1,5 @@
+using Coffee.UIExtensions;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,11 +8,11 @@ public class DragHandler : MonoBehaviour
     [Header("Input")]
     [SerializeField] private KeyCode _holdBreakMode = KeyCode.None;
     private bool _breakMode = false;
-    [SerializeField] private GameObject _breakParticle = null;
+    [SerializeField] private UIParticle[] _uiParticles = null;
 
     [Header("Spawn UI Settings")]
-    [SerializeField] private GameObject _UiObject = null;
     [SerializeField] private Transform _spawnParent = null;
+    [SerializeField] private float _spawnDistance = 1.0f;
 
     [Header("UI Settings")]
     [SerializeField] private DetachableUi _uiElement = null;
@@ -65,7 +67,7 @@ public class DragHandler : MonoBehaviour
                 {
                     _uiElement.Attached = false;
                     //particle effect
-                    Instantiate(_breakParticle, _uiElement.InitialPosition, Quaternion.identity, transform);
+                    PlayParticle(_uiElement.InitialPosition);
                 }
             }
             else
@@ -126,10 +128,35 @@ public class DragHandler : MonoBehaviour
         target.transform.position = shakePosition;
     }
 
-    private void SpawnUiInWorld(Vector3 SpawnPosition)
+    private void PlayParticle(Vector3 position)
     {
-        if (_UiObject)
-            Instantiate(_UiObject, Camera.main.ScreenToWorldPoint(SpawnPosition + Vector3.forward), Quaternion.identity, _spawnParent);
+        foreach (UIParticle particle in _uiParticles)
+        {
+            if (!particle.gameObject.activeInHierarchy)
+            {
+                particle.transform.position = position;
+                particle.gameObject.SetActive(true);
+                StartCoroutine(WaitForParticleSystem(particle));
+                break;
+            }
+        }
+    }
+
+    IEnumerator WaitForParticleSystem(UIParticle uiParticle)
+    {
+        yield return new WaitForSeconds(5);
+        uiParticle.gameObject.SetActive(false);
+    }
+
+    private bool SpawnUiInWorld(Vector3 SpawnPosition)
+    {
+        Vector3 distance = Vector3.forward * _spawnDistance;
+        if (_uiElement.UiObject)
+        {
+            Instantiate(_uiElement.UiObject, Camera.main.ScreenToWorldPoint(SpawnPosition + distance), Quaternion.identity, _spawnParent);
+            return true;
+        }
+        return false;
     }
 
     #region EventTrigger
