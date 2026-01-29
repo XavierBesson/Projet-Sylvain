@@ -25,7 +25,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        //GameManager.Instance.Player = this;
+        GameManager.Instance.Player = this;
     }
 
 
