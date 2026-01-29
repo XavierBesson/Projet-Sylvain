@@ -3278,8 +3278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c725e9f16ebed24448e5e91b618758d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _holdBreakMode: 32
+  _holdBreakMode: 324
   _breakParticle: {fileID: 779330197130063953, guid: 918ae2971ff480a41b2e006ceaaf6a99, type: 3}
+  _UiObject: {fileID: 0}
+  _spawnParent: {fileID: 0}
   _uiElement: {fileID: 0}
   _detachableUis: []
   _minShake: 0.5
