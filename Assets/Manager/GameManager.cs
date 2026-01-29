@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     #endregion Event
 
 
-    public void Start()
+    public void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);

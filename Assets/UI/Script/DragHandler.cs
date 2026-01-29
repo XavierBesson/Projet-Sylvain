@@ -8,7 +8,11 @@ public class DragHandler : MonoBehaviour
     private bool _breakMode = false;
     [SerializeField] private GameObject _breakParticle = null;
 
-    [Header("Settings")]
+    [Header("Spawn UI Settings")]
+    [SerializeField] private GameObject _UiObject = null;
+    [SerializeField] private Transform _spawnParent = null;
+
+    [Header("UI Settings")]
     [SerializeField] private DetachableUi _uiElement = null;
     [SerializeField] private DetachableUi[] _detachableUis = null;
     [SerializeField] private float _minShake = 0.1f;
@@ -50,16 +54,17 @@ public class DragHandler : MonoBehaviour
         if (_dragging)
         {
 
-            if (_uiElement.GetComponent<Selectable>() != null)
-                _uiElement.GetComponent<Selectable>().interactable = false;
+            //if (_uiElement.GetComponent<Selectable>() != null)
+            //    _uiElement.GetComponent<Selectable>().interactable = false;
 
             float distance = Vector2.Distance(_uiElement.InitialPosition, Input.mousePosition);
             if (_uiElement.Attached)
             {
                 ShakeElement(_uiElement, distance);
-                if (distance >= _maxDistanceBeforeBreaking * _uiScale)
+                if (distance >= _maxDistanceBeforeBreaking *_uiScale)
                 {
                     _uiElement.Attached = false;
+                    //particle effect
                     Instantiate(_breakParticle, _uiElement.InitialPosition, Quaternion.identity, transform);
                 }
             }
@@ -70,6 +75,8 @@ public class DragHandler : MonoBehaviour
         }
         else if (_uiElement.Attached)
             _uiElement.SetToInitialPosition();
+        else
+            SpawnUiInWorld(Input.mousePosition);
     }
 
     private void IdleShakeLogic()
@@ -117,6 +124,12 @@ public class DragHandler : MonoBehaviour
     {
         Vector2 shakePosition = target.InitialPosition + Random.insideUnitCircle * _shakeRate * (_minShake + distance);
         target.transform.position = shakePosition;
+    }
+
+    private void SpawnUiInWorld(Vector3 SpawnPosition)
+    {
+        if (_UiObject)
+            Instantiate(_UiObject, Camera.main.ScreenToWorldPoint(SpawnPosition + Vector3.forward), Quaternion.identity, _spawnParent);
     }
 
     #region EventTrigger

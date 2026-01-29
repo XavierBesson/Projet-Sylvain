@@ -940,7 +940,7 @@ GameObject:
   - component: {fileID: 6736153151686646523}
   - component: {fileID: 6250384320713385734}
   m_Layer: 0
-  m_Name: Door
+  m_Name: DoorLegacy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1001,6 +1001,7 @@ MonoBehaviour:
   _openDoorTransform: {fileID: 6518438830468123246}
   _barATourner: {fileID: 4664128833158800015}
   _barATournerUI: {fileID: 3909512775617409920}
+  _barprogressSpeed: 0.5
 --- !u!1 &9161777630433859803
 GameObject:
   m_ObjectHideFlags: 0
