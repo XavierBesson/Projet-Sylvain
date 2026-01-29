@@ -1001,6 +1001,7 @@ MonoBehaviour:
   _openDoorTransform: {fileID: 6518438830468123246}
   _barATourner: {fileID: 4664128833158800015}
   _barATournerUI: {fileID: 3909512775617409920}
+  _barprogressSpeed: 0.5
 --- !u!1 &9161777630433859803
 GameObject:
   m_ObjectHideFlags: 0
