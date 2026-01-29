@@ -11,6 +11,7 @@ public class Door : EnigmeObject
 
     [SerializeField] GameObject _barATourner = null;
     [SerializeField] Slider _barATournerUI = null;
+    [SerializeField] float _barprogressSpeed = 0.5f; 
 
     bool _canBeInterracted = false;
     bool _healthBarUsed = false;
@@ -38,6 +39,10 @@ public class Door : EnigmeObject
             Debug.Log(_canBeInterracted);
             RotateElement();
         }
+
+
+
+
     }
 
     public void RevealHint() 
@@ -50,15 +55,41 @@ public class Door : EnigmeObject
     public void RotateElement()
     {
 
-        if(_canBeInterracted)
+        float barRotation = _barATourner.transform.rotation.z;
+
+        Debug.Log(barRotation); 
+        if (barRotation > 0.75f)
+        {
+            Debug.Log("plusgrand");
+            _barATournerUI.value = _barATournerUI.value - _barprogressSpeed; ;
+        }
+        else if (barRotation < 0.55f)
+        {
+            _barATournerUI.value = _barATournerUI.value + _barprogressSpeed;
+          
+            Debug.Log("pluspetit");
+        }
+
+        if (barRotation > 0.998f)
+        {
+            _canBeInterracted = false;
+            OpenTheDoor();
+            Debug.Log("ouvert");
+        }
+
+        if (_canBeInterracted)
         {
             _barATourner.transform.rotation = Quaternion.Euler(0f,0,Input.mousePosition.y/2);
+          
 
-            _barATournerUI.value = Input.mousePosition.y/2;
-            Debug.Log(_barATournerUI.value);
+                //  _barATournerUI.value = Input.mousePosition.y/2;
+              //  Debug.Log(_barATournerUI.value);
 
-            if (_barATournerUI.value == _barATournerUI.maxValue)
-            { _canBeInterracted = false; OpenTheDoor(); }
+          /*  if (_barATournerUI.value == _barATournerUI.maxValue)
+            { 
+                _canBeInterracted = false;
+                OpenTheDoor();
+            }*/
 
             if (_healthBarUsed)
             {
@@ -76,10 +107,9 @@ public class Door : EnigmeObject
                 //animation d'ouverture
             }
 
-
-
-
         }
+
+
         //Prend la position souris
 
         //Prend la rotation objet
@@ -108,7 +138,7 @@ public class Door : EnigmeObject
 
     private void OnTriggerExit(Collider other)
     {
-        _canBeInterracted = true;
+        _canBeInterracted = false;
     }
 
 }
