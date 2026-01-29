@@ -11,13 +11,20 @@ public class Door : EnigmeObject
 
     [SerializeField] GameObject _barATourner = null;
     [SerializeField] Slider _barATournerUI = null;
-    [SerializeField] float _barprogressSpeed = 0.5f; 
+    [SerializeField] float _barprogressSpeed = 0.5f;
+    [SerializeField] float _rotationSpeed = 200f; 
 
-    bool _canBeInterracted = false;
+    bool _inRange = false;
+    bool _isInteracting = false;
     bool _healthBarUsed = false;
     bool _soundBarUsed = false;
     bool _gearUsed = false;
         bool _open = false;
+
+
+    float lastAngle;
+    float totalRotation = 0f;
+    int toursComplets = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +43,7 @@ public class Door : EnigmeObject
         }
         else
         {
-            Debug.Log(_canBeInterracted);
+            Debug.Log(_inRange);
             RotateElement();
         }
 
@@ -47,74 +54,90 @@ public class Door : EnigmeObject
 
     public void RevealHint() 
     {
-    if(_canBeInterracted)
-        _uiDoor.gameObject.SetActive(true);
+
+        if (_inRange)
+        {
+            _uiDoor.gameObject.SetActive(true);
+            _isInteracting=true;
+
+        }
         
     }
 
     public void RotateElement()
     {
-
-        float barRotation = _barATourner.transform.rotation.z;
-
-        Debug.Log(barRotation); 
-        if (barRotation > 0.75f)
+        //Check si tu peut intéragir
+        if (_isInteracting)
         {
-            Debug.Log("plusgrand");
-            _barATournerUI.value = _barATournerUI.value - _barprogressSpeed; ;
-        }
-        else if (barRotation < 0.55f)
-        {
-            _barATournerUI.value = _barATournerUI.value + _barprogressSpeed;
-          
-            Debug.Log("pluspetit");
-        }
+            //Prend la rotation de la barre
+            float barRotation = _barATourner.transform.rotation.z;
 
-        if (barRotation > 0.998f)
-        {
-            _canBeInterracted = false;
-            OpenTheDoor();
-            Debug.Log("ouvert");
-        }
+            Debug.Log(barRotation);
 
-        if (_canBeInterracted)
-        {
-            _barATourner.transform.rotation = Quaternion.Euler(0f,0,Input.mousePosition.y);
-          
+            //Si la rotation est au dessus augment la valeur
+            if (barRotation > 0.75f)
+            {
+                Debug.Log("plusgrand");
+                _barATournerUI.value = _barATournerUI.value - _barprogressSpeed; ;
+            }
+            //Si plus petit reduit la valeur
+            else if (barRotation < 0.55f)
+            {
+                _barATournerUI.value = _barATournerUI.value + _barprogressSpeed;
+
+                Debug.Log("pluspetit");
+            }
+            //Si a bon hauteur ouvre la porte
+            if (barRotation < -0.998f)
+            {
+                _inRange = false;
+                OpenTheDoor();
+                Debug.Log("ouvert");
+            }
+
+            //update la barre uniquement si tu est en porté
+            if (_inRange)
+            {
+
+                _barATourner.transform.Rotate(new Vector3(0,0, Input.GetAxis("Mouse Y")) * Time.deltaTime * _rotationSpeed);
+
+
+
 
                 //  _barATournerUI.value = Input.mousePosition.y/2;
-              //  Debug.Log(_barATournerUI.value);
+                //  Debug.Log(_barATournerUI.value);
 
-          /*  if (_barATournerUI.value == _barATournerUI.maxValue)
-            { 
-                _canBeInterracted = false;
-                OpenTheDoor();
-            }*/
+                /*  if (_barATournerUI.value == _barATournerUI.maxValue)
+                  { 
+                      _canBeInterracted = false;
+                      OpenTheDoor();
+                  }*/
 
-            if (_healthBarUsed)
-            {
+                if (_healthBarUsed)
+                {
 
-                //Clilc = obtient
-                //faire un follow 
-                
+                    //Clilc = obtient
+                    //faire un follow 
+
+                }
+                else if (_soundBarUsed)
+                {
+                    //le code de bar qu'on bouge
+                }
+                else if (_gearUsed)
+                {
+                    //animation d'ouverture
+                }
+
             }
-            else if (_soundBarUsed)
-            {
-                //le code de bar qu'on bouge
-            }
-            else if (_gearUsed)
-            {
-                //animation d'ouverture
-            }
 
+
+            //Prend la position souris
+
+            //Prend la rotation objet
+
+            //Quand la souris bouge basé depuis sa position de base l'objet suit la rotation
         }
-
-
-        //Prend la position souris
-
-        //Prend la rotation objet
-
-        //Quand la souris bouge basé depuis sa position de base l'objet suit la rotation
     }
 
 
@@ -133,12 +156,15 @@ public class Door : EnigmeObject
 
     private void OnTriggerEnter(Collider other)
     {
-        _canBeInterracted = true;
+
+        _inRange = true;
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _canBeInterracted = false;
+        _inRange = false;
+        _isInteracting = false;
     }
 
 }

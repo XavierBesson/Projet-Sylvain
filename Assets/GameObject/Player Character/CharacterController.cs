@@ -97,12 +97,12 @@ public class CharacterController : MonoBehaviour
         {
             Debug.Log("clic"); 
            RaycastHit hit;
-           Ray ray = Camera.ScreenPointToRay(Input.mousePosition);
-            
+          Ray ray = GameManager.Instance.Player.Camera.ScreenPointToRay(Input.mousePosition);
+
 
             Physics.Raycast(ray, out hit, _interactile);
 
-            Debug.Log(hit.collider.gameObject);
+            //Debug.Log(hit.collider.gameObject);
 
                     if (hit.collider.gameObject.GetComponentInParent<Door>() != null)
                     {

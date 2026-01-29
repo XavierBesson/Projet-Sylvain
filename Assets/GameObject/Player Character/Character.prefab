@@ -502,11 +502,11 @@ MonoBehaviour:
   snapRotation: 45
   _obstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   _interactRange: 100000
   _interactile:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   _mousePosition: {x: 0, y: 0, z: 0}
 --- !u!65 &5053834459620792582
 BoxCollider:
