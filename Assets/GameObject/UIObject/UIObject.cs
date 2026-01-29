@@ -16,25 +16,46 @@ public class UIObject : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             _rb.isKinematic = true;
-            GameManager.Instance.GameLoop += MoveOnMouse;
+            //GameManager.Instance.GameLoop += MoveOnMouse;
         }
 
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             _rb.isKinematic = false;
-            GameManager.Instance.GameLoop -= MoveOnMouse;
+            //GameManager.Instance.GameLoop -= MoveOnMouse;
         }
-            
+            */
     }
 
 
 
     public void MoveOnMouse()
+    {
+        
+
+    }
+
+
+
+    private void OnMouseDown()
+    {
+        _rb.isKinematic = true;
+    }
+
+    private void OnMouseUp()
+    {
+        _rb.isKinematic = false;
+    }
+
+
+
+
+    private void OnMouseDrag()
     {
         Ray ray = GameManager.Instance.Player.Camera.ScreenPointToRay(Input.mousePosition);
         Vector3 targetPos;
@@ -48,7 +69,6 @@ public class UIObject : MonoBehaviour
             targetPos = ray.origin + ray.direction * _dragDistance;
         }
         _rb.MovePosition(targetPos);
-
     }
 
 
