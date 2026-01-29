@@ -780,6 +780,10 @@ PrefabInstance:
       propertyPath: _particleParent
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7015201711729760302, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
+      propertyPath: _uiObject
+      value: 
+      objectReference: {fileID: 7565529263782526353, guid: f2c9cdf32e09622498d6632fde9192d1, type: 3}
     - target: {fileID: 8316727040760325897, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

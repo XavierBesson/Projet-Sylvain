@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6131926863421612628}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: ParticlePlugin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

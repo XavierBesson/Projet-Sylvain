@@ -1,5 +1,6 @@
 using Coffee.UIExtensions;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ public class DragHandler : MonoBehaviour
 
     [Header("UI Settings")]
     [SerializeField] private DetachableUi _uiElement = null;
-    [SerializeField] private DetachableUi[] _detachableUis = null;
+    [SerializeField] private List<DetachableUi> _detachableUis = null;
     [SerializeField] private float _minShake = 0.1f;
     [SerializeField] private float _shakeRate = 1.0f;
     [SerializeField] private float _maxDistanceBeforeBreaking = 20;
@@ -29,7 +30,13 @@ public class DragHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _detachableUis = FindObjectsOfType<DetachableUi>();
+        
+        DetachableUi[] detachableUis = FindObjectsOfType<DetachableUi>();
+        foreach (DetachableUi ui in detachableUis)
+        {
+            _detachableUis.Add(ui);
+        }
+
         if (GetComponent<Canvas>())
             _uiScale = GetComponent<Canvas>().transform.localScale.x;
     }
@@ -63,7 +70,7 @@ public class DragHandler : MonoBehaviour
             if (_uiElement.Attached)
             {
                 ShakeElement(_uiElement, distance);
-                if (distance >= _maxDistanceBeforeBreaking *_uiScale)
+                if (distance >= _maxDistanceBeforeBreaking * _uiScale)
                 {
                     _uiElement.Attached = false;
                     //particle effect
@@ -78,7 +85,11 @@ public class DragHandler : MonoBehaviour
         else if (_uiElement.Attached)
             _uiElement.SetToInitialPosition();
         else
+        {
             SpawnUiInWorld(Input.mousePosition);
+            _detachableUis.Remove(_uiElement);
+            Destroy(_uiElement.gameObject);
+        }
     }
 
     private void IdleShakeLogic()
@@ -114,6 +125,7 @@ public class DragHandler : MonoBehaviour
         {
             if (uiElement.GetComponent<Selectable>() != null)
                 uiElement.GetComponent<Selectable>().interactable = interactible;
+
             if (!_breakMode && uiElement.Attached)
             {
                 uiElement.InitialPosition = uiElement.transform.position;
