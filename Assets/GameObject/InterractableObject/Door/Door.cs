@@ -79,7 +79,7 @@ public class Door : EnigmeObject
 
         if (_canBeInterracted)
         {
-            _barATourner.transform.rotation = Quaternion.Euler(0f,0,Input.mousePosition.y/2);
+            _barATourner.transform.rotation = Quaternion.Euler(0f,0,Input.mousePosition.y);
           
 
                 //  _barATournerUI.value = Input.mousePosition.y/2;
