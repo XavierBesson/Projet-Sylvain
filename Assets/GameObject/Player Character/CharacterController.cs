@@ -102,7 +102,7 @@ public class CharacterController : MonoBehaviour
 
             Physics.Raycast(ray, out hit, _interactile);
 
-            Debug.Log(hit.collider.gameObject);
+            //Debug.Log(hit.collider.gameObject);
 
                     if (hit.collider.gameObject.GetComponentInParent<Door>() != null)
                     {
