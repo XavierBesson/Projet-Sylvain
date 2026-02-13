@@ -46,8 +46,8 @@ public class Door : EnigmeObject
         if (_open)
 
         {
-       
-            
+            _totalRotation = 0f;
+            _open = false;
         }
         else
         {
@@ -55,15 +55,7 @@ public class Door : EnigmeObject
             RotateElement();
         }
 
-        float currentAngle = _barATourner.transform.eulerAngles.z;
-        float delta = Mathf.DeltaAngle(_previousAngle, currentAngle);
-        _totalRotation += delta;
-        _previousAngle = currentAngle;
-
-        float tours = _totalRotation / 360f;
-
-        Debug.Log(_totalRotation);
-        Debug.Log("tour" + tours);
+        
     }
 
     public void RevealHint() 
@@ -80,14 +72,29 @@ public class Door : EnigmeObject
 
     public void RotateElement()
     {
+
+   
+
+
         //Check si tu peut intéragir
         if (_isInteracting)
         {
+
+            //Vérifie la quantité de rotation
+            float currentAngle = _barATourner.transform.eulerAngles.z;
+            float delta = Mathf.DeltaAngle(_previousAngle, currentAngle);
+            _totalRotation += delta;
+            _previousAngle = currentAngle;
+
+            float tours = _totalRotation / 360f;
+
+            Debug.Log(_totalRotation);
+            Debug.Log("tour" + tours);
+
+
             //Prend la rotation de la barre
             float barRotation = _barATourner.transform.eulerAngles.z;
 
-            //Vérifie la quantité de rotation
-           
 
             //Si la rotation est au dessus augment la valeur
             if (barRotation > 130f && barRotation < 230f)
@@ -95,6 +102,7 @@ public class Door : EnigmeObject
                 Debug.Log("plusgrand");
                 _barATournerUI.value = _barATournerUI.value - _barprogressSpeed; ;
             }
+
             //Si plus petit reduit la valeur
             else if (barRotation < 60f || barRotation >300f)
             {
@@ -102,6 +110,7 @@ public class Door : EnigmeObject
 
                 Debug.Log("pluspetit");
             }
+
             //Si a bon hauteur ouvre la porte
             if (_totalRotation/360f >=2 || _totalRotation / 360f <=-2)
             {
@@ -143,7 +152,9 @@ public class Door : EnigmeObject
                 }
                 else if (_gearUsed)
                 {
-                    //animation d'ouverture
+                    _inRange = false;
+                    OpenTheDoor();
+                    Debug.Log("ouvert");
                 }
 
             }
@@ -184,5 +195,20 @@ public class Door : EnigmeObject
         _inRange = false;
         _isInteracting = false;
     }
+
+    public void Engranage()
+    {
+        _gearUsed = true; 
+    }
+    public void HpBarUsed()
+    {
+        _healthBarUsed = true; 
+    }
+
+    public void SoundUsed()
+    {
+        _soundBarUsed = true;
+    }
+
 
 }

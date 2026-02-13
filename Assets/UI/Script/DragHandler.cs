@@ -62,13 +62,12 @@ public class DragHandler : MonoBehaviour
     {
         if (_dragging)
         {
-
-            //if (_uiElement.GetComponent<Selectable>() != null)
-            //    _uiElement.GetComponent<Selectable>().interactable = false;
-
             float distance = Vector2.Distance(_uiElement.InitialPosition, Input.mousePosition);
             if (_uiElement.Attached)
             {
+                //
+                // voir pour remplir une jauge progressif mais pas instantanée
+                //
                 ShakeElement(_uiElement, distance);
                 if (distance >= _maxDistanceBeforeBreaking * _uiScale)
                 {

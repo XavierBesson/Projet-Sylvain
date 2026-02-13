@@ -112,7 +112,14 @@ public class CharacterController : MonoBehaviour
     public void Hpdamage(float damage)
     {
         Hp = Hp - damage;
-        Debug.Log("J'ai actuellement" + Hp + "Pv");
+        if (Hp > 0f)
+        {
+            Debug.Log("J'ai actuellement" + Hp + "Pv");
+        }
+        else
+        {
+            Debug.Log("Je suis mort");
+        }
     }
 
 
