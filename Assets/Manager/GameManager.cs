@@ -16,11 +16,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioSource _timerAudioSource;
     [SerializeField] private float _soundMultiplier = 1;
+    private bool _goodEnding = false;
 
     [SerializeField] private SceneAsset _mainMenuScene;
 
     public CharacterController Player { get => _player; set { _player = value; } }
     public float SoundMultiplier { get => _soundMultiplier; set => _soundMultiplier = value; }
+    public bool GoodEnding { get => _goodEnding; set => _goodEnding = value; }
 
 
     #region Singleton
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour
     public static void PlaySouds(AudioSource audioSource, AudioClip sound)
     {
         audioSource.clip = sound;
+        audioSource.volume = GameManager.Instance.SoundMultiplier;
         audioSource.Play();
     }
 
