@@ -12,7 +12,10 @@ public class Door : EnigmeObject
     [SerializeField] GameObject _barATourner = null;
     [SerializeField] Slider _barATournerUI = null;
     [SerializeField] float _barprogressSpeed = 0.5f;
-    [SerializeField] float _rotationSpeed = 200f; 
+    [SerializeField] float _rotationSpeed = 200f;
+
+    [SerializeField] private float _previousAngle;
+    [SerializeField] float _totalRotation;
 
     bool _inRange = false;
     bool _isInteracting = false;
@@ -29,7 +32,8 @@ public class Door : EnigmeObject
     // Start is called before the first frame update
     void Start()
     {
-        
+        _previousAngle = _barATourner.transform.eulerAngles.z;
+        _totalRotation = 0f;
     }
 
     // Update is called once per frame
@@ -43,13 +47,19 @@ public class Door : EnigmeObject
         }
         else
         {
-            Debug.Log(_inRange);
+           // Debug.Log(_inRange);
             RotateElement();
         }
 
+        float currentAngle = _barATourner.transform.eulerAngles.z;
+        float delta = Mathf.DeltaAngle(_previousAngle, currentAngle);
+        _totalRotation += delta;
+        _previousAngle = currentAngle;
 
+        float tours = _totalRotation / 360f;
 
-
+        Debug.Log(_totalRotation);
+        Debug.Log("tour" + tours);
     }
 
     public void RevealHint() 
@@ -70,25 +80,26 @@ public class Door : EnigmeObject
         if (_isInteracting)
         {
             //Prend la rotation de la barre
-            float barRotation = _barATourner.transform.rotation.z;
+            float barRotation = _barATourner.transform.eulerAngles.z;
 
-            Debug.Log(barRotation);
+            //Vérifie la quantité de rotation
+           
 
             //Si la rotation est au dessus augment la valeur
-            if (barRotation > 0.75f)
+            if (barRotation > 130f && barRotation < 230f)
             {
                 Debug.Log("plusgrand");
                 _barATournerUI.value = _barATournerUI.value - _barprogressSpeed; ;
             }
             //Si plus petit reduit la valeur
-            else if (barRotation < 0.55f)
+            else if (barRotation < 60f || barRotation >300f)
             {
                 _barATournerUI.value = _barATournerUI.value + _barprogressSpeed;
 
                 Debug.Log("pluspetit");
             }
             //Si a bon hauteur ouvre la porte
-            if (barRotation < -0.998f)
+            if (_totalRotation/360f >=2 || _totalRotation / 360f <=-2)
             {
                 _inRange = false;
                 OpenTheDoor();
