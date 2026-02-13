@@ -21,7 +21,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Vector3 _mousePosition;
 
     [SerializeField] private float _hp;
-    [SerializeField] private float _hpMax;
+    [SerializeField] private float _hpMax = 5f;
 
 
     public Camera Camera { get => _camera; set => _camera = value; }
@@ -30,6 +30,7 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         GameManager.Instance.Player = this;
+        _hp = _hpMax;
     }
 
 
@@ -95,6 +96,27 @@ public class CharacterController : MonoBehaviour
 
     }
 
+     public void HpUpdate( float value) 
+    {
+        Hp = value;
+        if (Hp > 0f)
+        {
+            Debug.Log("J'ai actuellement" + Hp + "Pv");
+        }
+        else 
+        {
+            Debug.Log("DEAD");
+                }
+    }
+
+    public void Hpdamage(float damage)
+    {
+        Hp = Hp - damage;
+        Debug.Log("J'ai actuellement" + Hp + "Pv");
+    }
+
+
+
     void MouseClic()
 
     { if (Input.GetMouseButtonDown(0))
@@ -117,5 +139,7 @@ public class CharacterController : MonoBehaviour
 
             }
         }
+
+
     
 

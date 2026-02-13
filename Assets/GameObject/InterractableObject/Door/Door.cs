@@ -9,6 +9,8 @@ public class Door : EnigmeObject
     [SerializeField] GameObject _entireDoor = null;
     [SerializeField] GameObject _openDoorTransform = null;
 
+    [SerializeField] GameObject _player = null;
+
     [SerializeField] GameObject _barATourner = null;
     [SerializeField] Slider _barATournerUI = null;
     [SerializeField] float _barprogressSpeed = 0.5f;
@@ -34,6 +36,8 @@ public class Door : EnigmeObject
     {
         _previousAngle = _barATourner.transform.eulerAngles.z;
         _totalRotation = 0f;
+
+        _player.GetComponent<CharacterController>().HpUpdate(_barATournerUI.value);
     }
 
     // Update is called once per frame
@@ -127,8 +131,10 @@ public class Door : EnigmeObject
                 if (_healthBarUsed)
                 {
 
-                    //Clilc = obtient
-                    //faire un follow 
+                   
+                    _player.GetComponent<CharacterController>().HpUpdate(_barATournerUI.value);
+
+                   
 
                 }
                 else if (_soundBarUsed)
@@ -169,6 +175,7 @@ public class Door : EnigmeObject
     {
 
         _inRange = true;
+        _healthBarUsed = true; 
 
     }
 
