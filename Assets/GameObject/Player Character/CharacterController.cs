@@ -22,6 +22,7 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private float _hp;
     [SerializeField] private float _hpMax = 5f;
+    [SerializeField] private bool _hpRegen = false;
 
 
     public Camera Camera { get => _camera; set => _camera = value; }
@@ -41,6 +42,7 @@ public class CharacterController : MonoBehaviour
        // MousePosition();
         MouseClic();
         _mousePosition = Input.mousePosition;
+        HpRegen(); 
         
     }
 
@@ -121,6 +123,19 @@ public class CharacterController : MonoBehaviour
             Debug.Log("Je suis mort");
         }
     }
+
+    public void HpRegen()
+    {if (_hpRegen)
+        {
+            Hp = Hp + 0.1f;
+        }
+    }
+  /*  public void ActivateRegen(bool isActive)
+    {
+        _hpRegen =isActive;
+
+        Debug.Log(Hp); 
+    }*/
 
 
 
