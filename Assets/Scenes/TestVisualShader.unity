@@ -699,18 +699,33 @@ MonoBehaviour:
   fadeRadius: 0
   priority: 0
   customPasses:
-  - rid: 5214452153218236417
   - rid: 5214452153218236416
-  injectionPoint: 1
+  - rid: 2805712087968120834
+  - rid: 5214452153218236417
+  injectionPoint: 2
   m_TargetCamera: {fileID: 0}
   useTargetCamera: 0
   references:
     version: 2
     RefIds:
+    - rid: 2805712087968120834
+      type: {class: FullScreenCustomPass, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
+      data:
+        m_Name: ScanningLines
+        enabled: 1
+        targetColorBuffer: 0
+        targetDepthBuffer: 0
+        clearFlags: 0
+        passFoldout: 0
+        m_Version: 0
+        fullscreenPassMaterial: {fileID: 2100000, guid: 5866d04a87a18614393c79e6365bb018, type: 2}
+        materialPassIndex: 0
+        materialPassName: DrawProcedural
+        fetchColorBuffer: 0
     - rid: 5214452153218236416
       type: {class: FullScreenCustomPass, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
       data:
-        m_Name: Custom Pass
+        m_Name: Pixel
         enabled: 1
         targetColorBuffer: 0
         targetDepthBuffer: 2
@@ -724,14 +739,14 @@ MonoBehaviour:
     - rid: 5214452153218236417
       type: {class: FullScreenCustomPass, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
       data:
-        m_Name: Custom Pass
+        m_Name: Dither
         enabled: 1
         targetColorBuffer: 0
         targetDepthBuffer: 0
         clearFlags: 0
         passFoldout: 0
         m_Version: 0
-        fullscreenPassMaterial: {fileID: 0}
+        fullscreenPassMaterial: {fileID: 2100000, guid: 1d87c43aa71c6bf4ba90011304889cef, type: 2}
         materialPassIndex: 0
         materialPassName: Custom Pass 0
         fetchColorBuffer: 0
