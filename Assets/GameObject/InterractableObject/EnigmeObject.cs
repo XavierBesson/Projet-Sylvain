@@ -24,7 +24,12 @@ public class EnigmeObject : MonoBehaviour
     }
 
 
-
+    protected void PlaySound(AudioSource audioSource, AudioClip audioClip)
+    {
+        audioSource.clip = audioClip;
+        audioSource.volume = GameManager.Instance.SoundMultiplier;
+        audioSource.Play();
+    }
 
 
 }

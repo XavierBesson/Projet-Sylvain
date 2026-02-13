@@ -15,10 +15,12 @@ public class GameManager : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioSource _timerAudioSource;
+    [SerializeField] private float _soundMultiplier = 1;
 
     [SerializeField] private SceneAsset _mainMenuScene;
 
     public CharacterController Player { get => _player; set { _player = value; } }
+    public float SoundMultiplier { get => _soundMultiplier; set => _soundMultiplier = value; }
 
 
     #region Singleton
