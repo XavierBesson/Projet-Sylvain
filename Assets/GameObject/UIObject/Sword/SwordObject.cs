@@ -9,20 +9,6 @@ public class SwordObject : UIObject
     [SerializeField] private float _atkSpeed = 1;
 
 
-
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
-
-
     private void OnTriggerEnter(Collider collision)
     {
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();

@@ -31,7 +31,7 @@ public class UIObject : MonoBehaviour
         
     }
 
-    private void OnMouseUp()
+    public virtual void OnMouseUp()
     {
         _rb.isKinematic = false;
         _isDragging = false;

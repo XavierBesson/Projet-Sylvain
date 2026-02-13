@@ -7,6 +7,7 @@ public class DetachableUi : MonoBehaviour
 {
     [SerializeField] private GameObject _uiObject = null;
     [SerializeField] private GameObject _uiSlot = null;
+    [SerializeField] private Transform _uiSlotParent = null;
     [SerializeField] private bool _attached = true;
     private Vector2 _initialPosition = Vector2.zero;
 
@@ -40,7 +41,7 @@ public class DetachableUi : MonoBehaviour
     {
         _initialPosition = transform.position;
         if (_uiSlot)
-            Instantiate(_uiSlot, InitialPosition, Quaternion.identity, transform);
+            _uiSlot = Instantiate(_uiSlot, InitialPosition, Quaternion.identity, _uiSlotParent);
     }
 
     public void SetToInitialPosition()

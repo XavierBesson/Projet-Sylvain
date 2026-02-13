@@ -8,9 +8,11 @@ public class Enemy : EnigmeObject
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _damageSound;
     [SerializeField] private AudioClip _dieSound;
+    [SerializeField] private AudioClip _fuiteSound;
     private int _currentHp;
+    [SerializeField] private FollowPath _followPath;
 
-    
+
     void Start()
     {
         _currentHp = _maxHp;
@@ -35,6 +37,13 @@ public class Enemy : EnigmeObject
             Destroy(gameObject);
         }
         
+    }
+
+
+    public void Fuite()
+    {
+        PlaySound(_audioSource, _fuiteSound);
+        GameManager.Instance.GameLoop += _followPath.ActivateFollowPath;
     }
 
 
