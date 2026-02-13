@@ -84,12 +84,6 @@ public class DragHandler : MonoBehaviour
         }
         else if (_uiElement.Attached)
             _uiElement.SetToInitialPosition();
-        else
-        {
-            SpawnUiInWorld(Input.mousePosition);
-            _detachableUis.Remove(_uiElement);
-            Destroy(_uiElement.gameObject);
-        }
     }
 
     private void IdleShakeLogic()
@@ -187,6 +181,23 @@ public class DragHandler : MonoBehaviour
         
     }
 
+    public void ExitDrag()
+    {
+        if (_dragging)
+        {
+            Debug.Log("exit drag");
+            SnapBackLogic();
+            _dragging = false;
+            if (!_uiElement.Attached && _uiElement.UiObject)
+            {
+                SpawnUiInWorld(Input.mousePosition);
+                _detachableUis.Remove(_uiElement);
+                Destroy(_uiElement.gameObject);
+                _uiElement = null;
+            }
+        }
+    }
+
     public void Hover(DetachableUi ui)
     {
         if (!_dragging)
@@ -202,17 +213,6 @@ public class DragHandler : MonoBehaviour
         {
             Debug.Log("hover off");
             _uiElement = null;
-        }
-    }
-
-    public void ExitDrag()
-    {
-        if (_dragging)
-        {
-            Debug.Log("exit drag");
-            SnapBackLogic();
-            _dragging = false;
-            //_uiElement = null;
         }
     }
     #endregion EventTrigger
