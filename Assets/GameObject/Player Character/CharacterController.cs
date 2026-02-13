@@ -20,12 +20,18 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private LayerMask _interactile;
     [SerializeField] private Vector3 _mousePosition;
 
+    [SerializeField] private float _hp;
+    [SerializeField] private float _hpMax = 5f;
+    [SerializeField] private bool _hpRegen = false;
+
 
     public Camera Camera { get => _camera; set => _camera = value; }
+    public float Hp { get => _hp; set => _hp = value; }
 
     void Start()
     {
         GameManager.Instance.Player = this;
+        _hp = _hpMax;
     }
 
 
@@ -36,6 +42,7 @@ public class CharacterController : MonoBehaviour
        // MousePosition();
         MouseClic();
         _mousePosition = Input.mousePosition;
+        HpRegen(); 
         
     }
 
@@ -91,6 +98,47 @@ public class CharacterController : MonoBehaviour
 
     }
 
+     public void HpUpdate( float value) 
+    {
+        Hp = value;
+        if (Hp > 0f)
+        {
+            Debug.Log("J'ai actuellement" + Hp + "Pv");
+        }
+        else 
+        {
+            Debug.Log("DEAD");
+                }
+    }
+
+    public void Hpdamage(float damage)
+    {
+        Hp = Hp - damage;
+        if (Hp > 0f)
+        {
+            Debug.Log("J'ai actuellement" + Hp + "Pv");
+        }
+        else
+        {
+            Debug.Log("Je suis mort");
+        }
+    }
+
+    public void HpRegen()
+    {if (_hpRegen)
+        {
+            Hp = Hp + 0.1f;
+        }
+    }
+  /*  public void ActivateRegen(bool isActive)
+    {
+        _hpRegen =isActive;
+
+        Debug.Log(Hp); 
+    }*/
+
+
+
     void MouseClic()
 
     { if (Input.GetMouseButtonDown(0))
@@ -113,5 +161,7 @@ public class CharacterController : MonoBehaviour
 
             }
         }
+
+
     
 

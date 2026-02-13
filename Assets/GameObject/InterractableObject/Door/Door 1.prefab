@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 5203477417582723547}
   - component: {fileID: 7927761024066100254}
   - component: {fileID: 887590217354138897}
+  - component: {fileID: 7492150552641986443}
   m_Layer: 7
   m_Name: Door 1
   m_TagString: Interactable
@@ -173,9 +174,34 @@ MonoBehaviour:
   _uiDoor: {fileID: 8358563157688448704}
   _entireDoor: {fileID: 6721621327273905190}
   _openDoorTransform: {fileID: 3177494317952569903}
+  _player: {fileID: 0}
   _barATourner: {fileID: 8831434001598589384}
   _barATournerUI: {fileID: 6746665823104213746}
   _barprogressSpeed: 0.5
+  _rotationSpeed: 200
+  _previousAngle: 0
+  _totalRotation: 0
+--- !u!65 &7492150552641986443
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488332010801045699}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0, y: -1, z: 2.5}
 --- !u!1 &3177494317952569903
 GameObject:
   m_ObjectHideFlags: 0
