@@ -77,8 +77,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: -7753831751626184557}
   _dragDistance: 5
+  _mask:
+    serializedVersion: 2
+    m_Bits: 0
   _power: 1
-  _atkSpeed: 1
+  _atkSpeed: 10
 --- !u!65 &5211608281344719565
 BoxCollider:
   m_ObjectHideFlags: 0

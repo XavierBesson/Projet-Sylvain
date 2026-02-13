@@ -25,10 +25,10 @@ public class SwordObject : UIObject
 
     private void OnTriggerEnter(Collider collision)
     {
-        print("nick");
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
         if (enemy != null)
         {
+            print(_rb.velocity.magnitude);
             if (_rb.velocity.magnitude >= _atkSpeed)
             {
                 enemy.TakeDamage(_power);

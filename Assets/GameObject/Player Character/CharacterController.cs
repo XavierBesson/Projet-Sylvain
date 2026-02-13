@@ -20,8 +20,12 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private LayerMask _interactile;
     [SerializeField] private Vector3 _mousePosition;
 
+    [SerializeField] private float _hp;
+    [SerializeField] private float _hpMax;
+
 
     public Camera Camera { get => _camera; set => _camera = value; }
+    public float Hp { get => _hp; set => _hp = value; }
 
     void Start()
     {
