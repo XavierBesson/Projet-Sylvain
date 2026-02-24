@@ -11,18 +11,20 @@ public class GameManager : MonoBehaviour
 
     [Header("Scene")]
     [SerializeField] private CharacterController _player = null;
+    private bool _goodEnding = false;
+    [SerializeField] private Door _door = null;
 
     [Header("Sounds")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioSource _timerAudioSource;
     [SerializeField] private float _soundMultiplier = 1;
-    private bool _goodEnding = false;
 
     [SerializeField] private SceneAsset _mainMenuScene;
 
     public CharacterController Player { get => _player; set { _player = value; } }
     public float SoundMultiplier { get => _soundMultiplier; set => _soundMultiplier = value; }
     public bool GoodEnding { get => _goodEnding; set => _goodEnding = value; }
+    public Door Door { get => _door; set => _door = value; }
 
 
     #region Singleton
@@ -72,7 +74,23 @@ public class GameManager : MonoBehaviour
 
 
 
+    public void EndGame()
+    {
+        if (GoodEnding)
+        {
 
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        CharacterController player = other.gameObject.GetComponent <CharacterController>();
+        if (player != null)
+        {
+            EndGame();
+        }
+    }
 
 
     #region Statics

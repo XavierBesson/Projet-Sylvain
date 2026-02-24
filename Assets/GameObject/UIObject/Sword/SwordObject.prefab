@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4680428886729580293}
   - component: {fileID: 5211608281344719565}
   - component: {fileID: 1905693336890263340}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SwordObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,9 +77,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: -7753831751626184557}
   _dragDistance: 2
-  _mask:
+  _collider: {fileID: 5211608281344719565}
+  _raycastMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 576
   _power: 1
   _atkSpeed: 10
 --- !u!65 &5211608281344719565

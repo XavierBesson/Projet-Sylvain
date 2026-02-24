@@ -5,21 +5,27 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [Header("Déplacement")]
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private Camera _camera;
+    [SerializeField] private bool _oldSchoolMove = false;
+
+    [Header("Déplacement Moderne")]
     [SerializeField] private float _moveSpeed = 5;
     [SerializeField] private float _rotateSpeed = 5;
 
-    [SerializeField] private bool _oldSchoolMove = false;
+    [Header("Déplacement Rétro")]
     [SerializeField] private float stepDistance = 1.5f;
     [SerializeField] private float snapRotation = 45f;
     [SerializeField] private LayerMask _obstacles;
 
-
+    [Header("Mouse Interractions")]
     [SerializeField] private float _interactRange = 100000f;
     [SerializeField] private LayerMask _interactile;
     [SerializeField] private Vector3 _mousePosition;
+    private UIObject _currentUIObject = null;
 
+    [Header("HP")]
     [SerializeField] private float _hp;
     [SerializeField] private float _hpMax = 5f;
     [SerializeField] private bool _hpRegen = false;
@@ -27,6 +33,8 @@ public class CharacterController : MonoBehaviour
 
     public Camera Camera { get => _camera; set => _camera = value; }
     public float Hp { get => _hp; set => _hp = value; }
+    public UIObject CurrentUIObject { get { return _currentUIObject; } set => _currentUIObject = value; }
+
 
     void Start()
     {
@@ -39,7 +47,7 @@ public class CharacterController : MonoBehaviour
     {
         Move();
         Rotate();
-       // MousePosition();
+        // MousePosition();
         MouseClic();
         _mousePosition = Input.mousePosition;
         HpRegen(); 
@@ -81,12 +89,16 @@ public class CharacterController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))
             {
                 transform.Rotate(0f, -snapRotation, 0f);
+                if (_currentUIObject != null)
+                    CurrentUIObject.Move();
             }
 
             // Rotation droite
             if (Input.GetKeyDown(KeyCode.D))
             {
                 transform.Rotate(0f, snapRotation, 0f);
+                if (_currentUIObject != null)
+                    CurrentUIObject.Move();
             }
 
         }
@@ -98,7 +110,10 @@ public class CharacterController : MonoBehaviour
 
     }
 
-     public void HpUpdate( float value) 
+
+    #region HP
+
+    public void HpUpdate( float value) 
     {
         Hp = value;
         if (Hp > 0f)
@@ -130,13 +145,14 @@ public class CharacterController : MonoBehaviour
             Hp = Hp + 0.1f;
         }
     }
-  /*  public void ActivateRegen(bool isActive)
-    {
-        _hpRegen =isActive;
+    /*  public void ActivateRegen(bool isActive)
+      {
+          _hpRegen =isActive;
 
-        Debug.Log(Hp); 
-    }*/
+          Debug.Log(Hp); 
+      }*/
 
+    #endregion HP
 
 
     void MouseClic()

@@ -250,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 2912312139911551709}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.747, z: 0}
+  m_LocalPosition: {x: 0, y: 0.747, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -495,19 +495,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 8027638222376549387}
   _camera: {fileID: 3792004439328024846}
+  _oldSchoolMove: 1
   _moveSpeed: 5
   _rotateSpeed: 0.8
-  _oldSchoolMove: 0
   stepDistance: 1.5
   snapRotation: 45
   _obstacles:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1344
   _interactRange: 100000
   _interactile:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
   _mousePosition: {x: 0, y: 0, z: 0}
+  _hp: 0
+  _hpMax: 5
+  _hpRegen: 0
 --- !u!65 &5053834459620792582
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -527,7 +530,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Size: {x: 0.7, y: 2, z: 0.7}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &2992202762313303356
 CapsuleCollider:
@@ -546,7 +549,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.4
   m_Height: 2
@@ -577,5 +580,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 126
   m_CollisionDetection: 0
