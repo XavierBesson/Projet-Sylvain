@@ -32,13 +32,16 @@ public class CharacterController : MonoBehaviour
 
 
     public Camera Camera { get => _camera; set => _camera = value; }
-    public float Hp { get => _hp; set => _hp = value; }
+    public float Hp { get => _hp;
+        set {_hp = value;
+            if (Hp > 0f) { GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp); Debug.Log("J'ai actuellement" + Hp + "Pv"); }
+            else { Debug.Log("DEAD"); }
+        } }
     public UIObject CurrentUIObject { get { return _currentUIObject; } set => _currentUIObject = value; }
 
 
     void Start()
     {
-        GameManager.Instance.Player = this;
         _hp = _hpMax;
     }
 
@@ -112,19 +115,6 @@ public class CharacterController : MonoBehaviour
 
 
     #region HP
-
-    public void HpUpdate( float value) 
-    {
-        Hp = value;
-        if (Hp > 0f)
-        {
-            Debug.Log("J'ai actuellement" + Hp + "Pv");
-        }
-        else 
-        {
-            Debug.Log("DEAD");
-                }
-    }
 
     public void Hpdamage(float damage)
     {

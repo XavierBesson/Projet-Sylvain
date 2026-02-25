@@ -6,10 +6,20 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+public enum EDifficulty
+{
+    EASY,
+    MEDIUM,
+    HARD
+}
+
+
 public class GameManager : MonoBehaviour
 {
 
     [Header("Scene")]
+    [SerializeField] private SceneAsset _mainMenuScene;
     [SerializeField] private CharacterController _player = null;
     private bool _goodEnding = false;
     [SerializeField] private Door _door = null;
@@ -17,14 +27,23 @@ public class GameManager : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioSource _timerAudioSource;
-    [SerializeField] private float _soundMultiplier = 1;
 
-    [SerializeField] private SceneAsset _mainMenuScene;
+    [Header("UI Values")]
+    private PlayerHUDController _playerHUDController = null;
+    [SerializeField] private float _soundMultiplier = 1;
+    [SerializeField] private EDifficulty _difficulty = EDifficulty.MEDIUM;
+
+
+    #region Properties
 
     public CharacterController Player { get => _player; set { _player = value; } }
     public float SoundMultiplier { get => _soundMultiplier; set => _soundMultiplier = value; }
     public bool GoodEnding { get => _goodEnding; set => _goodEnding = value; }
     public Door Door { get => _door; set => _door = value; }
+    public EDifficulty Difficulty { get => _difficulty; set => _difficulty = value; }
+    public PlayerHUDController PlayerHUDController { get => _playerHUDController; set => _playerHUDController = value; }
+
+    #endregion Properties
 
 
     #region Singleton
@@ -35,12 +54,6 @@ public class GameManager : MonoBehaviour
         set => _instance = value;
     }
     #endregion Singleton
-
-
-    #region Properties
-
-
-    #endregion Properties
 
 
     #region Event

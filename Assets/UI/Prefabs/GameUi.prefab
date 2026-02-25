@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5066702397064860013}
   - component: {fileID: 2797979319945366849}
-  - component: {fileID: 4718295598265644052}
   m_Layer: 5
   m_Name: OptionMenu
   m_TagString: Untagged
@@ -50,21 +49,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305582182043176211}
   m_CullTransparentMesh: 1
---- !u!114 &4718295598265644052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305582182043176211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b488e310238b9684ca4179fc1066e821, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isOpen: 0
-  _button: {fileID: 5066702397064860013}
-  _optionBox: {fileID: 1837939427639489597}
 --- !u!1 &415519287514736112
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +561,7 @@ MonoBehaviour:
   m_Placeholder: {fileID: 0}
   m_ItemText: {fileID: 6069870918123552223}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 1
   m_Options:
     m_Options:
     - m_Text: 'Difficulty : Easy'
@@ -588,7 +572,19 @@ MonoBehaviour:
       m_Image: {fileID: 21300000, guid: f4a12465884dcea45a2fcf3d595faa74, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6505965172920921483}
+        m_TargetAssemblyTypeName: PlayerHUDController, Assembly-CSharp
+        m_MethodName: ChangeDifficulty
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &2068313021197564367
 MonoBehaviour:
@@ -1777,9 +1773,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4718295598265644052}
-        m_TargetAssemblyTypeName: OptionButton, Assembly-CSharp
-        m_MethodName: CheckOpen
+      - m_Target: {fileID: 6505965172920921483}
+        m_TargetAssemblyTypeName: PlayerHUDController, Assembly-CSharp
+        m_MethodName: OpenOptionAnim
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2380,7 +2376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ff152544055d10546be975c80941cb88, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cfdc77688a4aad3459b905255c1b96ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3025,7 +3021,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Difficulty : Easy'
+  m_text: 'Difficulty : Medium'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3180,12 +3176,24 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8337540032408664763}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 2
   m_WholeNumbers: 0
-  m_Value: 0.477
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6505965172920921483}
+        m_TargetAssemblyTypeName: PlayerHUDController, Assembly-CSharp
+        m_MethodName: ChangeVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &808510002616515653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3292,6 +3300,8 @@ GameObject:
   - component: {fileID: 3058921169950077870}
   - component: {fileID: 7497673817716276861}
   - component: {fileID: 6248658944906404384}
+  - component: {fileID: 6505965172920921483}
+  - component: {fileID: 6140975555592430082}
   m_Layer: 5
   m_Name: GameUi
   m_TagString: Untagged
@@ -3413,6 +3423,43 @@ MonoBehaviour:
   _shakeRate: 1
   _maxDistanceBeforeBreaking: 20
   _maxToSnapBack: 10
+--- !u!114 &6505965172920921483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936643793099780803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b130d6d11334244befbb520148d38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 6140975555592430082}
+  _hpBar: {fileID: 1606224677215263231}
+  _volumeBar: {fileID: 9138548247299862169}
+  _difficultyButton: {fileID: 5468714470057118382}
+--- !u!95 &6140975555592430082
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936643793099780803}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c849d7fee6bf354997767cb9ed2e43d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &408080037439021480
 PrefabInstance:
   m_ObjectHideFlags: 0
