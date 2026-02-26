@@ -1,15 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
 {
+    [Header("Play button")]
     [SerializeField] private CanvasGroup _playMessage;
+    [SerializeField] private string _playSceneToLoad;
     private float _playAlpha;
+    [Header("Quit button")]
     [SerializeField] private CanvasGroup _quitMessage;
     private float _quitAlpha;
+    [Header("Message Settings")]
     [SerializeField] private float _alphaRate = 0.2f;
+
+    private void Update()
+    {
+        _playAlpha -= Time.deltaTime * _alphaRate;
+        _playAlpha = Mathf.Clamp(_playAlpha, 0, 1);
+        _playMessage.alpha = _playAlpha;
+
+        _quitAlpha -= Time.deltaTime * _alphaRate;
+        _quitAlpha = Mathf.Clamp(_quitAlpha, 0, 1);
+        _quitMessage.alpha = _quitAlpha;
+    }
 
     public void PlayButton()
     {
@@ -21,14 +34,13 @@ public class MainMenuButtons : MonoBehaviour
         _quitAlpha = 1;
     }
 
-    private void Update()
+    public void PlayGame()
     {
-        _playAlpha -= Time.deltaTime * _alphaRate;
-        _playAlpha = Mathf.Clamp(_playAlpha, 0, 1);
-        _playMessage.alpha = _playAlpha;
+        SceneManager.LoadScene(_playSceneToLoad);
+    }
 
-        _quitAlpha -= Time.deltaTime * _alphaRate;
-        _quitAlpha = Mathf.Clamp(_quitAlpha, 0, 1);
-        _quitMessage.alpha = _quitAlpha;
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
