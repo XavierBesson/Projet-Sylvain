@@ -1,7 +1,6 @@
 using Coffee.UIExtensions;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +24,8 @@ public class DragHandler : MonoBehaviour
     [SerializeField] private float _maxToSnapBack = 10;
     private float _uiScale = 1.0f;
     private bool _dragging = false;
+
+    public DetachableUi UiElement { get => _uiElement; }
 
     #region Methods
     #region Native
@@ -75,6 +76,7 @@ public class DragHandler : MonoBehaviour
                     _uiElement.Attached = false;
                     //particle effect
                     PlayParticle(_uiElement.InitialPosition);
+                    _uiElement.SetUiSlotState(true);
                 }
             }
             else
@@ -102,6 +104,7 @@ public class DragHandler : MonoBehaviour
         {
             _uiElement.Attached = true;
             _uiElement.SetToInitialPosition();
+            _uiElement.SetUiSlotState(false);
         }
     }
 

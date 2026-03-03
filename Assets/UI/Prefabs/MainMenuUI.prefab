@@ -954,10 +954,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bad8251c74bc5f4ab83d7afcae9594f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dragHandler: {fileID: 3076354496779216224}
   _playMessage: {fileID: 5018397333269649423}
   _playSceneToLoad: LdScene
   _quitMessage: {fileID: 7136188693825374213}
   _alphaRate: 0.2
+  _breakActionDelay: 1.5
 --- !u!1 &6617706647835428071
 GameObject:
   m_ObjectHideFlags: 0
