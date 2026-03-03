@@ -12,6 +12,7 @@ public class Door : EnigmeObject
     CharacterController _player = null;
 
     [SerializeField] GameObject _barATourner = null;
+    [SerializeField] GameObject _gearObject = null;
     [SerializeField] Slider _barATournerUI = null;
     [SerializeField] float _barprogressSpeed = 0.5f;
     [SerializeField] float _rotationSpeed = 200f;
@@ -39,6 +40,12 @@ public class Door : EnigmeObject
 
         _player = GameManager.Instance.Player;
         _player.Hp = _barATournerUI.value;
+
+        _gearObject.SetActive(false);
+       
+
+      
+
     }
 
     // Update is called once per frame
@@ -56,7 +63,10 @@ public class Door : EnigmeObject
             RotateElement();
         }
 
-        
+        Debug.Log("sound" + _soundBarUsed);
+
+        Debug.Log("hp" + _healthBarUsed);
+
     }
 
     public void RevealHint() 
@@ -74,12 +84,18 @@ public class Door : EnigmeObject
     public void RotateElement()
     {
 
-   
+
 
 
         //Check si tu peut intéragir
         if (_isInteracting)
         {
+            if (_gearUsed)
+            {
+                _inRange = false;
+                OpenTheDoor();
+                Debug.Log("ouvert");
+            }
 
             //Vérifie la quantité de rotation
             float currentAngle = _barATourner.transform.eulerAngles.z;
@@ -151,21 +167,10 @@ public class Door : EnigmeObject
                 {
                     //le code de bar qu'on bouge
                 }
-                else if (_gearUsed)
-                {
-                    _inRange = false;
-                    OpenTheDoor();
-                    Debug.Log("ouvert");
-                }
+              
 
             }
 
-
-            //Prend la position souris
-
-            //Prend la rotation objet
-
-            //Quand la souris bouge basé depuis sa position de base l'objet suit la rotation
         }
     }
 
@@ -199,16 +204,20 @@ public class Door : EnigmeObject
 
     public void Engranage()
     {
-        _gearUsed = true; 
+        _gearUsed = true;
+        _gearObject.SetActive(true);
+        Debug.Log("Engrenage utilisé");
     }
     public void HpBarUsed()
     {
         _healthBarUsed = true; 
+        
     }
 
     public void SoundUsed()
     {
         _soundBarUsed = true;
+       
     }
 
 
