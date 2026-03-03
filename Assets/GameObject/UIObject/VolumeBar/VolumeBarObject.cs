@@ -9,8 +9,12 @@ public class VolumeBarObject : UIObject
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.layer == _doorLayer)
-        _onDoor = true;
+        if (collision.gameObject.GetComponentInParent<Door>() != null)
+        {
+            collision.gameObject.GetComponentInParent<Door>().SoundUsed();
+
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider collision)
