@@ -7,6 +7,17 @@ public class VolumeBarObject : UIObject
     [SerializeField] private LayerMask _doorLayer;
     private bool _onDoor = false;
 
+
+    public override void Update()
+    {
+        if (IsDragging && Input.GetMouseButtonUp(1))
+        {
+            Undrag();
+            OpenDoor();
+        }
+    }
+
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.GetComponentInParent<Door>() != null)
@@ -26,9 +37,8 @@ public class VolumeBarObject : UIObject
 
 
 
-    public override void Undrag()
+    private void OpenDoor()
     {
-        base.Undrag();
         if (_onDoor)
         {
             GameManager.Instance.Door.SoundUsed();

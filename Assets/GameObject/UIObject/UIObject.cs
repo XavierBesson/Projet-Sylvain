@@ -14,21 +14,31 @@ public class UIObject : MonoBehaviour
 
     public Collider Collider { get => _collider; set => _collider = value; }
     public CharacterController PlayerCharacter { get => _playerCharacter; set => _playerCharacter = value; }
+    public bool IsDragging { get => _isDragging; set => _isDragging = value; }
+
+    private void Start()
+    {
+        PlayerCharacter = GameManager.Instance.Player;
+    }
+
+    public virtual void Update()
+    {
+        if (IsDragging && Input.GetMouseButtonUp(1))
+            Undrag();
+    }
 
 
-    private void OnMouseOver()
+    public virtual void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1))
             Drag();
-        Undrag();
-        
     }
 
 
 
     public void Drag()
     {
-        _isDragging = true;
+        IsDragging = true;
         _rb.isKinematic = true;
         GameManager.Instance.Player.CurrentUIObject = this;
         GameManager.Instance.GameLoop += Move;
@@ -36,13 +46,10 @@ public class UIObject : MonoBehaviour
 
     public virtual void Undrag()
     {
-        if (Input.GetMouseButtonUp(1))
-        {
-            _rb.isKinematic = false;
-            _isDragging = false;
-            GameManager.Instance.Player.CurrentUIObject = null;
-            GameManager.Instance.GameLoop -= Move;
-        }
+        _rb.isKinematic = false;
+        IsDragging = false;
+        GameManager.Instance.Player.CurrentUIObject = null;
+        GameManager.Instance.GameLoop -= Move;
     }
 
 

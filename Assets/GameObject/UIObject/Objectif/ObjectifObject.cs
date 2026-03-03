@@ -6,6 +6,18 @@ public class ObjectifObject : UIObject
 {
     private Enemy _enemy = null;
 
+
+    public override void Update()
+    {
+        if (IsDragging && Input.GetMouseButtonUp(1))
+        {
+            Undrag();
+            Fuite();
+        }
+    }
+
+
+
     private void OnTriggerEnter(Collider collision)
     {
         _enemy = collision.gameObject.GetComponent<Enemy>();
@@ -17,14 +29,12 @@ public class ObjectifObject : UIObject
     }
 
 
-
-
-    public override void Undrag()
+    private void Fuite()
     {
-        base.Undrag();
         if (_enemy != null)
         {
             _enemy.Fuite();
+            print(_enemy);
         }
     }
 }

@@ -9,6 +9,17 @@ public class EngrenageObject : UIObject
     [SerializeField] private GameObject _door; 
     private bool _onDoor = false;
 
+
+    public override void Update()
+    {
+        if (IsDragging && Input.GetMouseButtonUp(1))
+        {
+            Undrag();
+            OpenDoor();
+        }
+    }
+
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.GetComponentInParent<Door>() != null)
@@ -28,9 +39,8 @@ public class EngrenageObject : UIObject
 
 
 
-    public override void Undrag()
+    private void OpenDoor()
     {
-        base.Undrag();
         if (_onDoor)
         {
             GameManager.Instance.Door.Engranage();
