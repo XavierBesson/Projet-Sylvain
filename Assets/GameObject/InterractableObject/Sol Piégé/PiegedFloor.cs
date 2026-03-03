@@ -11,6 +11,7 @@ public class PiegedFloor : EnigmeObject
   [SerializeField] private float _damage = 1;
   [SerializeField] private GameObject _platform = null;
  [SerializeField] private bool _isCovered;
+    [SerializeField] private Door _door; 
 
   private bool _inRange = false;
 
@@ -18,7 +19,9 @@ public class PiegedFloor : EnigmeObject
     void Start()
     {
         _platform.SetActive(false);
-        Invoke("IsCovered", 1f);
+       // Invoke("IsCovered", 5f);
+
+
     }
 
     // Update is called once per frame
@@ -32,11 +35,15 @@ public class PiegedFloor : EnigmeObject
 
     public void TakeDamage()
     {
-        if (_inRange && _isCovered == false)
+        if (_inRange ==true && _isCovered == false)
         {
+
             _player.Hpdamage(_damage);
 
-          // Invoke("TakeDamage", 1f);
+            _door.SpikeDamage(_damage); 
+          
+
+           Invoke("TakeDamage", 1f);
             
         }
     }
@@ -45,20 +52,29 @@ public class PiegedFloor : EnigmeObject
     {
         _isCovered = true;
         _platform.SetActive(true);
-       
+
+        _platform.GetComponent<MeshRenderer>().material.color = Color.blue;
+
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        TakeDamage();
-        _inRange = true;
-       
+
+        if (other.gameObject.GetComponentInParent<CharacterController>() == _player )
+        {
+            _inRange = true;
+            TakeDamage();
+
+            Debug.Log("marche pique");
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         _inRange = false;
-      
+        Debug.Log("sort pique");
+
     }
 
 
