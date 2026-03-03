@@ -26,6 +26,12 @@ public class HealthBarObject : UIObject
 
             Destroy(gameObject);
         }
+        else if (collision.gameObject.GetComponentInParent<PiegedFloor>() != null)
+        {
+            collision.gameObject.GetComponentInParent<PiegedFloor>().IsCovered();
+           
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider collision)

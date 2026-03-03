@@ -88,19 +88,18 @@ public class Door : EnigmeObject
 
     public void RotateElement()
     {
+        if (_gearUsed)
+        {
+            _inRange = false;
+            OpenTheDoor();
+            Debug.Log("ouvert");
+        }
 
-
+        if (_healthBarUsed == true || _soundBarUsed == true) { 
 
 
         //Check si tu peut intéragir
-        if (_isInteracting)
-        {
-            if (_gearUsed)
-            {
-                _inRange = false;
-                OpenTheDoor();
-                Debug.Log("ouvert");
-            }
+        
 
             //Vérifie la quantité de rotation
             float currentAngle = _barATourner.transform.eulerAngles.z;
@@ -173,7 +172,7 @@ public class Door : EnigmeObject
 
 
             //Si a bon hauteur ouvre la porte
-            if (_totalRotation / 360f >= 2.01f || _totalRotation / 360f <= -2.01f)
+            if (_totalRotation / 360f >= 2.01f || _totalRotation / 360f <= -2.0f)
             {
                 _inRange = false;
                 OpenTheDoor();
@@ -181,10 +180,10 @@ public class Door : EnigmeObject
             }
 
             //update la barre uniquement si tu est en porté
-            if (_inRange)
+            if (_inRange==true && _isInteracting ==true)
             {
 
-                _barATourner.transform.Rotate(new Vector3(0,0, Input.GetAxis("Mouse Y")) * Time.deltaTime * _rotationSpeed);
+                _barATourner.transform.Rotate(new Vector3(0, 0, Input.GetAxis("Mouse Y")) * Time.deltaTime * _rotationSpeed);
 
 
 
@@ -198,11 +197,11 @@ public class Door : EnigmeObject
                       OpenTheDoor();
                   }*/
 
-               
-              
+
+
+
 
             }
-
         }
     }
 
@@ -212,12 +211,19 @@ public class Door : EnigmeObject
         {
 
             Debug.Log("HPchange");
+
+
             _player.Hp = _barATournerUI.value;
         }
         else if (_soundBarUsed)
         {
             Debug.Log("Audiochange");
         }
+    }
+
+    public void SpikeDamage(float damage)
+    {
+        _barATournerUI.value = _barATournerUI.value - damage;
     }
 
 

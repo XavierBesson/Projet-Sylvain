@@ -852,9 +852,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4924354550115233589}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0.454
+  m_Value: 51.3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -948,7 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiObject: {fileID: 9206243403870591314, guid: a48f247f4cf11b541bd1af03c1aa5133, type: 3}
-  _uiSlot: {fileID: 0}
+  _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 230025874122481869}
   _attached: 1
 --- !u!1 &2334055087060399679
