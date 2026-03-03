@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
 {
+    [SerializeField] private DragHandler _dragHandler;
     [Header("Play button")]
     [SerializeField] private CanvasGroup _playMessage;
     [SerializeField] private string _playSceneToLoad;
@@ -36,11 +37,13 @@ public class MainMenuButtons : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(_playSceneToLoad);
+        if (_dragHandler != null && !_dragHandler.UiElement.Attached)
+            SceneManager.LoadScene(_playSceneToLoad);
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        if (_dragHandler != null && !_dragHandler.UiElement.Attached)
+            Application.Quit();
     }
 }

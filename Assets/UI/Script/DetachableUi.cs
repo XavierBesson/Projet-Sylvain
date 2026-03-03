@@ -48,4 +48,9 @@ public class DetachableUi : MonoBehaviour
     {
         transform.position = InitialPosition;
     }
+
+    public void SetUiSlotState(bool breaked)
+    {
+        _uiSlot.GetComponent<UiSlot>().SetSprite(breaked);
+    }
 }

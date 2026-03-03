@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiSlot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Image _image;
+    [SerializeField] private Sprite _sprite;
 
-    // Update is called once per frame
-    void Update()
+    public void SetSprite(bool breaked)
     {
-        
+        if (breaked)
+        {
+            _image.sprite = _sprite;
+            _image.color = Color.white;
+        }
+        else
+        {
+            _image.sprite = null;
+            _image.color = Color.clear;
+        }
     }
 }
