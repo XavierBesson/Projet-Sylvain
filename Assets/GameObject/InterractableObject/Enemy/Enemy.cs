@@ -44,7 +44,7 @@ public class Enemy : EnigmeObject
     {
         PlaySound(_audioSource, _fuiteSound);
         GameManager.Instance.GameLoop += _followPath.ActivateFollowPath;
-        GameManager.Instance.GoodEnding = true;
+        GameManager.Instance.GoblinEnding = true;
         print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
     }
 
