@@ -42,9 +42,9 @@ public class Door : EnigmeObject
         _player.Hp = _barATournerUI.value;
 
         _gearObject.SetActive(false);
-       
 
-      
+        _barATournerUI.gameObject.SetActive(false);
+
 
     }
 
@@ -63,9 +63,7 @@ public class Door : EnigmeObject
             RotateElement();
         }
 
-        Debug.Log("sound" + _soundBarUsed);
-
-        Debug.Log("hp" + _healthBarUsed);
+        UpdateElementThxToDoor();
 
     }
 
@@ -105,7 +103,7 @@ public class Door : EnigmeObject
 
             float tours = _totalRotation / 360f;
 
-            Debug.Log(_totalRotation);
+           
             Debug.Log("tour" + tours);
 
 
@@ -154,19 +152,7 @@ public class Door : EnigmeObject
                       OpenTheDoor();
                   }*/
 
-                if (_healthBarUsed)
-                {
-
-                   
-                    _player.Hp = _barATournerUI.value;
-
-                   
-
-                }
-                else if (_soundBarUsed)
-                {
-                    //le code de bar qu'on bouge
-                }
+               
               
 
             }
@@ -174,6 +160,19 @@ public class Door : EnigmeObject
         }
     }
 
+    public void UpdateElementThxToDoor()
+    {
+        if (_healthBarUsed == true)
+        {
+
+            Debug.Log("HPchange");
+            _player.Hp = _barATournerUI.value;
+        }
+        else if (_soundBarUsed)
+        {
+            Debug.Log("Audiochange");
+        }
+    }
 
 
 
@@ -192,7 +191,7 @@ public class Door : EnigmeObject
     {
 
         _inRange = true;
-        _healthBarUsed = true; 
+        
 
     }
 
@@ -210,14 +209,14 @@ public class Door : EnigmeObject
     }
     public void HpBarUsed()
     {
-        _healthBarUsed = true; 
-        
+        _healthBarUsed = true;
+        _barATournerUI.gameObject.SetActive(true);
     }
 
     public void SoundUsed()
     {
         _soundBarUsed = true;
-       
+        _barATournerUI.gameObject.SetActive(true);
     }
 
 
