@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.UI;
 
 public class Door : EnigmeObject
@@ -8,6 +9,9 @@ public class Door : EnigmeObject
     [SerializeField] Canvas _uiDoor = null;
     [SerializeField] GameObject _entireDoor = null;
     [SerializeField] GameObject _openDoorTransform = null;
+    [SerializeField] GameObject _turn1Object = null;
+    [SerializeField] GameObject _turn2Object = null;
+    [SerializeField] GameObject _turn3Object = null;
 
     CharacterController _player = null;
 
@@ -45,6 +49,9 @@ public class Door : EnigmeObject
 
         _barATournerUI.gameObject.SetActive(false);
 
+      _turn1Object.GetComponent<MeshRenderer>().material.color = Color.white;
+      _turn2Object.GetComponent<MeshRenderer>().material.color = Color.white;
+      _turn3Object.GetComponent<MeshRenderer>().material.color = Color.white;
 
     }
 
@@ -126,8 +133,47 @@ public class Door : EnigmeObject
                 Debug.Log("pluspetit");
             }
 
+
+
+            if (tours >= 2 || tours <= -2)
+            {
+                _turn1Object.GetComponent<MeshRenderer>().material.color = Color.green;
+                _turn2Object.GetComponent<MeshRenderer>().material.color = Color.green;
+                _turn3Object.GetComponent<MeshRenderer>().material.color = Color.green;
+            }
+
+            else if (tours >= 1 || tours <= -1)
+            {
+                _turn1Object.GetComponent<MeshRenderer>().material.color = Color.green;
+                _turn2Object.GetComponent<MeshRenderer>().material.color = Color.green;
+                _turn3Object.GetComponent<MeshRenderer>().material.color = Color.white;
+            }
+
+            else if (tours > 0.1 || tours < -0.1)
+            {
+                _turn1Object.GetComponent<MeshRenderer>().material.color = Color.green;
+                _turn2Object.GetComponent<MeshRenderer>().material.color = Color.white;
+                _turn3Object.GetComponent<MeshRenderer>().material.color = Color.white;
+            }
+
+            else 
+            {
+                _turn1Object.GetComponent<MeshRenderer>().material.color = Color.white;
+                _turn2Object.GetComponent<MeshRenderer>().material.color = Color.white;
+                _turn3Object.GetComponent<MeshRenderer>().material.color = Color.white;
+            }
+
+
+
+
+
+
+
+
+
+
             //Si a bon hauteur ouvre la porte
-            if (_totalRotation/360f >=2 || _totalRotation / 360f <=-2)
+            if (_totalRotation / 360f >= 2.01f || _totalRotation / 360f <= -2.01f)
             {
                 _inRange = false;
                 OpenTheDoor();
@@ -181,7 +227,10 @@ public class Door : EnigmeObject
         //bouger la porte vers la position et rotation spécifier
         _entireDoor.transform.position = _openDoorTransform.transform.position;
         _entireDoor.transform.rotation = _openDoorTransform.transform.rotation;
-        _open = true; 
+        _open = true;
+        _turn1Object.GetComponent<MeshRenderer>().material.color = Color.green;
+        _turn2Object.GetComponent<MeshRenderer>().material.color = Color.green;
+        _turn3Object.GetComponent<MeshRenderer>().material.color = Color.green;
 
     }
 
