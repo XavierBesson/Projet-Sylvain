@@ -77,6 +77,7 @@ public class DragHandler : MonoBehaviour
                     //particle effect
                     PlayParticle(_uiElement.InitialPosition);
                     _uiElement.SetUiSlotState(true);
+                    ExitDrag();
                 }
             }
             else
@@ -162,7 +163,7 @@ public class DragHandler : MonoBehaviour
         Vector3 distance = Vector3.forward * _spawnDistance;
         if (_uiElement.UiObject)
         {
-            Instantiate(_uiElement.UiObject, Camera.main.ScreenToWorldPoint(SpawnPosition + distance), Quaternion.identity, _spawnParent);
+            Instantiate(_uiElement.UiObject, GameManager.Instance.Player.Camera.ScreenToWorldPoint(SpawnPosition + distance), Quaternion.identity, _spawnParent);
             return true;
         }
         return false;

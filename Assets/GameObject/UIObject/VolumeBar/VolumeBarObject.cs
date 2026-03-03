@@ -26,9 +26,9 @@ public class VolumeBarObject : UIObject
 
 
 
-    public override void OnMouseUp()
+    public override void RightMouseUp()
     {
-        base.OnMouseUp();
+        base.RightMouseUp();
         if (_onDoor)
         {
             GameManager.Instance.Door.SoundUsed();
