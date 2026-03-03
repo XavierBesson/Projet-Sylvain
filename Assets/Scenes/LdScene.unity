@@ -8551,6 +8551,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6248658944906404384, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
+      propertyPath: _spawnParent
+      value: 
+      objectReference: {fileID: 1815454291}
     - target: {fileID: 8316727040760325897, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -9398,6 +9402,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8048413663022517560, guid: 199c62891f4a752479e44d00ba91064f, type: 3}
   m_PrefabInstance: {fileID: 1786465011}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1815454290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1815454291}
+  m_Layer: 0
+  m_Name: UIObjectSlot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1815454291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815454290}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1827213218
 GameObject:
   m_ObjectHideFlags: 0
@@ -11466,6 +11501,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 425792144}
   - {fileID: 1018206662}
+  - {fileID: 1815454291}
   - {fileID: 1571766207}
   - {fileID: 1922175092}
   - {fileID: 1500536307}

@@ -26,9 +26,9 @@ public class HealthBarObject : UIObject
 
 
 
-    public override void RightMouseUp()
+    public override void Undrag()
     {
-        base.RightMouseUp();
+        base.Undrag();
         if (_onDoor)
         {
             GameManager.Instance.Door.HpBarUsed();

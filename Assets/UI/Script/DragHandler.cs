@@ -163,7 +163,9 @@ public class DragHandler : MonoBehaviour
         Vector3 distance = Vector3.forward * _spawnDistance;
         if (_uiElement.UiObject)
         {
-            Instantiate(_uiElement.UiObject, GameManager.Instance.Player.Camera.ScreenToWorldPoint(SpawnPosition + distance), Quaternion.identity, _spawnParent);
+            UIObject uiObject = Instantiate(_uiElement.UiObject, GameManager.Instance.Player.Camera.ScreenToWorldPoint(SpawnPosition + distance), Quaternion.identity, _spawnParent).GetComponent<UIObject>();
+            uiObject.PlayerCharacter = GameManager.Instance.Player;
+            uiObject.Drag();
             return true;
         }
         return false;

@@ -947,7 +947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6bef7a8eaa000438e9e5e4eb5f500c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiObject: {fileID: 0}
+  _uiObject: {fileID: 9206243403870591314, guid: a48f247f4cf11b541bd1af03c1aa5133, type: 3}
   _uiSlot: {fileID: 0}
   _uiSlotParent: {fileID: 230025874122481869}
   _attached: 1
@@ -3283,7 +3283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6bef7a8eaa000438e9e5e4eb5f500c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiObject: {fileID: 0}
+  _uiObject: {fileID: 9206243403870591314, guid: 199c62891f4a752479e44d00ba91064f, type: 3}
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8063265292862906139}
   _attached: 1

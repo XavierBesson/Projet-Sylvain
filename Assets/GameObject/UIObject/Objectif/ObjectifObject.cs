@@ -19,9 +19,9 @@ public class ObjectifObject : UIObject
 
 
 
-    public override void RightMouseUp()
+    public override void Undrag()
     {
-        base.RightMouseUp();
+        base.Undrag();
         if (_enemy != null)
         {
             _enemy.Fuite();

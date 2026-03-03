@@ -28,9 +28,9 @@ public class EngrenageObject : UIObject
 
 
 
-    public override void RightMouseUp()
+    public override void Undrag()
     {
-        base.RightMouseUp();
+        base.Undrag();
         if (_onDoor)
         {
             GameManager.Instance.Door.Engranage();
