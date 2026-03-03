@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [Header("Scene")]
     [SerializeField] private SceneAsset _mainMenuScene;
     [SerializeField] private CharacterController _player = null;
-    private bool _goodEnding = false;
+    private bool _goblinEnding = false;
     [SerializeField] private Door _door = null;
 
     [Header("Sounds")]
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     public CharacterController Player { get => _player; set { _player = value; } }
     public float SoundMultiplier { get => _soundMultiplier; set => _soundMultiplier = value; }
-    public bool GoodEnding { get => _goodEnding; set => _goodEnding = value; }
+    public bool GoblinEnding { get => _goblinEnding; set => _goblinEnding = value; }
     public Door Door { get => _door; set => _door = value; }
     public EDifficulty Difficulty { get => _difficulty; set => _difficulty = value; }
     public PlayerHUDController PlayerHUDController { get => _playerHUDController; set => _playerHUDController = value; }
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        if (GoodEnding)
+        if (GoblinEnding)
         {
 
         }

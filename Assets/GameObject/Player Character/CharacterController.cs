@@ -69,6 +69,8 @@ public class CharacterController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W))
                 TryMove(this.transform.forward);
+            if (Input.GetKeyDown(KeyCode.S))
+                TryMove(-this.transform.forward);
         }
     }
 
