@@ -34,8 +34,8 @@ public class CharacterController : MonoBehaviour
     public Camera Camera { get => _camera; set => _camera = value; }
     public float Hp { get => _hp;
         set {_hp = value;
-            if (Hp > 0f) { GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp); Debug.Log("J'ai actuellement" + Hp + "Pv"); }
-            else { Debug.Log("DEAD"); }
+            GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
+            if (Hp <= 0f) { Debug.Log("DEAD"); }
         } }
     public UIObject CurrentUIObject { get { return _currentUIObject; } set => _currentUIObject = value; }
 
