@@ -10,6 +10,8 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private Slider _hpBar;
     [SerializeField] private Slider _volumeBar;
     [SerializeField] private TMP_Dropdown _difficultyButton;
+    [SerializeField] private DetachableUi _swordUI;
+    [SerializeField] private GameObject[] _swordObjectList;
 
     void Start()
     {
@@ -33,14 +35,17 @@ public class PlayerHUDController : MonoBehaviour
         {
             case 0:
                 GameManager.Instance.Difficulty = EDifficulty.EASY;
+                _swordUI.UiObject = _swordObjectList[0];
                 break;
 
             case 1:
                 GameManager.Instance.Difficulty = EDifficulty.MEDIUM;
+                _swordUI.UiObject = _swordObjectList[1];
                 break;
 
             case 2:
                 GameManager.Instance.Difficulty = EDifficulty.HARD;
+                _swordUI.UiObject = _swordObjectList[2];
                 break;
         }
         

@@ -53,15 +53,6 @@ public class UIObject : MonoBehaviour
     }
 
 
-    /*
-    private void OnMouseDrag()
-    {
-        if (_isDragging)
-        {
-            Move();
-        }
-    }
-    */
     public void Move()
     {
         Ray ray = GameManager.Instance.Player.Camera.ScreenPointToRay(Input.mousePosition);
@@ -79,5 +70,14 @@ public class UIObject : MonoBehaviour
 
         _rb.rotation = Quaternion.Euler(-(45 * (Input.mousePosition.y - 540) / 540), 70 * (Input.mousePosition.x - 960) / 960 + PlayerCharacter.transform.rotation.eulerAngles.y, 0);
     }
+
+
+
+    public void Despawn()
+    {
+        GameManager.Instance.GameLoop -= Move;
+        Destroy(gameObject);
+    }
+
 
 }

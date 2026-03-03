@@ -24,9 +24,7 @@ public class EngrenageObject : UIObject
     {
         if (collision.gameObject.GetComponentInParent<Door>() != null)
         {
-            collision.gameObject.GetComponentInParent<Door>().Engranage();
-
-            Destroy(gameObject);
+            _onDoor = true;
         }
     }
 
@@ -43,7 +41,9 @@ public class EngrenageObject : UIObject
     {
         if (_onDoor)
         {
-            GameManager.Instance.Door.Engranage();
+            GameManager.Instance.Door.Engrenage();
+
+            Despawn();
         }
     }
 }

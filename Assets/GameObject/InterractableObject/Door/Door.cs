@@ -256,7 +256,7 @@ public class Door : EnigmeObject
         _isInteracting = false;
     }
 
-    public void Engranage()
+    public void Engrenage()
     {
         _gearUsed = true;
         _gearObject.SetActive(true);

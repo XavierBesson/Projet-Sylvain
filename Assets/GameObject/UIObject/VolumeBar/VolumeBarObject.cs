@@ -22,9 +22,7 @@ public class VolumeBarObject : UIObject
     {
         if (collision.gameObject.GetComponentInParent<Door>() != null)
         {
-            collision.gameObject.GetComponentInParent<Door>().SoundUsed();
-
-            Destroy(gameObject);
+            _onDoor = true;
         }
     }
 
@@ -42,6 +40,7 @@ public class VolumeBarObject : UIObject
         if (_onDoor)
         {
             GameManager.Instance.Door.SoundUsed();
+            Despawn();
         }
     }
 }

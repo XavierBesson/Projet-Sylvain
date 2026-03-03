@@ -11,6 +11,8 @@ public class DetachableUi : MonoBehaviour
     [SerializeField] private bool _attached = true;
     private Vector2 _initialPosition = Vector2.zero;
 
+    public GameObject UiObject { get => _uiObject; set => _uiObject = value; }
+
     public bool Attached
     {
         get
@@ -23,7 +25,6 @@ public class DetachableUi : MonoBehaviour
         }
     }
 
-    public GameObject UiObject => _uiObject;
 
     public Vector2 InitialPosition
     {
@@ -35,6 +36,8 @@ public class DetachableUi : MonoBehaviour
                 _uiSlot.transform.position = _initialPosition;
         }
     }
+
+    
 
     // Start is called before the first frame update
     void Start()

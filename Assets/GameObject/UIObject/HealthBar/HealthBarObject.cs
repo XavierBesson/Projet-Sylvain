@@ -22,9 +22,7 @@ public class HealthBarObject : UIObject
     {
         if (collision.gameObject.GetComponentInParent<Door>() != null)
         {
-            collision.gameObject.GetComponentInParent<Door>().HpBarUsed();
-
-            Destroy(gameObject);
+            _onDoor = true;
         }
         else if (collision.gameObject.GetComponentInParent<PiegedFloor>() != null)
         {
@@ -48,6 +46,7 @@ public class HealthBarObject : UIObject
         if (_onDoor)
         {
             GameManager.Instance.Door.HpBarUsed();
+            Despawn();
         }
     }
 }
