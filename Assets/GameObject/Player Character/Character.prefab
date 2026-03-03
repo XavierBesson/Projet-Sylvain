@@ -498,8 +498,8 @@ MonoBehaviour:
   _oldSchoolMove: 1
   _moveSpeed: 5
   _rotateSpeed: 0.8
-  stepDistance: 1.5
-  snapRotation: 45
+  stepDistance: 2
+  snapRotation: 90
   _obstacles:
     serializedVersion: 2
     m_Bits: 1344
