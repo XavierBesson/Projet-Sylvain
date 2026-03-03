@@ -27,23 +27,22 @@ public class UIObject : MonoBehaviour
 
 
 
-    private void OnMouseDown()
+    private void OnMouseOver()
     {
-       
-        _isDragging = true;
-        _rb.isKinematic = true;
-        GameManager.Instance.Player.CurrentUIObject = this;
+       if (Input.GetMouseButtonDown(1))
+       {
+           _isDragging = true;
+           _rb.isKinematic = true;
+           GameManager.Instance.Player.CurrentUIObject = this;
+       }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            _rb.isKinematic = false;
+            _isDragging = false;
+            GameManager.Instance.Player.CurrentUIObject = null;
+        }
         
     }
-
-    public virtual void OnMouseUp()
-    {
-        _rb.isKinematic = false;
-        _isDragging = false;
-        GameManager.Instance.Player.CurrentUIObject = null;
-    }
-
-
 
 
     private void OnMouseDrag()
