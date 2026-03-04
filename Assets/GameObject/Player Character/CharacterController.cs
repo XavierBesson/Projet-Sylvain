@@ -15,9 +15,12 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _rotateSpeed = 5;
 
     [Header("Déplacement Rétro")]
-    [SerializeField] private float stepDistance = 1.5f;
-    [SerializeField] private float snapRotation = 45f;
+    [SerializeField] private float _stepDistance = 1.5f;
+    [SerializeField] private float _snapRotation = 45f;
+    [SerializeField] private float _rotationRate = 2f;
     [SerializeField] private LayerMask _obstacles;
+    private float _targetRotation;
+    private float _currentRotation;
 
     [Header("Mouse Interractions")]
     [SerializeField] private float _interactRange = 100000f;
@@ -43,6 +46,8 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         _hp = _hpMax;
+        _currentRotation = transform.rotation.eulerAngles.y;
+        _targetRotation = _currentRotation;
     }
 
 
@@ -53,7 +58,7 @@ public class CharacterController : MonoBehaviour
         // MousePosition();
         MouseClic();
         _mousePosition = Input.mousePosition;
-        HpRegen(); 
+        HpRegen();
         
     }
 
@@ -76,9 +81,9 @@ public class CharacterController : MonoBehaviour
 
     void TryMove(Vector3 dir)
     {
-        if (!Physics.Raycast(transform.position, dir, stepDistance, _obstacles))
+        if (!Physics.Raycast(transform.position, dir, _stepDistance, _obstacles))
         {
-            transform.position += dir * stepDistance;
+            transform.position += dir * _stepDistance;
         }
     }
     private void Rotate()
@@ -93,7 +98,8 @@ public class CharacterController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                transform.Rotate(0f, -snapRotation, 0f);
+                _targetRotation -= _snapRotation;
+                //transform.Rotate(0f, -_snapRotation, 0f);
                 if (_currentUIObject != null)
                     CurrentUIObject.Move();
             }
@@ -101,11 +107,25 @@ public class CharacterController : MonoBehaviour
             // Rotation droite
             if (Input.GetKeyDown(KeyCode.D))
             {
-                transform.Rotate(0f, snapRotation, 0f);
+                _targetRotation += _snapRotation;
+                //transform.Rotate(0f, _snapRotation, 0f);
                 if (_currentUIObject != null)
                     CurrentUIObject.Move();
             }
 
+            if (_currentRotation < _targetRotation)
+            {
+                transform.Rotate(0, _rotationRate, 0);
+                _currentRotation += _rotationRate;
+            }
+            if (_currentRotation > _targetRotation)
+            {
+                transform.Rotate(0, -_rotationRate, 0);
+                _currentRotation -= _rotationRate;
+            }
+
+            Debug.Log(_currentRotation);
+            Debug.Log(_targetRotation);
         }
     }
     #endregion Déplacement
