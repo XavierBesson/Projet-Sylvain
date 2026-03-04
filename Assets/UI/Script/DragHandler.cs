@@ -32,7 +32,7 @@ public class DragHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameManager.Instance.DragHandlerM = this;
         DetachableUi[] detachableUis = FindObjectsOfType<DetachableUi>();
         foreach (DetachableUi ui in detachableUis)
         {
@@ -166,6 +166,7 @@ public class DragHandler : MonoBehaviour
             UIObject uiObject = Instantiate(_uiElement.UiObject, GameManager.Instance.Player.Camera.ScreenToWorldPoint(SpawnPosition + distance), Quaternion.identity, _spawnParent).GetComponent<UIObject>();
             uiObject.PlayerCharacter = GameManager.Instance.Player;
             uiObject.Drag();
+            uiObject.DetachableUI = _uiElement;
             return true;
         }
         return false;
@@ -197,8 +198,7 @@ public class DragHandler : MonoBehaviour
             if (!_uiElement.Attached && _uiElement.UiObject)
             {
                 SpawnUiInWorld(Input.mousePosition);
-                _detachableUis.Remove(_uiElement);
-                Destroy(_uiElement.gameObject);
+                _uiElement.gameObject.SetActive(false);
                 _uiElement = null;
             }
         }

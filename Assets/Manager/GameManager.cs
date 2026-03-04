@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource _timerAudioSource;
 
     [Header("UI Values")]
+    private DragHandler _dragHandler = null;
     private PlayerHUDController _playerHUDController = null;
     [SerializeField] private float _soundMultiplier = 1;
     [SerializeField] private EDifficulty _difficulty = EDifficulty.MEDIUM;
@@ -41,7 +42,8 @@ public class GameManager : MonoBehaviour
     public bool GoblinEnding { get => _goblinEnding; set => _goblinEnding = value; }
     public Door Door { get => _door; set => _door = value; }
     public EDifficulty Difficulty { get => _difficulty; set => _difficulty = value; }
-    public PlayerHUDController PlayerHUDController { get => _playerHUDController; set => _playerHUDController = value; }
+    public PlayerHUDController PlayerHUDControllerM { get => _playerHUDController; set => _playerHUDController = value; }
+    public DragHandler DragHandlerM { get => _dragHandler; set => _dragHandler = value; }
 
     #endregion Properties
 

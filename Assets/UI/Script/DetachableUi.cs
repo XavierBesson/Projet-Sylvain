@@ -56,4 +56,14 @@ public class DetachableUi : MonoBehaviour
     {
         _uiSlot.GetComponent<UiSlot>().SetSprite(breaked);
     }
+
+
+    public void ResetPosition()
+    {
+        gameObject.SetActive(true);
+        Attached = true;
+        SetToInitialPosition();
+        SetUiSlotState(false);
+    }
+
 }

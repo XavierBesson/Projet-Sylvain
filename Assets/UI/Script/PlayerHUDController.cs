@@ -15,7 +15,7 @@ public class PlayerHUDController : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.PlayerHUDController = this;
+        GameManager.Instance.PlayerHUDControllerM = this;
     }
 
     void Update()

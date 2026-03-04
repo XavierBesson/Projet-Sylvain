@@ -11,10 +11,12 @@ public class UIObject : MonoBehaviour
     private bool _isDragging = false;
     private CharacterController _playerCharacter = null;
     [SerializeField] private LayerMask _raycastMask;
+    [SerializeField] private DetachableUi _detachableUI = null;
 
     public Collider Collider { get => _collider; set => _collider = value; }
     public CharacterController PlayerCharacter { get => _playerCharacter; set => _playerCharacter = value; }
     public bool IsDragging { get => _isDragging; set => _isDragging = value; }
+    public DetachableUi DetachableUI { get => _detachableUI; set => _detachableUI = value; }
 
     private void Start()
     {
@@ -77,6 +79,19 @@ public class UIObject : MonoBehaviour
     {
         GameManager.Instance.GameLoop -= Move;
         Destroy(gameObject);
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!IsDragging && collision.gameObject.layer == 9)
+            ReturnToUI();
+    }
+
+    private void ReturnToUI()
+    {
+        DetachableUI.ResetPosition();
+        Despawn();
     }
 
 
