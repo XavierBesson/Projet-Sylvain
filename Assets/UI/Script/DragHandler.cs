@@ -193,7 +193,7 @@ public class DragHandler : MonoBehaviour
         if (_dragging)
         {
             Debug.Log("exit drag");
-            SnapBackLogic();
+            //SnapBackLogic();
             _dragging = false;
             if (!_uiElement.Attached && _uiElement.UiObject)
             {

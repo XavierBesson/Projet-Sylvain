@@ -34,7 +34,7 @@ public class ObjectifObject : UIObject
         if (_enemy != null)
         {
             _enemy.Fuite();
-            print(_enemy);
+            Despawn();
         }
     }
 }
