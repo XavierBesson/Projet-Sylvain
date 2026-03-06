@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
+using static Coffee.UIExtensions.UIParticleAttractor;
 
 public class CharacterController : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _snapRotation = 45f;
     [SerializeField] private float _rotationRate = 2f;
     [SerializeField] private LayerMask _obstacles;
+    [SerializeField] private LayerMask _stairs;
     private float _targetRotation;
     private float _currentRotation;
 
