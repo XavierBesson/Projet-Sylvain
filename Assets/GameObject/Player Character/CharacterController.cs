@@ -35,6 +35,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _hp;
     [SerializeField] private float _hpMax = 5f;
     [SerializeField] private bool _hpRegen = false;
+    private bool _isDead = false;
 
 
     public Camera Camera { get => _camera; set => _camera = value; }
@@ -56,12 +57,15 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
-        Move();
-        Rotate();
+        if (_isDead == false)
+        {
+            Move();
+            Rotate();
+        }
         // MousePosition();
         MouseClic();
         _mousePosition = Input.mousePosition;
-        HpRegen();
+       // HpRegen();
         
     }
 
@@ -151,6 +155,9 @@ public class CharacterController : MonoBehaviour
         else
         {
             Debug.Log("Je suis mort");
+            GameManager.Instance.PlayerHUDController.PlayerIsDead(); 
+
+            //Autre évenement de mort (audio et autre)
         }
     }
 

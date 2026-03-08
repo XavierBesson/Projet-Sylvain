@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHUDController : MonoBehaviour
@@ -13,6 +16,7 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private DetachableUi _swordUI;
     [SerializeField] private GameObject[] _swordObjectList;
     [SerializeField] private TextMeshProUGUI _eventText;
+    [SerializeField] private GameObject[] _deadUiObjects;
 
     void Start()
     {
@@ -77,6 +81,28 @@ public class PlayerHUDController : MonoBehaviour
     public void LoreTextEmpty ()
     {
         _eventText.text = string.Empty;
+    }
+
+    public void PlayerIsDead()
+    {
+        foreach (GameObject gameobject in _deadUiObjects)
+        {
+            gameobject.SetActive(true);
+        }
+
+        //Afficher text 
+        //Couper la visibilité
+        //Bouton recommencer et quitter
+    }
+
+    public void ReloadButton()
+    {
+        SceneManager.LoadScene("LdScene"); 
+    }
+
+    public void QuitBButton()
+    {
+        Application.Quit();
     }
 
 }
