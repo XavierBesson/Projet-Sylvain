@@ -65,8 +65,14 @@ public class CharacterController : MonoBehaviour
         // MousePosition();
         MouseClic();
         _mousePosition = Input.mousePosition;
-       // HpRegen();
-        
+        // HpRegen();
+        HPVisual();
+     
+        if(Hp <= 0)
+        {
+            Death();
+        }
+
     }
 
     #region Déplacement
@@ -152,14 +158,29 @@ public class CharacterController : MonoBehaviour
         {
             Debug.Log("J'ai actuellement" + Hp + "Pv");
         }
+        
+       
+    }
+
+    public void HPVisual()
+    {
+        if (Hp > _hpMax / 3)
+        {
+            GameManager.Instance.PlayerHUDController.LowHpVisuelFeedback(false);
+        }
         else
         {
-            Debug.Log("Je suis mort");
-            GameManager.Instance.PlayerHUDController.PlayerIsDead(); 
-
-            //Autre évenement de mort (audio et autre)
+            GameManager.Instance.PlayerHUDController.LowHpVisuelFeedback(true);
         }
     }
+
+    public void Death()
+    {
+        Debug.Log("Je suis mort");
+        GameManager.Instance.PlayerHUDController.PlayerIsDead();
+    }
+
+
 
     public void HpRegen()
     {if (_hpRegen)

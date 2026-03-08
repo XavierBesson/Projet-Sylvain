@@ -17,6 +17,7 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private GameObject[] _swordObjectList;
     [SerializeField] private TextMeshProUGUI _eventText;
     [SerializeField] private GameObject[] _deadUiObjects;
+    [SerializeField] private GameObject _lowHPVisuelImage;
 
     void Start()
     {
@@ -94,6 +95,19 @@ public class PlayerHUDController : MonoBehaviour
         //Couper la visibilité
         //Bouton recommencer et quitter
     }
+
+    public void LowHpVisuelFeedback(bool isLow)
+    {
+       if(isLow == true)
+        {
+        _lowHPVisuelImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            _lowHPVisuelImage.gameObject.SetActive(false);
+        }
+    }
+
 
     public void ReloadButton()
     {
