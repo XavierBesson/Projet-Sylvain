@@ -9,6 +9,8 @@ public class Enemy : EnigmeObject
     [SerializeField] private AudioClip _damageSound;
     [SerializeField] private AudioClip _dieSound;
     [SerializeField] private AudioClip _fuiteSound;
+
+    [SerializeField] private GameObject _deathplacment;
     private int _currentHp;
     [SerializeField] private FollowPath _followPath;
 
@@ -34,9 +36,14 @@ public class Enemy : EnigmeObject
         if (_currentHp <= 0)
         {
             PlaySound(_audioSource, _dieSound);
-            Destroy(gameObject);
+           // Destroy(gameObject);
+
+            gameObject.transform.position = _deathplacment.transform.position;
+            gameObject.transform.localScale = _deathplacment.transform.localScale;
+            gameObject.transform.eulerAngles = _deathplacment.transform.eulerAngles;
+            //vérouiller la difficulté ? 
         }
-        
+
     }
 
 
