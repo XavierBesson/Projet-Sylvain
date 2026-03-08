@@ -12,10 +12,14 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private TMP_Dropdown _difficultyButton;
     [SerializeField] private DetachableUi _swordUI;
     [SerializeField] private GameObject[] _swordObjectList;
+    [SerializeField] private TextMeshProUGUI _eventText;
 
     void Start()
     {
-        GameManager.Instance.PlayerHUDControllerM = this;
+        GameManager.Instance.PlayerHUDController = this;
+
+        _eventText.text = "extrèmement long test que je vois ce que ça rend";
+        Invoke("LoreTextEmpty", 2);
     }
 
     void Update()
@@ -63,4 +67,16 @@ public class PlayerHUDController : MonoBehaviour
     {
         _hpBar.value = hp;
     }
+
+    public void LoreText(string textToShow)
+    {
+        _eventText.text = textToShow;
+        Invoke("LoreTextEmpty", 2);
+    }
+
+    public void LoreTextEmpty ()
+    {
+        _eventText.text = string.Empty;
+    }
+
 }

@@ -28,6 +28,7 @@ public class Stairs : MonoBehaviour
             if (GameManager.Instance.Difficulty == EDifficulty.EASY)
             {
                 //Rien
+                GameManager.Instance.PlayerHUDController.LoreText("Un peu grand ces marches...");
             }
             else if (GameManager.Instance.Difficulty == EDifficulty.MEDIUM)
             {
@@ -35,7 +36,7 @@ public class Stairs : MonoBehaviour
                 GameManager.Instance.Player.Hpdamage(1.5f);
                 // Empèche le jour de reculer 
                 _stopBackwardWalls.gameObject.SetActive(true);
-                //Envoie Message Dialogue
+                GameManager.Instance.PlayerHUDController.LoreText("Ouch ! Trop haute ces marches !");
             }
             else if (GameManager.Instance.Difficulty == EDifficulty.HARD)
             {
@@ -43,7 +44,7 @@ public class Stairs : MonoBehaviour
                 GameManager.Instance.Player.Hpdamage(GameManager.Instance.Player.Hp);
                 // Empèche le jour de reculer 
                 _stopBackwardWalls.gameObject.SetActive(true);
-                //envoie message dialogue
+                GameManager.Instance.PlayerHUDController.LoreText("Les dégats de chute rigolent pas en DIFFICILE !");
             }
         }
         else _stopBackwardWalls.gameObject.SetActive(_active);

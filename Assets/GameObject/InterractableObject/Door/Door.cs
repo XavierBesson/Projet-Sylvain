@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Door : EnigmeObject
 {
-    [SerializeField] Canvas _uiDoor = null;
+  
     [SerializeField] GameObject _entireDoor = null;
     [SerializeField] GameObject _openDoorTransform = null;
     [SerializeField] GameObject _turn1Object = null;
@@ -79,9 +79,8 @@ public class Door : EnigmeObject
 
         if (_inRange)
         {
-            _uiDoor.gameObject.SetActive(true);
             _isInteracting=true;
-
+            GameManager.Instance.PlayerHUDController.LoreText("Il va me falloir une barre ou un engrenage...");
         }
         
     }

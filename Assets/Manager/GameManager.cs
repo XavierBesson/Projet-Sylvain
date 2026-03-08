@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     public bool GoblinEnding { get => _goblinEnding; set => _goblinEnding = value; }
     public Door Door { get => _door; set => _door = value; }
     public EDifficulty Difficulty { get => _difficulty; set => _difficulty = value; }
-    public PlayerHUDController PlayerHUDControllerM { get => _playerHUDController; set => _playerHUDController = value; }
+    public PlayerHUDController PlayerHUDController { get => _playerHUDController; set => _playerHUDController = value; }
     public DragHandler DragHandlerM { get => _dragHandler; set => _dragHandler = value; }
 
     #endregion Properties
