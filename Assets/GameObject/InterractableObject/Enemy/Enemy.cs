@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Enemy : EnigmeObject
 {
@@ -14,10 +16,22 @@ public class Enemy : EnigmeObject
     private int _currentHp;
     [SerializeField] private FollowPath _followPath;
 
+    [SerializeField] private ParticleSystem _easyBlood;
+    [SerializeField] private ParticleSystem _mediumBlood;
+    [SerializeField] private ParticleSystem _hardBlood;
+    [SerializeField] private GameObject _bloodPlacement;
+
+    [SerializeField] private GameObject _body1;
+    [SerializeField]  private GameObject _body2;
+    [SerializeField] private GameObject _body3;
+
 
     void Start()
     {
         _currentHp = _maxHp;
+        _body1.gameObject.SetActive(true);
+        _body2.gameObject.SetActive(false);
+        _body3.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,10 +52,36 @@ public class Enemy : EnigmeObject
             PlaySound(_audioSource, _dieSound);
            // Destroy(gameObject);
 
-            gameObject.transform.position = _deathplacment.transform.position;
-            gameObject.transform.localScale = _deathplacment.transform.localScale;
-            gameObject.transform.eulerAngles = _deathplacment.transform.eulerAngles;
+           //gameObject.transform.position = _deathplacment.transform.position;
+        //    gameObject.transform.localScale = _deathplacment.transform.localScale;
+          //  gameObject.transform.eulerAngles = _deathplacment.transform.eulerAngles;
             //vérouiller la difficulté ? 
+            _body1.gameObject.SetActive(false);
+            _body2.gameObject.SetActive(true);
+            _body3.gameObject.SetActive(true);
+
+            Destroy(GetComponent<BoxCollider>());
+
+
+            GameManager.Instance.PlayerHUDController.LoreText("Une belle décapitation ! Même pas d'éffort !");
+
+        }
+
+     if(GameManager.Instance.Difficulty == EDifficulty.EASY)
+        {
+            _easyBlood = Instantiate(_easyBlood, _bloodPlacement.gameObject.transform.position, Quaternion.identity);
+            _easyBlood.Play();
+        }
+     else if(GameManager.Instance.Difficulty == EDifficulty.MEDIUM)
+        {
+            _mediumBlood = Instantiate(_mediumBlood, _bloodPlacement.gameObject.transform.position, Quaternion.identity);
+            _mediumBlood.Play();
+
+        }
+     else if (GameManager.Instance.Difficulty == EDifficulty.HARD)
+        {
+            _hardBlood = Instantiate(_hardBlood, _bloodPlacement.gameObject.transform.position, Quaternion.identity);
+            _hardBlood.Play();
         }
 
     }
