@@ -6561,7 +6561,7 @@ MonoBehaviour:
       type: {class: FullScreenCustomPass, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
       data:
         m_Name: ScanningLines
-        enabled: 1
+        enabled: 0
         targetColorBuffer: 0
         targetDepthBuffer: 0
         clearFlags: 0
@@ -28025,7 +28025,7 @@ PrefabInstance:
       objectReference: {fileID: 224599058}
     - target: {fileID: 887590217354138897, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
       propertyPath: _barprogressSpeed
-      value: 0.025
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1998790645565428957, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
       propertyPath: m_PresetInfoIsWorld

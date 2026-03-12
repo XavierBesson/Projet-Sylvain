@@ -182,7 +182,7 @@ public class Door : EnigmeObject
             if (_inRange==true && _isInteracting ==true)
             {
 
-                _barATourner.transform.Rotate(new Vector3(0, 0, Input.GetAxis("Mouse Y")) * Time.deltaTime * _rotationSpeed);
+                _barATourner.transform.Rotate(new Vector3(0, 0, Input.GetAxis("Mouse Y")) * Time.deltaTime * _rotationSpeed,Space.World);
 
 
 
