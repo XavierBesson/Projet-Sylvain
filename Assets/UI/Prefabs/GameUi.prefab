@@ -801,6 +801,8 @@ MonoBehaviour:
   _uiSlotParent: {fileID: 8063265292862906139}
   _attached: 1
   _imageRestante: {fileID: 21300000, guid: c622c42ed23833c4a915e7f48f829118, type: 3}
+  _mouseTextureGrab: {fileID: 0}
+  _mouseTextureOriginal: {fileID: 0}
 --- !u!1 &2137091468533318024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,6 +1134,8 @@ MonoBehaviour:
   _uiSlotParent: {fileID: 8063265292862906139}
   _attached: 1
   _imageRestante: {fileID: 21300000, guid: e53216ecd46f8ba4a881a9e78210a953, type: 3}
+  _mouseTextureGrab: {fileID: 0}
+  _mouseTextureOriginal: {fileID: 0}
 --- !u!114 &2041898206743852373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2352,6 +2356,8 @@ MonoBehaviour:
   _uiSlotParent: {fileID: 8063265292862906139}
   _attached: 1
   _imageRestante: {fileID: 21300000, guid: 35498a1ac97413f4a9036485c389da28, type: 3}
+  _mouseTextureGrab: {fileID: 0}
+  _mouseTextureOriginal: {fileID: 0}
 --- !u!1 &5839346049845354946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,6 +2649,8 @@ MonoBehaviour:
   _uiSlotParent: {fileID: 230025874122481869}
   _attached: 1
   _imageRestante: {fileID: 21300000, guid: f4cdc345bca79e8478d2f5f6445fa4b5, type: 3}
+  _mouseTextureGrab: {fileID: 2800000, guid: 5751c9b811671004d95cd9b54f9ad5fc, type: 3}
+  _mouseTextureOriginal: {fileID: 2800000, guid: 70942cb277bfb53409545f51c322d21d, type: 3}
 --- !u!1 &6454660543434592690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,6 +3371,8 @@ MonoBehaviour:
   - {fileID: 1834323432633557807}
   _spawnParent: {fileID: 0}
   _spawnDistance: 1
+  _mouseTextureGrab: {fileID: 2800000, guid: 5751c9b811671004d95cd9b54f9ad5fc, type: 3}
+  _mouseTextureOriginal: {fileID: 2800000, guid: 70942cb277bfb53409545f51c322d21d, type: 3}
   _uiElement: {fileID: 0}
   _detachableUis: []
   _minShake: 0.01
