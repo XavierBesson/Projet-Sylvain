@@ -43,7 +43,7 @@ public class PiegedFloor : EnigmeObject
             _door.SpikeDamage(_damage); 
           
 
-           Invoke("TakeDamage", 1f);
+           Invoke("TakeDamage", 0.1f);
             
         }
     }

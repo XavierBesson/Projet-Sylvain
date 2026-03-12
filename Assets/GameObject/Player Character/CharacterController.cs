@@ -94,7 +94,7 @@ public class CharacterController : MonoBehaviour
 
     void TryMove(Vector3 dir)
     {
-        if (!Physics.Raycast(transform.position, dir, _stepDistance, _obstacles))
+        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles))
         {
             transform.position += dir * _stepDistance;
         }
