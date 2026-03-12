@@ -21,6 +21,10 @@ public class Door : EnigmeObject
     [SerializeField] float _barprogressSpeed = 0.5f;
     [SerializeField] float _rotationSpeed = 200f;
 
+    [SerializeField] private UnityEngine.Sprite _barImageSound = null;
+    [SerializeField] private Color _barColor = Color.white;
+
+
     [SerializeField] private float _previousAngle;
     [SerializeField] float _totalRotation;
 
@@ -270,6 +274,8 @@ public class Door : EnigmeObject
     public void SoundUsed()
     {
         _soundBarUsed = true;
+        _barATournerUI.transform.Find("Background").GetComponent<Image>().sprite = _barImageSound;
+        _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
         _barATournerUI.gameObject.SetActive(true);
     }
 
