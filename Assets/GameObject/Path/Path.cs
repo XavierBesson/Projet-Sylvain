@@ -13,7 +13,7 @@ public class Path : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (waypoints == null || waypoints.Length < 2) return;
+        if (waypoints == null || waypoints.Length < waypoints.Length-1) return;
 
         Gizmos.color = Color.cyan;
 
