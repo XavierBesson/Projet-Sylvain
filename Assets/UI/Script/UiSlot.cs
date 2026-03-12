@@ -8,11 +8,11 @@ public class UiSlot : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Sprite _sprite;
 
-    public void SetSprite(bool breaked)
+    public void SetSprite(bool breaked, Sprite imageRestante)
     {
         if (breaked)
         {
-            _image.sprite = _sprite;
+            _image.sprite = imageRestante;
             _image.color = Color.white;
         }
         else

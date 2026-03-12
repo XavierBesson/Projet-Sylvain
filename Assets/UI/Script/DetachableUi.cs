@@ -9,6 +9,7 @@ public class DetachableUi : MonoBehaviour
     [SerializeField] private GameObject _uiSlot = null;
     [SerializeField] private Transform _uiSlotParent = null;
     [SerializeField] private bool _attached = true;
+    [SerializeField] private Sprite _imageRestante = null; 
     private Vector2 _initialPosition = Vector2.zero;
 
     public GameObject UiObject { get => _uiObject; set => _uiObject = value; }
@@ -45,6 +46,7 @@ public class DetachableUi : MonoBehaviour
         _initialPosition = transform.position;
         if (_uiSlot)
             _uiSlot = Instantiate(_uiSlot, InitialPosition, Quaternion.identity, _uiSlotParent);
+       
     }
 
     public void SetToInitialPosition()
@@ -54,7 +56,7 @@ public class DetachableUi : MonoBehaviour
 
     public void SetUiSlotState(bool breaked)
     {
-        _uiSlot.GetComponent<UiSlot>().SetSprite(breaked);
+        _uiSlot.GetComponent<UiSlot>().SetSprite(breaked,_imageRestante);
     }
 
 
