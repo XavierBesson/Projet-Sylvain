@@ -45,7 +45,7 @@ public class Enemy : EnigmeObject
     }
 
 
-    public void TakeDamage(int damage, GameObject sword)
+    public void TakeDamage(int damage, UIObject sword)
     {
         _currentHp -= damage;
         print(_currentHp);
@@ -54,7 +54,7 @@ public class Enemy : EnigmeObject
         if (_currentHp <= 0)
         {
             PlaySound(_audioSource, _dieSound);
-            Destroy(sword);
+            sword.Despawn();
 
            //gameObject.transform.position = _deathplacment.transform.position;
         //    gameObject.transform.localScale = _deathplacment.transform.localScale;

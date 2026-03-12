@@ -33,7 +33,7 @@ public class SwordObject : UIObject
                 }
 
 
-                enemy.TakeDamage(_power,gameObject);
+                enemy.TakeDamage(_power,this);
 
 
 
