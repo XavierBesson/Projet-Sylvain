@@ -3375,10 +3375,11 @@ MonoBehaviour:
   _mouseTextureOriginal: {fileID: 2800000, guid: 70942cb277bfb53409545f51c322d21d, type: 3}
   _uiElement: {fileID: 0}
   _detachableUis: []
-  _minShake: 0.01
-  _shakeRate: 0.3
+  _minShake: 0.001
+  _shakeRate: 0.2
   _maxDistanceBeforeBreaking: 50
   _maxToSnapBack: 10
+  _maxBreakJauge: 200
 --- !u!114 &6505965172920921483
 MonoBehaviour:
   m_ObjectHideFlags: 0

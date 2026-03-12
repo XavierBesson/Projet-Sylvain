@@ -90,6 +90,7 @@ public class UIObject : MonoBehaviour
 
     private void ReturnToUI()
     {
+        print("NAAAAANIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
         DetachableUI.ResetPosition();
         Despawn();
     }

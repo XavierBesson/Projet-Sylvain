@@ -22,8 +22,10 @@ public class DragHandler : MonoBehaviour
     [SerializeField] private List<DetachableUi> _detachableUis = null;
     [SerializeField] private float _minShake = 0.1f;
     [SerializeField] private float _shakeRate = 1.0f;
-    [SerializeField] private float _maxDistanceBeforeBreaking = 20;
-    [SerializeField] private float _maxToSnapBack = 10;
+    //[SerializeField] private float _maxDistanceBeforeBreaking = 20;
+    //[SerializeField] private float _maxToSnapBack = 10;
+    [SerializeField] private float _maxBreakJauge = 200;
+    private float _breakJauge = 0;
     private float _uiScale = 1.0f;
     private bool _dragging = false;
 
@@ -69,11 +71,10 @@ public class DragHandler : MonoBehaviour
             float distance = Vector2.Distance(_uiElement.InitialPosition, Input.mousePosition);
             if (_uiElement.Attached)
             {
-                //
-                // voir pour remplir une jauge progressif mais pas instantanée
-                //
+                _breakJauge += distance / 100;
                 ShakeElement(_uiElement, distance);
-                if (distance >= _maxDistanceBeforeBreaking * _uiScale)
+                //if (distance >= _maxDistanceBeforeBreaking * _uiScale)
+                if (_breakJauge >= _maxBreakJauge)
                 {
                     _uiElement.Attached = false;
                     //particle effect
@@ -99,7 +100,7 @@ public class DragHandler : MonoBehaviour
                 ShakeElement(ui, 0);
         }
     }
-
+    /*
     private void SnapBackLogic()
     {
         float distance = Vector2.Distance(_uiElement.InitialPosition, _uiElement.transform.position);
@@ -109,7 +110,7 @@ public class DragHandler : MonoBehaviour
             _uiElement.SetToInitialPosition();
             _uiElement.SetUiSlotState(false);
         }
-    }
+    }*/
 
     private void SwitchInteractable(bool interactible)
     {
@@ -197,6 +198,7 @@ public class DragHandler : MonoBehaviour
             Debug.Log("exit drag");
             //SnapBackLogic();
             _dragging = false;
+            _breakJauge = 0;
             if (!_uiElement.Attached && _uiElement.UiObject)
             {
                 SpawnUiInWorld(Input.mousePosition);
@@ -229,6 +231,7 @@ public class DragHandler : MonoBehaviour
     #endregion Custom
     #endregion Methods
 
+    /*
     private void OnDrawGizmosSelected()
     {
         if (_dragging)
@@ -240,5 +243,5 @@ public class DragHandler : MonoBehaviour
             float snapRadius = _maxToSnapBack * _uiScale;
             Gizmos.DrawWireSphere(_uiElement.InitialPosition, snapRadius);
         }
-    }
+    }*/
 }

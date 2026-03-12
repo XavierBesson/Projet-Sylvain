@@ -9,9 +9,9 @@ public class Door : EnigmeObject
   
     [SerializeField] GameObject _entireDoor = null;
     [SerializeField] GameObject _openDoorTransform = null;
-    [SerializeField] GameObject _turn1Object = null;
-    [SerializeField] GameObject _turn2Object = null;
-    [SerializeField] GameObject _turn3Object = null;
+    [SerializeField] MeshRenderer _turn1Object = null;
+    [SerializeField] MeshRenderer _turn2Object = null;
+    [SerializeField] MeshRenderer _turn3Object = null;
 
     CharacterController _player = null;
 
@@ -53,9 +53,9 @@ public class Door : EnigmeObject
 
         _barATournerUI.gameObject.SetActive(false);
 
-      _turn1Object.GetComponent<MeshRenderer>().material.color = Color.white;
-      _turn2Object.GetComponent<MeshRenderer>().material.color = Color.white;
-      _turn3Object.GetComponent<MeshRenderer>().material.color = Color.white;
+      _turn1Object.material.color = Color.white;
+      _turn2Object.material.color = Color.white;
+      _turn3Object.material.color = Color.white;
 
     }
 
@@ -139,30 +139,30 @@ public class Door : EnigmeObject
 
             if (tours >= 2 || tours <= -2)
             {
-                _turn1Object.GetComponent<MeshRenderer>().material.color = Color.green;
-                _turn2Object.GetComponent<MeshRenderer>().material.color = Color.green;
-                _turn3Object.GetComponent<MeshRenderer>().material.color = Color.green;
+                _turn1Object.material.color = Color.green;
+                _turn2Object.material.color = Color.green;
+                _turn3Object.material.color = Color.green;
             }
 
             else if (tours >= 1 || tours <= -1)
             {
-                _turn1Object.GetComponent<MeshRenderer>().material.color = Color.green;
-                _turn2Object.GetComponent<MeshRenderer>().material.color = Color.green;
-                _turn3Object.GetComponent<MeshRenderer>().material.color = Color.white;
+                _turn1Object.material.color = Color.green;
+                _turn2Object.material.color = Color.green;
+                _turn3Object.material.color = Color.white;
             }
 
             else if (tours > 0.1 || tours < -0.1)
             {
-                _turn1Object.GetComponent<MeshRenderer>().material.color = Color.green;
-                _turn2Object.GetComponent<MeshRenderer>().material.color = Color.white;
-                _turn3Object.GetComponent<MeshRenderer>().material.color = Color.white;
+                _turn1Object.material.color = Color.green;
+                _turn2Object.material.color = Color.white;
+                _turn3Object.material.color = Color.white;
             }
 
             else 
             {
-                _turn1Object.GetComponent<MeshRenderer>().material.color = Color.white;
-                _turn2Object.GetComponent<MeshRenderer>().material.color = Color.white;
-                _turn3Object.GetComponent<MeshRenderer>().material.color = Color.white;
+                _turn1Object.material.color = Color.white;
+                _turn2Object.material.color = Color.white;
+                _turn3Object.material.color = Color.white;
             }
 
 
@@ -237,9 +237,9 @@ public class Door : EnigmeObject
         _entireDoor.transform.position = _openDoorTransform.transform.position;
         _entireDoor.transform.rotation = _openDoorTransform.transform.rotation;
         _open = true;
-        _turn1Object.GetComponent<MeshRenderer>().material.color = Color.green;
-        _turn2Object.GetComponent<MeshRenderer>().material.color = Color.green;
-        _turn3Object.GetComponent<MeshRenderer>().material.color = Color.green;
+        _turn1Object.material.color = Color.green;
+        _turn2Object.material.color = Color.green;
+        _turn3Object.material.color = Color.green;
 
     }
 

@@ -136,9 +136,6 @@ public class CharacterController : MonoBehaviour
                 transform.Rotate(0, -_rotationRate, 0);
                 _currentRotation -= _rotationRate;
             }
-
-            Debug.Log(_currentRotation);
-            Debug.Log(_targetRotation);
         }
     }
     #endregion Déplacement

@@ -4,25 +4,42 @@ using UnityEngine;
 
 public class PlatformObject : UIObject
 {
-    // Start is called before the first frame update
+    private PiegedFloor _solPieged;
+
+
     public override void Update()
     {
-        if (IsDragging && Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) && IsDragging)
         {
             Undrag();
-           
+            RecouvreSolPiege();
         }
     }
 
 
     private void OnTriggerEnter(Collider collision)
     {
-       
-   if (collision.gameObject.GetComponentInParent<PiegedFloor>() != null)
+        if (collision.gameObject.GetComponentInParent<PiegedFloor>() != null)
         {
-            collision.gameObject.GetComponentInParent<PiegedFloor>().IsCovered();
+            _solPieged = collision.gameObject.GetComponentInParent<PiegedFloor>();
+        }
+    }
 
-            Destroy(gameObject);
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.GetComponentInParent<PiegedFloor>() != null)
+        {
+            _solPieged = null;
+        }
+    }
+
+
+    private void RecouvreSolPiege()
+    {
+        if (_solPieged != null)
+        {
+            _solPieged.IsCovered();
+            Despawn();
         }
     }
 
@@ -30,5 +47,4 @@ public class PlatformObject : UIObject
 
 
 
-  
 }
