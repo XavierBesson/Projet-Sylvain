@@ -81,8 +81,12 @@ MonoBehaviour:
   _raycastMask:
     serializedVersion: 2
     m_Bits: 576
+  _detachableUI: {fileID: 0}
   _power: 1
   _atkSpeed: 10
+  _hitTextEasy: '"Tu veux me chattouiller ?"'
+  _hitTextMedium: '"Essaye de me tuer on va voir !"'
+  _hitTextHard: '*Il explose avant de pouvoir dire un mot*'
 --- !u!65 &5211608281344719565
 BoxCollider:
   m_ObjectHideFlags: 0

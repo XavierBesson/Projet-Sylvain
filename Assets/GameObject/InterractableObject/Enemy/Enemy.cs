@@ -25,6 +25,10 @@ public class Enemy : EnigmeObject
     [SerializeField]  private GameObject _body2;
     [SerializeField] private GameObject _body3;
 
+    [SerializeField] private GameObject _easySword;
+    [SerializeField] private GameObject _mediumSword;
+    [SerializeField] private GameObject _hardSword;
+
 
     void Start()
     {
@@ -60,10 +64,29 @@ public class Enemy : EnigmeObject
             _body2.gameObject.SetActive(true);
             _body3.gameObject.SetActive(true);
 
+            if (GameManager.Instance.Difficulty == EDifficulty.EASY)
+            {
+                _easySword.gameObject.SetActive(true);
+                _mediumSword.gameObject.SetActive(false);
+                _hardSword.gameObject.SetActive(false);
+            }
+            else if (GameManager.Instance.Difficulty == EDifficulty.MEDIUM)
+            {
+                _easySword.gameObject.SetActive(false);
+                _mediumSword.gameObject.SetActive(true);
+                _hardSword.gameObject.SetActive(false);
+            }
+            else if (GameManager.Instance.Difficulty == EDifficulty.HARD)
+            {
+                _easySword.gameObject.SetActive(false);
+                _mediumSword.gameObject.SetActive(false);
+                _hardSword.gameObject.SetActive(true);
+            }
+
             Destroy(GetComponent<BoxCollider>());
 
 
-            GameManager.Instance.PlayerHUDController.LoreText("Une belle décapitation ! Même pas d'éffort !");
+           // GameManager.Instance.PlayerHUDController.LoreText("Une belle décapitation ! Même pas d'éffort !");
 
         }
 

@@ -43,7 +43,7 @@ public class PlayerHUDController : MonoBehaviour
         switch (_difficultyButton.value)
         {
             case 0:
-                GameManager.Instance.Difficulty = EDifficulty.EASY;
+                GameManager.Instance.Difficulty = EDifficulty.HARD;
                 _swordUI.UiObject = _swordObjectList[0];
                 break;
 
@@ -53,7 +53,7 @@ public class PlayerHUDController : MonoBehaviour
                 break;
 
             case 2:
-                GameManager.Instance.Difficulty = EDifficulty.HARD;
+                GameManager.Instance.Difficulty = EDifficulty.EASY;
                 _swordUI.UiObject = _swordObjectList[2];
                 break;
         }
