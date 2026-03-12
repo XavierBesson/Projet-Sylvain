@@ -14,6 +14,8 @@ public class DragHandler : MonoBehaviour
     [Header("Spawn UI Settings")]
     [SerializeField] private Transform _spawnParent = null;
     [SerializeField] private float _spawnDistance = 1.0f;
+    [SerializeField] private Texture2D _mouseTextureGrab = null;
+    [SerializeField] private Texture2D _mouseTextureOriginal = null;
 
     [Header("UI Settings")]
     [SerializeField] private DetachableUi _uiElement = null;
@@ -210,6 +212,7 @@ public class DragHandler : MonoBehaviour
         {
             Debug.Log("hover on");
             _uiElement = ui;
+            Cursor.SetCursor(_mouseTextureGrab, Vector2.zero, CursorMode.Auto);
         }
     }
 
@@ -218,6 +221,7 @@ public class DragHandler : MonoBehaviour
         if (!_dragging)
         {
             Debug.Log("hover off");
+            Cursor.SetCursor(_mouseTextureOriginal, Vector2.zero, CursorMode.Auto);
             _uiElement = null;
         }
     }
