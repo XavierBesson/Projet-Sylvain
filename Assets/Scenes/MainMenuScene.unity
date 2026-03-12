@@ -936,6 +936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6305552241186929195, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7684140913752345497, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
       propertyPath: m_Delegates.Array.size
       value: 4
@@ -977,7 +981,9 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2405941529688028956, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
+    - {fileID: 6617706647835428071, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
