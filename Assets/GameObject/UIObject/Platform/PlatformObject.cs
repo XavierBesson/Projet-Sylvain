@@ -38,7 +38,7 @@ public class PlatformObject : UIObject
     {
         if (_solPieged != null)
         {
-            _solPieged.IsCovered();
+            _solPieged.IsCovered(false);
             Despawn();
         }
     }

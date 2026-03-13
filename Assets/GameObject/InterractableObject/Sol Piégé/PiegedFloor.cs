@@ -9,8 +9,9 @@ public class PiegedFloor : EnigmeObject
 
   [SerializeField] private CharacterController _player;
   [SerializeField] private float _damage = 1;
-  [SerializeField] private GameObject _platform = null;
- [SerializeField] private bool _isCovered;
+  [SerializeField] private GameObject _platformHp = null;
+    [SerializeField] private GameObject _platformBackground = null;
+    [SerializeField] private bool _isCovered;
     [SerializeField] private Door _door; 
 
   private bool _inRange = false;
@@ -18,8 +19,9 @@ public class PiegedFloor : EnigmeObject
     // Start is called before the first frame update
     void Start()
     {
-        _platform.SetActive(false);
-       // Invoke("IsCovered", 5f);
+        _platformHp.SetActive(false);
+        _platformBackground.SetActive(false);
+        // Invoke("IsCovered", 5f);
 
 
     }
@@ -48,12 +50,21 @@ public class PiegedFloor : EnigmeObject
         }
     }
 
-    public void IsCovered()
+    public void IsCovered(bool hpbar)
     {
-        _isCovered = true;
-        _platform.SetActive(true);
+        if ((hpbar == true))
+        {
+           // _isCovered = true;
+            _platformHp.SetActive(true);
+        }
+       else
+        {
+            _isCovered = true;
+            _platformBackground.SetActive(true);
+        }
+            
 
-        _platform.GetComponent<MeshRenderer>().material.color = Color.blue;
+       
 
 
     }
