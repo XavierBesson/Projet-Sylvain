@@ -63,6 +63,8 @@ public class PiegedFloor : EnigmeObject
 
         if (other.gameObject.GetComponentInParent<CharacterController>() == _player )
         {
+            GameManager.Instance.Player.IsInStairs(false);
+
             _inRange = true;
             TakeDamage();
 

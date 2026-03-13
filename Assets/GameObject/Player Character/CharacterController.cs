@@ -36,6 +36,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _hpMax = 5f;
     [SerializeField] private bool _hpRegen = false;
     private bool _isDead = false;
+    [SerializeField] private bool _isStairs = false;
 
 
     public Camera Camera { get => _camera; set => _camera = value; }
@@ -171,10 +172,16 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+    public void IsInStairs(bool stairs)
+    {
+        _isStairs = stairs;
+    }
+
     public void Death()
     {
         Debug.Log("Je suis mort");
-        GameManager.Instance.PlayerHUDController.PlayerIsDead();
+       
+        GameManager.Instance.PlayerHUDController.PlayerIsDead(_isStairs);
     }
 
 

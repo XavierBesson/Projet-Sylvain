@@ -71,9 +71,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entireDoor: {fileID: 6721621327273905190}
   _openDoorTransform: {fileID: 3177494317952569903}
-  _turn1Object: {fileID: 6643948570609540900}
-  _turn2Object: {fileID: 7619434177579114647}
-  _turn3Object: {fileID: 4301060864377447814}
+  _turn1Object: {fileID: 1657802671059282331}
+  _turn2Object: {fileID: 8685638577066545135}
+  _turn3Object: {fileID: 3594064105388462815}
   _barATourner: {fileID: 8831434001598589384}
   _gearObject: {fileID: 9214821050599841841}
   _barATournerUI: {fileID: 6746665823104213746}

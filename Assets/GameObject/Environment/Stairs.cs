@@ -25,6 +25,8 @@ public class Stairs : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {if (_ramp == true)
         {
+            GameManager.Instance.Player.IsInStairs(false);
+
             if (GameManager.Instance.Difficulty == EDifficulty.EASY)
             {
                 //Rien
@@ -47,7 +49,12 @@ public class Stairs : MonoBehaviour
                 GameManager.Instance.PlayerHUDController.LoreText("Les dégats de chute rigolent pas en DIFFICILE !");
             }
         }
-        else _stopBackwardWalls.gameObject.SetActive(_active);
+        else
+        {
+            _stopBackwardWalls.gameObject.SetActive(_active);
+            GameManager.Instance.Player.IsInStairs(true);
+        }
+
     }
 
 
