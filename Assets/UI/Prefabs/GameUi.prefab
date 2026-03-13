@@ -800,7 +800,7 @@ MonoBehaviour:
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8063265292862906139}
   _attached: 1
-  _imageRestante: {fileID: 21300000, guid: c622c42ed23833c4a915e7f48f829118, type: 3}
+  _imageRestante: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _mouseTextureGrab: {fileID: 0}
   _mouseTextureOriginal: {fileID: 0}
 --- !u!1 &2137091468533318024
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8063265292862906139}
   _attached: 1
-  _imageRestante: {fileID: 21300000, guid: e53216ecd46f8ba4a881a9e78210a953, type: 3}
+  _imageRestante: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _mouseTextureGrab: {fileID: 0}
   _mouseTextureOriginal: {fileID: 0}
 --- !u!114 &2041898206743852373
@@ -2355,7 +2355,7 @@ MonoBehaviour:
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8063265292862906139}
   _attached: 1
-  _imageRestante: {fileID: 21300000, guid: 35498a1ac97413f4a9036485c389da28, type: 3}
+  _imageRestante: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _mouseTextureGrab: {fileID: 0}
   _mouseTextureOriginal: {fileID: 0}
 --- !u!1 &5839346049845354946
@@ -2648,7 +2648,7 @@ MonoBehaviour:
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 230025874122481869}
   _attached: 1
-  _imageRestante: {fileID: 21300000, guid: f4cdc345bca79e8478d2f5f6445fa4b5, type: 3}
+  _imageRestante: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _mouseTextureGrab: {fileID: 2800000, guid: 5751c9b811671004d95cd9b54f9ad5fc, type: 3}
   _mouseTextureOriginal: {fileID: 2800000, guid: 70942cb277bfb53409545f51c322d21d, type: 3}
 --- !u!1 &6454660543434592690
@@ -3514,6 +3514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c725e9f16ebed24448e5e91b618758d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMainMenu: 0
   _holdBreakMode: 324
   _uiParticles:
   - {fileID: 5462124268670378544}
@@ -3749,7 +3750,7 @@ PrefabInstance:
     - target: {fileID: 234660673297706486, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
       propertyPath: _imageRestante
       value: 
-      objectReference: {fileID: 21300000, guid: 2c93175225fb2a548be57daf96033e8a, type: 3}
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1587996461868288231, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
       propertyPath: m_Name
       value: HPBar
@@ -4054,7 +4055,7 @@ PrefabInstance:
     - target: {fileID: 9124977470527894224, guid: c63488cdd0b95cc4fbacd9f6c7311130, type: 3}
       propertyPath: _imageRestante
       value: 
-      objectReference: {fileID: 21300000, guid: 48e153309845c064e8713730dc1ee437, type: 3}
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

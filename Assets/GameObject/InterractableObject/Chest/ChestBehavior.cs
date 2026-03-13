@@ -32,21 +32,20 @@ public class ChestBehavior : MonoBehaviour
 
     public void Endings()
     {
-        if (GameManager.Instance.GoblinEnding)
-        {
-            foreach (GameObject gold in _GoldObjects)
-            {
-                gold.SetActive(false);
-            }
-            _chestAnimator.SetTrigger("OpenChest");
-        }
-        else
-            GoldEnding();
+       
+           
+        GoldEnding();
+       
     }
 
     public void SpinChest()
     {
-        _chestAnimator.SetBool("OIIA", _spin);
+        Invoke("SpinChestDelay", 2);
+    }
+
+    public void SpinChestDelay()
+    {
+        _chestAnimator.SetBool("OIIA", true);
     }
 
     private void GoldEnding()
