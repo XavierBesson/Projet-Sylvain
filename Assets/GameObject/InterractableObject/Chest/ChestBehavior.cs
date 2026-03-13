@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
 public class ChestBehavior : MonoBehaviour
 {
     [SerializeField] private Animator _chestAnimator;
+
+    [Header("Ending Settings")]
+    [SerializeField] private GameObject[] _GoldObjects;
+
+    //[SerializeField] private GameObject _vcEnding;
+
     private bool _spin = false;
     [Header("Explosion Settings")]
     [SerializeField] private Vector3 _position;
@@ -21,19 +28,32 @@ public class ChestBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _spin =_chestAnimator.GetBool("OIIA");
+    }
 
-            _chestAnimator.SetBool("OIIA", !_spin);
-        }
-
-        if(Input.GetKeyDown(KeyCode.O))
+    public void Endings()
+    {
+        if (GameManager.Instance.GoblinEnding)
         {
+            foreach (GameObject gold in _GoldObjects)
+            {
+                gold.SetActive(false);
+            }
             _chestAnimator.SetTrigger("OpenChest");
-
-            Invoke("Coinplosion", _delay);
         }
+        else
+            GoldEnding();
+    }
+
+    public void SpinChest()
+    {
+        _chestAnimator.SetBool("OIIA", _spin);
+    }
+
+    private void GoldEnding()
+    {
+        _chestAnimator.SetTrigger("OpenChest");
+
+        Invoke("Coinplosion", _delay);
     }
 
     private void Coinplosion()
