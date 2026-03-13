@@ -34,12 +34,18 @@ public class ChestBehavior : MonoBehaviour
     {
        
            
-        GoldEnding();
+                     GoldEnding();
        
     }
 
     public void SpinChest()
     {
+        foreach (GameObject gold in _GoldObjects)
+        {
+            gold.SetActive(false);
+        }
+       
+
         Invoke("SpinChestDelay", 2);
     }
 

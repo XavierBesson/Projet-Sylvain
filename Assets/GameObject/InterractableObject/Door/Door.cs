@@ -267,6 +267,7 @@ public class Door : EnigmeObject
     public void HpBarUsed()
     {
         _healthBarUsed = true;
+        _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
         _barATournerUI.gameObject.SetActive(true);
         UpdateElementThxToDoor();
     }
