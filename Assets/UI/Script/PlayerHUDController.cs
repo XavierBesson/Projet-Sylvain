@@ -19,6 +19,8 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private GameObject[] _deadUiObjects;
     [SerializeField] private TextMeshProUGUI _deathText;
     [SerializeField] private GameObject _lowHPVisuelImage;
+    [SerializeField] private GameObject _damageImage;
+
 
     void Start()
     {
@@ -101,6 +103,16 @@ public class PlayerHUDController : MonoBehaviour
         //Afficher text 
         //Couper la visibilité
         //Bouton recommencer et quitter
+    }
+
+    public void TakeDammageStart()
+    {
+        _damageImage.gameObject.SetActive(true);
+        Invoke("TakeDamageEnd",0.2f);
+    }
+    public void TakedamageEnd()
+    {
+        _damageImage.gameObject.SetActive(false);
     }
 
     public void LowHpVisuelFeedback(bool isLow)

@@ -21,6 +21,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _snapRotation = 45f;
     [SerializeField] private float _rotationRate = 2f;
     [SerializeField] private LayerMask _obstacles;
+    [SerializeField] private LayerMask _floor;
     [SerializeField] private LayerMask _stairs;
     private float _targetRotation;
     private float _currentRotation;
@@ -73,7 +74,7 @@ public class CharacterController : MonoBehaviour
         {
             Death();
         }
-
+        GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
     }
 
     #region Déplacement
@@ -86,6 +87,7 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
+          
             if (Input.GetKeyDown(KeyCode.W))
                 TryMove(this.transform.forward);
             if (Input.GetKeyDown(KeyCode.S))
@@ -95,7 +97,8 @@ public class CharacterController : MonoBehaviour
 
     void TryMove(Vector3 dir)
     {
-        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles))
+        Vector3 dir2 = -this.transform.up;
+        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles) && Physics.Raycast(transform.position, dir2, 1.1f, _floor))
         {
             transform.position += dir * _stepDistance;
         }
@@ -155,6 +158,7 @@ public class CharacterController : MonoBehaviour
         if (Hp > 0f)
         {
             Debug.Log("J'ai actuellement" + Hp + "Pv");
+            GameManager.Instance.PlayerHUDController.TakeDammageStart();
         }
         
        
