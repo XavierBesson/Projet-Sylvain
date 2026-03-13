@@ -26724,11 +26724,11 @@ PrefabInstance:
     - target: {fileID: 5468714470057118382, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
       propertyPath: m_Options.m_Options.Array.data[0].m_Image
       value: 
-      objectReference: {fileID: 21300000, guid: f4a12465884dcea45a2fcf3d595faa74, type: 3}
+      objectReference: {fileID: 21300000, guid: 6c273a2893b9f5d4ea408d245412a3b6, type: 3}
     - target: {fileID: 5468714470057118382, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
       propertyPath: m_Options.m_Options.Array.data[2].m_Image
       value: 
-      objectReference: {fileID: 21300000, guid: ff152544055d10546be975c80941cb88, type: 3}
+      objectReference: {fileID: 21300000, guid: 2488cea6e8c23784a8a73f990c5f9448, type: 3}
     - target: {fileID: 6248658944906404384, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
       propertyPath: _spawnParent
       value: 
