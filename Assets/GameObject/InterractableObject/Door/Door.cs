@@ -47,7 +47,6 @@ public class Door : EnigmeObject
         _totalRotation = 0f;
 
         _player = GameManager.Instance.Player;
-        _player.Hp = _barATournerUI.value;
 
         _gearObject.SetActive(false);
 

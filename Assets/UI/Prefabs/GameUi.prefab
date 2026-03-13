@@ -3405,7 +3405,9 @@ MonoBehaviour:
   - {fileID: 4834662073604153626}
   - {fileID: 3695242767256193698}
   - {fileID: 1095810413637536225}
+  _deathText: {fileID: 0}
   _lowHPVisuelImage: {fileID: 2841669880804495813}
+  _damageImage: {fileID: 0}
 --- !u!95 &6140975555592430082
 Animator:
   serializedVersion: 5
@@ -3600,11 +3602,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2257094439381379483, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
       propertyPath: m_Value
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2257094439381379483, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257094439381379483, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
+      propertyPath: m_MaxValue
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2257094439381379483, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
       propertyPath: m_Interactable

@@ -44,14 +44,15 @@ public class CharacterController : MonoBehaviour
     public float Hp { get => _hp;
         set {_hp = value;
             GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
-            if (Hp <= 0f) { Debug.Log("DEAD"); }
+            HPVisual();
+            if (Hp <= 0f) { Death(); }
         } }
     public UIObject CurrentUIObject { get { return _currentUIObject; } set => _currentUIObject = value; }
 
 
     void Start()
     {
-        _hp = _hpMax;
+        Hp = _hpMax;
         _currentRotation = transform.rotation.eulerAngles.y;
         _targetRotation = _currentRotation;
     }
@@ -68,18 +69,15 @@ public class CharacterController : MonoBehaviour
         MouseClic();
         _mousePosition = Input.mousePosition;
         // HpRegen();
-        HPVisual();
+        
      
-        if(Hp <= 0)
-        {
-            Death();
-        }
         GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
     }
 
     #region Déplacement
     private void Move()
     {
+        
         if (_oldSchoolMove == false)
         {
             float vertical = Input.GetAxis("Vertical");
@@ -88,9 +86,9 @@ public class CharacterController : MonoBehaviour
         else
         {
           
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                 TryMove(this.transform.forward);
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
                 TryMove(-this.transform.forward);
         }
     }
@@ -113,7 +111,7 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 _targetRotation -= _snapRotation;
                 //transform.Rotate(0f, -_snapRotation, 0f);
@@ -122,7 +120,7 @@ public class CharacterController : MonoBehaviour
             }
 
             // Rotation droite
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 _targetRotation += _snapRotation;
                 //transform.Rotate(0f, _snapRotation, 0f);
@@ -157,7 +155,6 @@ public class CharacterController : MonoBehaviour
         Hp = Hp - damage;
         if (Hp > 0f)
         {
-            Debug.Log("J'ai actuellement" + Hp + "Pv");
             GameManager.Instance.PlayerHUDController.TakeDammageStart();
         }
         
@@ -208,12 +205,12 @@ public class CharacterController : MonoBehaviour
 
     void MouseClic()
 
-    { if (Input.GetMouseButtonDown(0))
+    {
+        if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("clic"); 
-           RaycastHit hit;
-          Ray ray = GameManager.Instance.Player.Camera.ScreenPointToRay(Input.mousePosition);
-
+            RaycastHit hit;
+            Ray ray = GameManager.Instance.Player.Camera.ScreenPointToRay(Input.mousePosition);
 
             Physics.Raycast(ray, out hit, _interactile);
 
@@ -230,9 +227,5 @@ public class CharacterController : MonoBehaviour
                 
         }
 
-            }
-        }
-
-
-    
-
+    }
+}
