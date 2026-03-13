@@ -115,6 +115,7 @@ public class Enemy : EnigmeObject
     {
         PlaySound(_audioSource, _fuiteSound);
         _endingObject.EndingCat();
+        GameManager.Instance.GoblinEnding = true;
         GameManager.Instance.GameLoop += _followPath.ActivateFollowPath;
         GameManager.Instance.GoblinEnding = true;
     }

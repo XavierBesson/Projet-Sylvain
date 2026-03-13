@@ -25,14 +25,16 @@ public class Ending : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+       
         if (_endingNormal == true)
         {
-            //Trigger event du coffre ? 
+            _chest.Endings();
 
             Invoke("EndingScreenDelay", 5);
         }
         if(_endingNormal ==false)
         {
+            _chest.SpinChest();
             _followPath.ActivateFollowPath();
             _cat.SetActive(true);
             _endingCat.ActivateCat();
