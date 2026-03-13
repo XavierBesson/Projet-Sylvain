@@ -15,6 +15,7 @@ public class Enemy : EnigmeObject
     [SerializeField] private GameObject _deathplacment;
     private int _currentHp;
     [SerializeField] private FollowPath _followPath;
+    [SerializeField] private Ending _endingObject;
 
     [SerializeField] private ParticleSystem _easyBlood;
     [SerializeField] private ParticleSystem _mediumBlood;
@@ -113,6 +114,7 @@ public class Enemy : EnigmeObject
     public void Fuite()
     {
         PlaySound(_audioSource, _fuiteSound);
+        _endingObject.EndingCat();
         GameManager.Instance.GameLoop += _followPath.ActivateFollowPath;
         GameManager.Instance.GoblinEnding = true;
     }

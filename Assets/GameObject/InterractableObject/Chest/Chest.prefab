@@ -65,6 +65,7 @@ GameObject:
   - component: {fileID: 5102051267283072986}
   - component: {fileID: 3602495520823402451}
   - component: {fileID: 1041553749037165364}
+  - component: {fileID: 2602365726290201755}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -123,10 +124,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chestAnimator: {fileID: 3602495520823402451}
+  _triggerBox: {fileID: 2602365726290201755}
+  _characterSnapPosition: {fileID: 0}
   _position: {x: 0, y: 0.3, z: -0.2}
   _radius: 0.7
   _force: 20
   _delay: 1.8
+--- !u!65 &2602365726290201755
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771709616631587730}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0.03, y: 0.52, z: 0}
 --- !u!1 &5290314180930592780
 GameObject:
   m_ObjectHideFlags: 0
