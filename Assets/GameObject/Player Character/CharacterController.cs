@@ -57,6 +57,7 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         Hp = _hpMax;
+        GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
         _currentRotation = transform.rotation.eulerAngles.y;
         _targetRotation = _currentRotation;
     }

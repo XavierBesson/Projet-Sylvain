@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI Values")]
     private DragHandler _dragHandler = null;
-    private PlayerHUDController _playerHUDController = null;
+    [SerializeField] private PlayerHUDController _playerHUDController = null;
     [SerializeField] private float _soundMultiplier = 1;
     [SerializeField] private EDifficulty _difficulty = EDifficulty.MEDIUM;
 

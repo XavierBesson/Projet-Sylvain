@@ -23,10 +23,9 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private GameObject _endingImageTroll;
 
 
+
     void Start()
     {
-        GameManager.Instance.PlayerHUDController = this;
-
         _eventText.text = "extrèmement long test que je vois ce que ça rend";
         Invoke("LoreTextEmpty", 2);
     }
