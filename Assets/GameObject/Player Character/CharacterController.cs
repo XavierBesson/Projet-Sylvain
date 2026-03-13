@@ -11,6 +11,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private Camera _camera;
     [SerializeField] private bool _oldSchoolMove = false;
+    [SerializeField] private bool _moving = true;
 
     [Header("Déplacement Moderne")]
     [SerializeField] private float _moveSpeed = 5;
@@ -43,8 +44,11 @@ public class CharacterController : MonoBehaviour
     public Camera Camera { get => _camera; set => _camera = value; }
     public float Hp { get => _hp;
         set {_hp = value;
-            GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
-            HPVisual();
+            if (GameManager.Instance.PlayerHUDController != null)
+            {
+                GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
+                HPVisual();
+            }
             if (Hp <= 0f) { Death(); }
         } }
     public UIObject CurrentUIObject { get { return _currentUIObject; } set => _currentUIObject = value; }
@@ -60,18 +64,21 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
-        if (_isDead == false)
+        if (_moving)
         {
-            Move();
-            Rotate();
+            if (!_isDead)
+            {
+                Move();
+                Rotate();
+            }
         }
         // MousePosition();
         MouseClic();
         _mousePosition = Input.mousePosition;
         // HpRegen();
-        
-     
-        GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
+
+        if (GameManager.Instance.PlayerHUDController != null)
+            GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
     }
 
     #region Déplacement

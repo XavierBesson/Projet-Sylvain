@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioSource _timerAudioSource;
 
     [Header("UI Values")]
     private DragHandler _dragHandler = null;
@@ -78,7 +77,7 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     void Update()
