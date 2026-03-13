@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
 {
 
     [Header("Scene")]
-    [SerializeField] private SceneAsset _mainMenuScene;
     [SerializeField] private CharacterController _player = null;
     private bool _goblinEnding = false;
     [SerializeField] private Door _door = null;
@@ -114,9 +113,9 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public static void LoadLevel(SceneAsset level)
+    public static void LoadLevel(string level)
     {
-        SceneManager.LoadScene(level.name);
+        SceneManager.LoadScene(level);
     }
 
     #endregion Statics
