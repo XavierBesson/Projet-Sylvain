@@ -141,6 +141,7 @@ public class GameManager : MonoBehaviour
     public void PlayGameManagerSouds(AudioClip sound)
     {
         _audioSource.clip = sound;
+        _audioSource.volume = GameManager.Instance.SoundMultiplier;
         _audioSource.Play();
     }
 

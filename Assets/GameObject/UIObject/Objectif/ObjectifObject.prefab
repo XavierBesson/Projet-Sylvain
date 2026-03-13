@@ -164,7 +164,7 @@ MonoBehaviour:
   _collider: {fileID: 5211608281344719565}
   _raycastMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 576
   _detachableUI: {fileID: 0}
 --- !u!65 &5211608281344719565
 BoxCollider:

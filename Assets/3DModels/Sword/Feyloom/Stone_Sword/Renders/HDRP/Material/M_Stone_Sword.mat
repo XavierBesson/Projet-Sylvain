@@ -252,7 +252,7 @@ Material:
     m_Colors:
     - _BloodColor: {r: 0.227451, g: 0, b: 0, a: 1}
     - _Blood_Color: {r: 0.22745097, g: 0, b: 0, a: 1}
-    - _ChangeBaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ChangeBaseColor: {r: 1, g: 1, b: 1, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _DirtColor: {r: 0.10943389, g: 0.06812124, b: 0.03613382, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
