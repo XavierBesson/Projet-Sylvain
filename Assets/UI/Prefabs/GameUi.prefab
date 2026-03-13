@@ -3514,6 +3514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c725e9f16ebed24448e5e91b618758d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMainMenu: 0
   _holdBreakMode: 324
   _uiParticles:
   - {fileID: 5462124268670378544}
@@ -3529,7 +3530,7 @@ MonoBehaviour:
   _detachableUis: []
   _minShake: 0.001
   _shakeRate: 0.2
-  _maxBreakJauge: 200
+  _maxBreakJauge: 150
 --- !u!114 &6505965172920921483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4042,6 +4043,14 @@ PrefabInstance:
     - target: {fileID: 8147631705099042734, guid: c63488cdd0b95cc4fbacd9f6c7311130, type: 3}
       propertyPath: m_Name
       value: SoundBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453793999939025282, guid: c63488cdd0b95cc4fbacd9f6c7311130, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453793999939025282, guid: c63488cdd0b95cc4fbacd9f6c7311130, type: 3}
+      propertyPath: m_MaxValue
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8453793999939025282, guid: c63488cdd0b95cc4fbacd9f6c7311130, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
