@@ -20,6 +20,8 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _deathText;
     [SerializeField] private GameObject _lowHPVisuelImage;
     [SerializeField] private GameObject _damageImage;
+    [SerializeField] private GameObject _endingImage;
+    [SerializeField] private GameObject _endingImageTroll;
 
 
     void Start()
@@ -137,5 +139,21 @@ public class PlayerHUDController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Ending(bool normal)
+    {
+        if(normal == true)
+        {
+            _endingImage.gameObject.SetActive(true);
+        }
+        else
+        {
+          _endingImageTroll.gameObject.SetActive(true);
+        }
+
+
+
+    }
+
 
 }
