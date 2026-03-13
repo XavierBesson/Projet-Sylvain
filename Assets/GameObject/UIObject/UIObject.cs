@@ -7,13 +7,11 @@ public class UIObject : MonoBehaviour
 {
     [SerializeField] protected Rigidbody _rb;
     [SerializeField] private float _dragDistance = 3;
-    [SerializeField] private Collider _collider = null;
     private bool _isDragging = false;
     private CharacterController _playerCharacter = null;
     [SerializeField] private LayerMask _raycastMask;
     [SerializeField] private DetachableUi _detachableUI = null;
 
-    public Collider Collider { get => _collider; set => _collider = value; }
     public CharacterController PlayerCharacter { get => _playerCharacter; set => _playerCharacter = value; }
     public bool IsDragging { get => _isDragging; set => _isDragging = value; }
     public DetachableUi DetachableUI { get => _detachableUI; set => _detachableUI = value; }
@@ -63,7 +61,6 @@ public class UIObject : MonoBehaviour
         if (Physics.Raycast(ray, out hit, GameManager.Instance.Player.Camera.nearClipPlane + _dragDistance, _raycastMask))
         {
             _rb.MovePosition(hit.point - ray.direction * 0.2f);
-            print("NAAAAAAANIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
         }
         else
         {
@@ -89,7 +86,7 @@ public class UIObject : MonoBehaviour
             ReturnToUI();
     }
 
-    private void ReturnToUI()
+    public void ReturnToUI()
     {
         DetachableUI.ResetPosition();
         Despawn();

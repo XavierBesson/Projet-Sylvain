@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class DragHandler : MonoBehaviour
 {
+    [SerializeField] private bool _isMainMenu = false;
     [Header("Input")]
     [SerializeField] private KeyCode _holdBreakMode = KeyCode.None;
     private bool _breakMode = false;
