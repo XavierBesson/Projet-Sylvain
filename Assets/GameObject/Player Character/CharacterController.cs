@@ -21,6 +21,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _snapRotation = 45f;
     [SerializeField] private float _rotationRate = 2f;
     [SerializeField] private LayerMask _obstacles;
+    [SerializeField] private LayerMask _floor;
     [SerializeField] private LayerMask _stairs;
     private float _targetRotation;
     private float _currentRotation;
@@ -36,6 +37,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _hpMax = 5f;
     [SerializeField] private bool _hpRegen = false;
     private bool _isDead = false;
+    [SerializeField] private bool _isStairs = false;
 
 
     public Camera Camera { get => _camera; set => _camera = value; }
@@ -72,7 +74,7 @@ public class CharacterController : MonoBehaviour
         {
             Death();
         }
-
+        GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
     }
 
     #region Déplacement
@@ -85,6 +87,7 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
+          
             if (Input.GetKeyDown(KeyCode.W))
                 TryMove(this.transform.forward);
             if (Input.GetKeyDown(KeyCode.S))
@@ -94,7 +97,8 @@ public class CharacterController : MonoBehaviour
 
     void TryMove(Vector3 dir)
     {
-        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles))
+        Vector3 dir2 = -this.transform.up;
+        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles) && Physics.Raycast(transform.position, dir2, 1.1f, _floor))
         {
             transform.position += dir * _stepDistance;
         }
@@ -154,6 +158,7 @@ public class CharacterController : MonoBehaviour
         if (Hp > 0f)
         {
             Debug.Log("J'ai actuellement" + Hp + "Pv");
+            GameManager.Instance.PlayerHUDController.TakeDammageStart();
         }
         
        
@@ -171,10 +176,16 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+    public void IsInStairs(bool stairs)
+    {
+        _isStairs = stairs;
+    }
+
     public void Death()
     {
         Debug.Log("Je suis mort");
-        GameManager.Instance.PlayerHUDController.PlayerIsDead();
+       
+        GameManager.Instance.PlayerHUDController.PlayerIsDead(_isStairs);
     }
 
 

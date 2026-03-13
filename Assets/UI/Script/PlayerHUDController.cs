@@ -17,7 +17,10 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private GameObject[] _swordObjectList;
     [SerializeField] private TextMeshProUGUI _eventText;
     [SerializeField] private GameObject[] _deadUiObjects;
+    [SerializeField] private TextMeshProUGUI _deathText;
     [SerializeField] private GameObject _lowHPVisuelImage;
+    [SerializeField] private GameObject _damageImage;
+
 
     void Start()
     {
@@ -84,16 +87,32 @@ public class PlayerHUDController : MonoBehaviour
         _eventText.text = string.Empty;
     }
 
-    public void PlayerIsDead()
+    public void PlayerIsDead(bool stairs)
     {
         foreach (GameObject gameobject in _deadUiObjects)
         {
             gameobject.SetActive(true);
         }
 
+        if (stairs == true)
+        {
+            _deathText.text = "Le plus ancien ennemie du monde : La gravité ! (aider par sa cousine la difficulté)";
+        }
+        else _deathText.text = "Une mort à COUPER le souffle";
+
         //Afficher text 
         //Couper la visibilité
         //Bouton recommencer et quitter
+    }
+
+    public void TakeDammageStart()
+    {
+        _damageImage.gameObject.SetActive(true);
+        Invoke("TakeDamageEnd",0.2f);
+    }
+    public void TakedamageEnd()
+    {
+        _damageImage.gameObject.SetActive(false);
     }
 
     public void LowHpVisuelFeedback(bool isLow)
