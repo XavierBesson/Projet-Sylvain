@@ -14,6 +14,12 @@ public class MainMenuDoor : EnigmeObject
     [SerializeField] private Material _quitMat;
     [SerializeField] private Material _returnMat;
 
+    [Header("Ejection settings")]
+    [SerializeField] private float _delayBeforeLoadingScene = 0.5f;
+    [SerializeField] private Transform _ejectionTransform;
+    [SerializeField] private Vector3 _minRange;
+    [SerializeField] private Vector3 _maxRange;
+
 
     void Start()
     {
@@ -25,6 +31,7 @@ public class MainMenuDoor : EnigmeObject
     {
         if (Input.GetMouseButtonUp(1) && _keyInSerrure != null)
         {
+            EjectPreviousKey();
             OpenDoor();
         }
     }
@@ -50,7 +57,7 @@ public class MainMenuDoor : EnigmeObject
         {
             case EMainMenuKey.PLAY:
                 DisplayKey(_playMat);
-                _mainMenu.PlayGame();
+                Invoke("PlayGame", _delayBeforeLoadingScene);
                 break;
             case EMainMenuKey.TUTO:
                 DisplayKey(_tutoMat);
@@ -58,7 +65,7 @@ public class MainMenuDoor : EnigmeObject
                 break;
             case EMainMenuKey.QUIT:
                 DisplayKey(_quitMat);
-                _mainMenu.QuitGame();
+                Invoke("QuitGame", _delayBeforeLoadingScene);
                 break;
             case EMainMenuKey.MAINMENU:
                 DisplayKey(_returnMat);
@@ -75,4 +82,25 @@ public class MainMenuDoor : EnigmeObject
         _clefModel.material = mat;
     }
 
+    private void EjectPreviousKey()
+    {
+        GameObject key = Instantiate(_clefModel.gameObject, _ejectionTransform.position, _ejectionTransform.rotation, transform);
+        Rigidbody rb = key.AddComponent<Rigidbody>();
+        BoxCollider collider = key.AddComponent<BoxCollider>();
+
+        Vector3 propulsion = new Vector3(Random.Range(_minRange.x, _maxRange.x),
+            Random.Range(_minRange.y, _maxRange.y), Random.Range(_minRange.z, _maxRange.z));
+
+        rb.AddForce(propulsion,ForceMode.VelocityChange);
+    }
+
+    private void PlayGame()
+    {
+        _mainMenu.PlayGame();
+    }
+
+    private void QuitGame()
+    {
+        _mainMenu.QuitGame();
+    }
 }

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &893168897802474245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1336978247584950655}
+  m_Layer: 0
+  m_Name: Ejection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1336978247584950655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893168897802474245}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2365604787568853440}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &939852451712238276
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +64,7 @@ Transform:
   m_Children:
   - {fileID: 27955839187140029}
   - {fileID: 1188864658555102084}
+  - {fileID: 1336978247584950655}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5580795426505300656
@@ -53,6 +85,10 @@ MonoBehaviour:
   _tutoMat: {fileID: 2100000, guid: 648b1ae83718f9043ba390e708f3ee62, type: 2}
   _quitMat: {fileID: 2100000, guid: 6583c252c4519d14f8787e8c5313413b, type: 2}
   _returnMat: {fileID: 2100000, guid: 16b382729f3b3ef408f0ad1d02425013, type: 2}
+  _delayBeforeLoadingScene: 1
+  _ejectionTransform: {fileID: 1336978247584950655}
+  _minRange: {x: -2, y: 2, z: -2}
+  _maxRange: {x: 2, y: 4, z: 0}
 --- !u!65 &1617447574793550863
 BoxCollider:
   m_ObjectHideFlags: 0
