@@ -3377,8 +3377,6 @@ MonoBehaviour:
   _detachableUis: []
   _minShake: 0.001
   _shakeRate: 0.2
-  _maxDistanceBeforeBreaking: 50
-  _maxToSnapBack: 10
   _maxBreakJauge: 200
 --- !u!114 &6505965172920921483
 MonoBehaviour:
@@ -3601,6 +3599,14 @@ PrefabInstance:
       value: HPBar
       objectReference: {fileID: 0}
     - target: {fileID: 2257094439381379483, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
+      propertyPath: m_Value
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257094439381379483, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257094439381379483, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
@@ -3619,6 +3625,10 @@ PrefabInstance:
     - target: {fileID: 2257094439381379483, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
       propertyPath: m_Colors.m_DisabledColor.r
       value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 3480619762674156935, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4785211887990579815, guid: 4ecaea2641851d741a9a297f8f1b942c, type: 3}
       propertyPath: m_SizeDelta.x

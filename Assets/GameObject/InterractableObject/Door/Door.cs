@@ -269,6 +269,7 @@ public class Door : EnigmeObject
     {
         _healthBarUsed = true;
         _barATournerUI.gameObject.SetActive(true);
+        UpdateElementThxToDoor();
     }
 
     public void SoundUsed()

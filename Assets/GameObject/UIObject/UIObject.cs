@@ -63,6 +63,7 @@ public class UIObject : MonoBehaviour
         if (Physics.Raycast(ray, out hit, GameManager.Instance.Player.Camera.nearClipPlane + _dragDistance, _raycastMask))
         {
             _rb.MovePosition(hit.point - ray.direction * 0.2f);
+            print("NAAAAAAANIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
         }
         else
         {
@@ -90,7 +91,6 @@ public class UIObject : MonoBehaviour
 
     private void ReturnToUI()
     {
-        print("NAAAAANIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
         DetachableUI.ResetPosition();
         Despawn();
     }

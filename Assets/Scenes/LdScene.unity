@@ -9266,6 +9266,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 694e70c1cf5937d47891a6b19d72bfb0, type: 3}
+--- !u!23 &714148249 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3594064105388462815, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
+  m_PrefabInstance: {fileID: 60110430224775166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &726991261
 GameObject:
   m_ObjectHideFlags: 0
@@ -24910,6 +24915,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8492440690643632977, guid: 9f2ed2ef64d0a59419c4791d6ddda859, type: 3}
   m_PrefabInstance: {fileID: 1611818128}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1618549508 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1657802671059282331, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
+  m_PrefabInstance: {fileID: 60110430224775166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1624919205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4114383534648166993, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
@@ -31025,6 +31035,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 668735768885291391, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
   m_PrefabInstance: {fileID: 1987606755}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1988994043 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8685638577066545135, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
+  m_PrefabInstance: {fileID: 60110430224775166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1991987955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32456,6 +32471,18 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 224599058}
+    - target: {fileID: 887590217354138897, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
+      propertyPath: _turn1Object
+      value: 
+      objectReference: {fileID: 1618549508}
+    - target: {fileID: 887590217354138897, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
+      propertyPath: _turn2Object
+      value: 
+      objectReference: {fileID: 1988994043}
+    - target: {fileID: 887590217354138897, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
+      propertyPath: _turn3Object
+      value: 
+      objectReference: {fileID: 714148249}
     - target: {fileID: 887590217354138897, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
       propertyPath: _barprogressSpeed
       value: 0.01
