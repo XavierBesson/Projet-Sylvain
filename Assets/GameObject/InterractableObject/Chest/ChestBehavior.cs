@@ -16,7 +16,6 @@ public class ChestBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Coinplosion", _delay);
     }
 
     // Update is called once per frame
@@ -32,6 +31,8 @@ public class ChestBehavior : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.O))
         {
             _chestAnimator.SetTrigger("OpenChest");
+
+            Invoke("Coinplosion", _delay);
         }
     }
 

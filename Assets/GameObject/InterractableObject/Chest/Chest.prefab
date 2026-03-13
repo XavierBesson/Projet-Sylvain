@@ -126,7 +126,7 @@ MonoBehaviour:
   _position: {x: 0, y: 0.3, z: -0.2}
   _radius: 0.7
   _force: 20
-  _delay: 1
+  _delay: 1.8
 --- !u!1 &5290314180930592780
 GameObject:
   m_ObjectHideFlags: 0
