@@ -3230,6 +3230,7 @@ MonoBehaviour:
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8304891}
   _imageRestante: {fileID: 0}
+  _slotScale: {x: 1, y: 1, z: 1}
 --- !u!1001 &1061790164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4165,6 +4166,10 @@ PrefabInstance:
       propertyPath: _mainMenu
       value: 
       objectReference: {fileID: 1822526559}
+    - target: {fileID: 5580795426505300656, guid: 1f57108caca5bc44c9cb8073bbfc79d0, type: 3}
+      propertyPath: _destroyDelay
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4589,6 +4594,7 @@ MonoBehaviour:
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8304891}
   _imageRestante: {fileID: 0}
+  _slotScale: {x: 1, y: 1, z: 1}
 --- !u!114 &1379484259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7067,6 +7073,7 @@ MonoBehaviour:
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8304891}
   _imageRestante: {fileID: 0}
+  _slotScale: {x: 1, y: 1, z: 1}
 --- !u!1 &2059572729
 GameObject:
   m_ObjectHideFlags: 0
@@ -7431,6 +7438,7 @@ MonoBehaviour:
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8304891}
   _imageRestante: {fileID: 0}
+  _slotScale: {x: 1, y: 1, z: 1}
 --- !u!114 &2113345977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7903,14 +7911,6 @@ PrefabInstance:
       propertyPath: _isMainMenu
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3076354496779216224, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
-      propertyPath: _mouseTextureGrab
-      value: 
-      objectReference: {fileID: 2800000, guid: 5751c9b811671004d95cd9b54f9ad5fc, type: 3}
-    - target: {fileID: 3076354496779216224, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
-      propertyPath: _mouseTextureOriginal
-      value: 
-      objectReference: {fileID: 2800000, guid: 70942cb277bfb53409545f51c322d21d, type: 3}
     - target: {fileID: 4047849332414679428, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
       propertyPath: _uiObject
       value: 
