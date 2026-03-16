@@ -7127,6 +7127,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1041553749037165364, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
+      propertyPath: _delay
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041553749037165364, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
       propertyPath: _force
       value: 100
       objectReference: {fileID: 0}
