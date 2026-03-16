@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4680428886729580293, guid: 2557a800c5ebfb345964a5bee38d8439, type: 3}
       propertyPath: _atkSpeed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5211608281344719565, guid: 2557a800c5ebfb345964a5bee38d8439, type: 3}
       propertyPath: m_Size.x

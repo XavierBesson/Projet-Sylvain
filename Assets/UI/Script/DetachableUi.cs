@@ -8,11 +8,8 @@ public class DetachableUi : MonoBehaviour
     [SerializeField] private GameObject _uiObject = null;
     [SerializeField] private GameObject _uiSlot = null;
     [SerializeField] private Transform _uiSlotParent = null;
-    [SerializeField] private bool _attached = true;
+    private bool _attached = true;
     [SerializeField] private Sprite _imageRestante = null;
-
-    [SerializeField] private Texture2D _mouseTextureGrab = null;
-    [SerializeField] private Texture2D _mouseTextureOriginal = null;
 
     private Vector2 _initialPosition = Vector2.zero;
 
@@ -52,18 +49,6 @@ public class DetachableUi : MonoBehaviour
             _uiSlot = Instantiate(_uiSlot, InitialPosition, Quaternion.identity, _uiSlotParent);
        
     }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Cursor.SetCursor(_mouseTextureGrab, Vector2.zero, CursorMode.Auto);
-        Debug.Log("yo");
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Cursor.SetCursor(_mouseTextureOriginal, Vector2.zero, CursorMode.Auto);
-    }
-
 
 
     public void SetToInitialPosition()
