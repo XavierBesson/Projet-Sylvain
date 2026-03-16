@@ -35015,8 +35015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: '"On ne passe pas sans MON autorisation ! Donne moi une bonne motivation
-    ou meurt !"'
+  _clicText: You tremble in fear as the monster says "YOU SHALL NOT PASS WITHOUT
+    MY AUTORISATION ! Give me a reason to crawl, or dare to slay me"
 --- !u!65 &1379767270
 BoxCollider:
   m_ObjectHideFlags: 0

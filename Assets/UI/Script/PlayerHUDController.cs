@@ -26,7 +26,7 @@ public class PlayerHUDController : MonoBehaviour
 
     void Start()
     {
-        _eventText.text = "extrèmement long test que je vois ce que ça rend";
+        _eventText.text = "Here you are ! Finally in the dungeon, where a treasure lies. Go get it, now !";
         Invoke("LoreTextEmpty", 2);
     }
 
@@ -96,9 +96,9 @@ public class PlayerHUDController : MonoBehaviour
 
         if (stairs == true)
         {
-            _deathText.text = "Le plus ancien ennemie du monde : La gravité ! (aider par sa cousine la difficulté)";
+            _deathText.text = "That was one step too far...";
         }
-        else _deathText.text = "Une mort à COUPER le souffle";
+        else _deathText.text = "What a razor-sharp death.";
 
         //Afficher text 
         //Couper la visibilité
