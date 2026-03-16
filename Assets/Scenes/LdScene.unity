@@ -231,11 +231,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3894330395812385565, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
   m_PrefabInstance: {fileID: 454570608}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &25327229 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6961769210357640265, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
-  m_PrefabInstance: {fileID: 1800884419}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &26680991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4035061916803469378, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
@@ -1101,19 +1096,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8582451509887590953, guid: f8c0297a8d99e2747baeb5697c8ecb66, type: 3}
   m_PrefabInstance: {fileID: 152823328}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &70706902
-MonoBehaviour:
+--- !u!65 &70706902
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70706900}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clicText: '"Attention grande marche..."'
+  serializedVersion: 3
+  m_Size: {x: 1.7608262, y: 4.742949, z: 1.7608266}
+  m_Center: {x: 0.0000037441923, y: 2.3722992, z: 0.00000009032012}
 --- !u!1 &72469171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4580446331104520154, guid: 9f2ed2ef64d0a59419c4791d6ddda859, type: 3}
@@ -2177,7 +2180,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3212457486517514475, guid: f8c0297a8d99e2747baeb5697c8ecb66, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2680,11 +2684,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8378305016021551963, guid: e7a79a14190d3d34f93236ba7164d734, type: 3}
   m_PrefabInstance: {fileID: 185356708}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &185464679 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6961769210357640265, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
-  m_PrefabInstance: {fileID: 971843029}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &187463765 stripped
 GameObject:
@@ -18234,7 +18233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: "Petit mal de t\xEAte..."
+  _clicText: Slight headache...
 --- !u!65 &515567934
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20028,7 +20027,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: "Pas beacoup de vari\xE9t\xE9 d'asset..."
+  _clicText: Not much variety in assets...
+--- !u!65 &605391719
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605391714}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7754112, y: 2.961084, z: 0.68122435}
+  m_Center: {x: -0.0000019073486, y: 1.480542, z: -0.00000035762787}
 --- !u!1 &605663805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7325326283467275279, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
@@ -23759,11 +23779,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flag.004 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3682689757282557851, guid: 83b081522f15df64cb4f8b5416eccdec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5030231515337382016, guid: 83b081522f15df64cb4f8b5416eccdec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1875958826}
   m_SourcePrefab: {fileID: 100100000, guid: 83b081522f15df64cb4f8b5416eccdec, type: 3}
+--- !u!1 &804016707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5030231515337382016, guid: 83b081522f15df64cb4f8b5416eccdec, type: 3}
+  m_PrefabInstance: {fileID: 804016706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &805300168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1159351990771520630, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
@@ -24690,13 +24719,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 174.245
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3185712928625305912, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7212807089758395303, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1684096026}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
 --- !u!1 &860160828
 GameObject:
@@ -25912,13 +25939,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4282854172872116063, guid: e7a79a14190d3d34f93236ba7164d734, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7564636611156017616, guid: e7a79a14190d3d34f93236ba7164d734, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1417076844}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7a79a14190d3d34f93236ba7164d734, type: 3}
 --- !u!4 &907870589 stripped
 Transform:
@@ -26536,19 +26561,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4114383534648166993, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
   m_PrefabInstance: {fileID: 1800884419}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &948150178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25327229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clicText: "La fa\xE7on la plus satisfaisainte de mourir : Bourr\xE9"
 --- !u!1 &950839498 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8024901098154897764, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
@@ -27154,12 +27166,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: '"Attention grande marche..."'
+  _clicText: '"Caution: (very) high steps..."'
 --- !u!4 &960771080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8408384421787346338, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
   m_PrefabInstance: {fileID: 1005308606}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &960771081
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960771075}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5188056, y: 0.07094223, z: 0.36293542}
+  m_Center: {x: -5.7712046e-10, y: 0.019364951, z: 0.00000047683716}
 --- !u!1001 &961157478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27561,13 +27594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion_Red (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8072500089590831082, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6961769210357640265, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1624919209}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
 --- !u!4 &972149783 stripped
 Transform:
@@ -28262,6 +28293,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 438060387}
     m_Modifications:
+    - target: {fileID: -3185712928625305912, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7212807089758395303, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
       propertyPath: m_Name
       value: Book_Holy_C
@@ -28321,8 +28356,9 @@ PrefabInstance:
     - target: {fileID: 9118708492287326264, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 64c25aef0bb2ac14baaaef692f801567, type: 2}
-    m_RemovedComponents: []
+      objectReference: {fileID: 2100000, guid: ca32cada060cf774dbd29b2f3410086a, type: 2}
+    m_RemovedComponents:
+    - {fileID: -3185712928625305912, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8408384421787346338, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
@@ -28332,6 +28368,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7212807089758395303, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
       insertIndex: -1
       addedObject: {fileID: 960771076}
+    - targetCorrespondingSourceObject: {fileID: 7212807089758395303, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 960771081}
   m_SourcePrefab: {fileID: 100100000, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
 --- !u!1 &1007742180 stripped
 GameObject:
@@ -28370,8 +28409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: "Des d\xE9gats en boucle j'ai interet a bien utiliser mar bar de vie
-    ou trouver quelque chose d'assez gros pour couvrir tout \xE7a..."
+  _clicText: I'm taking damage on repeat; I'd better make good use of my health bar
+    or find something big enough to cover all of this...
 --- !u!1 &1016941964 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4580446331104520154, guid: 9f2ed2ef64d0a59419c4791d6ddda859, type: 3}
@@ -33140,24 +33179,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9065146376684911562, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
   m_PrefabInstance: {fileID: 454570608}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1267136299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3383c02c02ff290469b05876f9107076, type: 3}
-  m_PrefabInstance: {fileID: 1595306718}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1267136300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267136299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clicText: "La fa\xE7on la plus satisfaisainte de mourir : Bourr\xE9"
 --- !u!1001 &1269632242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33851,19 +33872,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8658826975651601233, guid: 41996a6ea1c51594381fbbe2d45b1187, type: 3}
   m_PrefabInstance: {fileID: 1578449111}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1330217534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1183627893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clicText: 
 --- !u!114 &1330217535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33876,7 +33884,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: "Chaud... heureusement qu'ils ont pas cod\xE9 des d\xE9gats de feu !"
+  _clicText: Hot stuff... luckily they didn't code in fire damage!
+--- !u!65 &1330217536
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183627893}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.6175098, y: 0.27972487, z: 2.5489838}
+  m_Center: {x: -0.019044995, y: 0.14623944, z: 1.2475644}
 --- !u!1 &1331125370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6468806096294022956, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
@@ -33895,6 +33924,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 677938838}
     m_Modifications:
+    - target: {fileID: -3309056508310971335, guid: c533c10f37d12c941bf5dfea26e26cac, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3399158795423394286, guid: c533c10f37d12c941bf5dfea26e26cac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.844194
@@ -33939,13 +33972,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table.003
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3309056508310971335, guid: c533c10f37d12c941bf5dfea26e26cac, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6967361487159559488, guid: c533c10f37d12c941bf5dfea26e26cac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2033901759}
+    - targetCorrespondingSourceObject: {fileID: 6967361487159559488, guid: c533c10f37d12c941bf5dfea26e26cac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2033901760}
   m_SourcePrefab: {fileID: 100100000, guid: c533c10f37d12c941bf5dfea26e26cac, type: 3}
 --- !u!1 &1333964692 stripped
 GameObject:
@@ -34045,7 +34082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: '"Bien trop grand !"'
+  _clicText: It's much too big for the door! (and to lift)
 --- !u!4 &1337875968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aeb79abcaac54244cab173f7df15ec2d, type: 3}
@@ -35575,24 +35612,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5930078217488725956, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
   m_PrefabInstance: {fileID: 454570608}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1417076840 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7564636611156017616, guid: e7a79a14190d3d34f93236ba7164d734, type: 3}
-  m_PrefabInstance: {fileID: 907870588}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1417076844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417076840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clicText: "Chaud... heureusement qu'ils ont pas cod\xE9 des d\xE9gats de feu !"
 --- !u!1 &1418522957 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3731739877920292113, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
@@ -36977,24 +36996,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8747744255365721037, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
   m_PrefabInstance: {fileID: 454570608}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1463429048 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 556515823571614727, guid: 2908a19ef1a7b3a49bfc9a55bf645e69, type: 3}
-  m_PrefabInstance: {fileID: 1985162637}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1463429052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463429048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clicText: "La fa\xE7on la plus satisfaisainte de mourir : Bourr\xE9"
 --- !u!1 &1464009764 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 822313656656993772, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
@@ -37584,7 +37585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1500536307
 Transform:
   m_ObjectHideFlags: 0
@@ -39251,7 +39252,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5571875007215308120, guid: 41996a6ea1c51594381fbbe2d45b1187, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -39260,7 +39262,7 @@ PrefabInstance:
       addedObject: {fileID: 1330217535}
     - targetCorrespondingSourceObject: {fileID: 1652918237898053684, guid: 41996a6ea1c51594381fbbe2d45b1187, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1330217534}
+      addedObject: {fileID: 1330217536}
   m_SourcePrefab: {fileID: 100100000, guid: 41996a6ea1c51594381fbbe2d45b1187, type: 3}
 --- !u!1 &1582942677 stripped
 GameObject:
@@ -39883,10 +39885,7 @@ PrefabInstance:
     - {fileID: 7206684240109514295, guid: 3383c02c02ff290469b05876f9107076, type: 3}
     - {fileID: -7215728291095847048, guid: 3383c02c02ff290469b05876f9107076, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3383c02c02ff290469b05876f9107076, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1267136300}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3383c02c02ff290469b05876f9107076, type: 3}
 --- !u!1001 &1598333182
 PrefabInstance:
@@ -40237,19 +40236,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4114383534648166993, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
   m_PrefabInstance: {fileID: 971843029}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1624919209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185464679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clicText: "La fa\xE7on la plus satisfaisainte de mourir : Bourr\xE9"
 --- !u!1001 &1628865215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41588,24 +41574,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4580446331104520154, guid: 9f2ed2ef64d0a59419c4791d6ddda859, type: 3}
   m_PrefabInstance: {fileID: 1834311145}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1684096022 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7212807089758395303, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
-  m_PrefabInstance: {fileID: 859783950}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1684096026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684096022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clicText: "La fa\xE7on la plus satisfaisainte de mourir : Bourr\xE9"
 --- !u!1 &1684159614 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4580446331104520154, guid: 9f2ed2ef64d0a59419c4791d6ddda859, type: 3}
@@ -42366,6 +42334,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 677938838}
     m_Modifications:
+    - target: {fileID: -368183188410852150, guid: c0b6670604b282847a0f26cf98f36820, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2157335988112527113, guid: c0b6670604b282847a0f26cf98f36820, type: 3}
       propertyPath: m_Name
       value: Shelf_Framed
@@ -42410,13 +42382,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -368183188410852150, guid: c0b6670604b282847a0f26cf98f36820, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2157335988112527113, guid: c0b6670604b282847a0f26cf98f36820, type: 3}
       insertIndex: -1
       addedObject: {fileID: 605391718}
+    - targetCorrespondingSourceObject: {fileID: 2157335988112527113, guid: c0b6670604b282847a0f26cf98f36820, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 605391719}
   m_SourcePrefab: {fileID: 100100000, guid: c0b6670604b282847a0f26cf98f36820, type: 3}
 --- !u!1 &1714825474 stripped
 GameObject:
@@ -43420,8 +43396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: "Si vous ne voyez pas les chaines et barrea a travers les pixels je
-    pense que les designers ne voulaient pas qu'on sorte par l\xE0"
+  _clicText: If you can't see the chains and bars through the pixels, I think the
+    designers didn't want us to exit that way.
 --- !u!1 &1795153423 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9171308913175556833, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
@@ -43494,13 +43470,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Potion_Red (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8072500089590831082, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6961769210357640265, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 948150178}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e723b3d5b0e8c478e3b502b94369d5, type: 3}
 --- !u!1 &1802809737 stripped
 GameObject:
@@ -45142,6 +45116,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1954709115183033765, guid: 83b081522f15df64cb4f8b5416eccdec, type: 3}
   m_PrefabInstance: {fileID: 804016706}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1875958826
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804016707}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.30383903, y: 4.4480805, z: 2.4768124}
+  m_Center: {x: 0.13413277, y: -2.175923, z: -0.003044784}
 --- !u!1 &1876056466 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4580446331104520154, guid: 9f2ed2ef64d0a59419c4791d6ddda859, type: 3}
@@ -47201,13 +47196,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -638973051721211930, guid: 2908a19ef1a7b3a49bfc9a55bf645e69, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 556515823571614727, guid: 2908a19ef1a7b3a49bfc9a55bf645e69, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1463429052}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2908a19ef1a7b3a49bfc9a55bf645e69, type: 3}
 --- !u!1001 &1987606755
 PrefabInstance:
@@ -48177,7 +48170,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: "La fa\xE7on la plus satisfaisainte de mourir : Bourr\xE9"
+  _clicText: 'The most satisfying way to die: Drunk'
+--- !u!65 &2033901760
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033901755}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.9249948, y: 2, z: 1.4018302}
+  m_Center: {x: 0, y: 1, z: -0.0000002682209}
 --- !u!1 &2040883221 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1159351990771520630, guid: 91ad7bf144749b04ab484a680630a040, type: 3}
