@@ -10,6 +10,7 @@ public class DetachableUi : MonoBehaviour
     [SerializeField] private Transform _uiSlotParent = null;
     private bool _attached = true;
     [SerializeField] private Sprite _imageRestante = null;
+    [SerializeField] private Vector3 _slotScale = Vector3.one;
 
     private Vector2 _initialPosition = Vector2.zero;
 
@@ -34,8 +35,11 @@ public class DetachableUi : MonoBehaviour
         set
         {
             _initialPosition = value;
-            if(_uiSlot)
+            if (_uiSlot)
+            {
                 _uiSlot.transform.position = _initialPosition;
+                _uiSlot.transform.localScale = _slotScale;
+            }
         }
     }
 
