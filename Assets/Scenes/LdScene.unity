@@ -28569,6 +28569,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8804383968058266125, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
   m_PrefabInstance: {fileID: 454570608}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1030233582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030233584}
+  - component: {fileID: 1030233583}
+  m_Layer: 0
+  m_Name: FPS Counter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1030233583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030233582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064a55f247c321a4c9abbbbf2fb4eaa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1030233584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030233582}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1032375194 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4190622260336481259, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
@@ -37540,7 +37584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1500536307
 Transform:
   m_ObjectHideFlags: 0
@@ -38865,6 +38909,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3756210554882487637, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689065896438687687, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4834662073604153626, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
@@ -49910,3 +49958,4 @@ SceneRoots:
   - {fileID: 595575705}
   - {fileID: 638922966}
   - {fileID: 678411146}
+  - {fileID: 1030233584}

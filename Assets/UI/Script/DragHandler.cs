@@ -204,6 +204,7 @@ public class DragHandler : MonoBehaviour
             {
                 SpawnUiInWorld(Input.mousePosition);
                 _uiElement.gameObject.SetActive(false);
+                Unhover(_uiElement);
                 _uiElement = null;
             }
         }
