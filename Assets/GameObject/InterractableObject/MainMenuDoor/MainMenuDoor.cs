@@ -19,6 +19,7 @@ public class MainMenuDoor : EnigmeObject
     [SerializeField] private Transform _ejectionTransform;
     [SerializeField] private Vector3 _minRange;
     [SerializeField] private Vector3 _maxRange;
+    [SerializeField] private float _destroyDelay;
 
 
     void Start()
@@ -92,6 +93,7 @@ public class MainMenuDoor : EnigmeObject
             Random.Range(_minRange.y, _maxRange.y), Random.Range(_minRange.z, _maxRange.z));
 
         rb.AddForce(propulsion,ForceMode.VelocityChange);
+        Destroy(key, _destroyDelay);
     }
 
     private void PlayGame()
