@@ -30,7 +30,7 @@ public class EngrenageObject : UIObject
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.layer == _doorLayer)
+        if (collision.gameObject.GetComponentInParent<Door>() != null)
             _onDoor = false;
     }
 

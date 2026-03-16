@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 5053834459620792582}
   - component: {fileID: 2992202762313303356}
   - component: {fileID: 8027638222376549387}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,6 +496,7 @@ MonoBehaviour:
   _rb: {fileID: 8027638222376549387}
   _camera: {fileID: 3792004439328024846}
   _oldSchoolMove: 1
+  _moving: 1
   _moveSpeed: 5
   _rotateSpeed: 0.8
   _stepDistance: 2
@@ -504,6 +505,12 @@ MonoBehaviour:
   _obstacles:
     serializedVersion: 2
     m_Bits: 1344
+  _floor:
+    serializedVersion: 2
+    m_Bits: 0
+  _stairs:
+    serializedVersion: 2
+    m_Bits: 0
   _interactRange: 100000
   _interactile:
     serializedVersion: 2
@@ -512,6 +519,7 @@ MonoBehaviour:
   _hp: 0
   _hpMax: 5
   _hpRegen: 0
+  _isStairs: 0
 --- !u!65 &5053834459620792582
 BoxCollider:
   m_ObjectHideFlags: 0
