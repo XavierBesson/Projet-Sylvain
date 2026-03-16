@@ -90,6 +90,7 @@ MonoBehaviour:
   _fuiteSound: {fileID: 8300000, guid: 0f6081952c6364241bd1e7f288f4d7b9, type: 3}
   _deathplacment: {fileID: 6424343482810391348}
   _followPath: {fileID: 5269256711370871844}
+  _endingObject: {fileID: 0}
   _easyBlood: {fileID: 0}
   _mediumBlood: {fileID: 0}
   _hardBlood: {fileID: 0}
@@ -231,7 +232,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 3, z: 4}
+  m_Size: {x: 2.3, y: 3, z: 4}
   m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &6996028421278287316
 GameObject:

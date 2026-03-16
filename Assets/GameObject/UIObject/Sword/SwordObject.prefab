@@ -76,8 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -7753831751626184557}
-  _dragDistance: 2
-  _collider: {fileID: 5211608281344719565}
+  _dragDistance: 3
   _raycastMask:
     serializedVersion: 2
     m_Bits: 576
