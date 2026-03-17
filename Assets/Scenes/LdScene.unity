@@ -38448,16 +38448,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb747d9af4b71ff4b9c4aee380b00f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalEnding: 1
+  _endingNormal: 1
   _followPath: {fileID: 602382586}
   _endingCat: {fileID: 602382588}
   _chest: {fileID: 944818403}
   _cat: {fileID: 602382584}
-  _normalEndingText: '"Finally ! You have come to find this antique treasure. Congratulations
-    !"'
-  _normalEndingMusic: {fileID: 8300000, guid: cffb719329513624e8c0f748a1b557f8, type: 3}
-  _catEndingText: '"Hey !! That ca- Monster is stealing our treasure !!"'
-  _catEndingMusic: {fileID: 8300000, guid: f8de7ec61f1e0c44db005ce60448703c, type: 3}
 --- !u!65 &1517488348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39646,6 +39641,10 @@ PrefabInstance:
     - target: {fileID: 3761369983142665663, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378510652219638437, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4689065896438687687, guid: 79bcd50ff6fdbe44e8d0a9f291d44441, type: 3}
       propertyPath: m_IsActive
