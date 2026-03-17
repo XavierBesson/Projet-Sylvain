@@ -27664,7 +27664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: '"Caution: (very) high steps..."'
+  _clicText: It says "Caution (very) high steps." Huh, don't worry, I'm sure you'll
+    be okay !
 --- !u!4 &960771080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8408384421787346338, guid: 587911d8e2e27694daaec695bc48f418, type: 3}
@@ -44276,8 +44277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: If you can't see the chains and bars through the pixels, I think the
-    designers didn't want us to exit that way.
+  _clicText: Hey ! You decided to enter, now you can't leave !!
 --- !u!65 &1795050846
 BoxCollider:
   m_ObjectHideFlags: 0
