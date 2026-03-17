@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _deadMusic;
 
     [Header("UI Values")]
     private DragHandler _dragHandler = null;
@@ -86,25 +87,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-    public void EndGame()
+    public void DeadPlayer()
     {
-        if (GoblinEnding)
-        {
-
-        }
+        PlayGameManagerSouds(_deadMusic);
     }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        CharacterController player = other.gameObject.GetComponent <CharacterController>();
-        if (player != null)
-        {
-            EndGame();
-        }
-    }
-
 
     #region Statics
 

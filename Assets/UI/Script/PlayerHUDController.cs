@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class PlayerHUDController : MonoBehaviour
 {
@@ -67,14 +68,36 @@ public class PlayerHUDController : MonoBehaviour
 
 
     #region Text
-
+    /*
     public void LoreText(string textToShow)
     {
-        _eventText.text = textToShow;
+        await CharDisplay(textToShow);
         _actualTextTime = 0;
         GameManager.Instance.GameLoop -= TextTimer;
         GameManager.Instance.GameLoop += TextTimer;
     }
+
+
+    private async Awaitable CharDisplay(string Text)
+    {
+        char[] chars = Text.ToCharArray();
+        _eventText.text = string.Empty;
+
+        //audioSource[0].Play();
+        //await Awaitable.WaitForSecondsAsync(audioSource[0].clip.length);
+        
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+            return;
+
+        for (int i = 0; i < chars.Length; i++)
+        {
+            //audioSource[1].Play();
+            _eventText.text += chars[i];
+            await Awaitable.WaitForSecondsAsync(.05f);
+        }
+    }
+*/
+
 
     private void TextTimer()
     {
@@ -104,6 +127,7 @@ public class PlayerHUDController : MonoBehaviour
 
     public void PlayerIsDead(bool stairs)
     {
+        GameManager.Instance.DeadPlayer();
         foreach (GameObject gameobject in _deadUiObjects)
         {
             gameobject.SetActive(true);

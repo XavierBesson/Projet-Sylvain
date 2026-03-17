@@ -4,54 +4,66 @@ using UnityEngine;
 
 public class Ending : MonoBehaviour
 {
-    [SerializeField] private bool _endingNormal = true;
+    [SerializeField] private bool _normalEnding = true;
     [SerializeField] private FollowPath _followPath;
     [SerializeField] private EndingCat _endingCat;
     [SerializeField] private ChestBehavior _chest;
     [SerializeField] private GameObject _cat;
 
+    [Header("NormalEnding")]
+    [SerializeField] private string _normalEndingText;
+    [SerializeField] private AudioClip _normalEndingMusic;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("CatEnding")]
+    [SerializeField] private string _catEndingText;
+    [SerializeField] private AudioClip _catEndingMusic;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     private void OnTriggerEnter(Collider other)
     {
        
-        if (_endingNormal == true)
+        if (_normalEnding)
         {
-            _chest.Endings();
-
-            Invoke("EndingScreenDelay", 5);
+            NormalEnding();
         }
-        if(_endingNormal ==false)
+        else
         {
-            _chest.SpinChest();
-            _followPath.ActivateFollowPath();
-            _cat.SetActive(true);
-            _endingCat.ActivateCat();
-
-            Invoke("EndingScreenDelay", 5);
+            CatEnding();
         }
-     
-
+        Invoke("EndingScreenDelay", 5);
     }
+
+
+    private void NormalEnding()
+    {
+        _chest.Endings();
+        GameManager.Instance.PlayerHUDController.LoreText(_normalEndingText);
+        GameManager.Instance.PlayGameManagerSouds(_normalEndingMusic);
+    }
+
+
+    private void CatEnding()
+    {
+        GameManager.Instance.PlayerHUDController.LoreText(_catEndingText);
+        GameManager.Instance.PlayGameManagerSouds(_catEndingMusic);
+        _chest.SpinChest();
+        _followPath.ActivateFollowPath();
+        _cat.SetActive(true);
+        _endingCat.ActivateCat();
+    }
+
+
+
     public void EndingCat()
     {
-        _endingNormal = false;
+        _normalEnding = false;
+        
     }
 
     public void EndingScreenDelay()
     {
-        GameManager.Instance.PlayerHUDController.Ending(_endingNormal);
+        GameManager.Instance.PlayerHUDController.Ending(_normalEnding);
     }
 
     }

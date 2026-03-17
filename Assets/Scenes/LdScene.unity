@@ -5717,7 +5717,6 @@ GameObject:
   m_Component:
   - component: {fileID: 425792144}
   - component: {fileID: 425792143}
-  - component: {fileID: 425792145}
   - component: {fileID: 425792146}
   m_Layer: 0
   m_Name: Game manager
@@ -5753,33 +5752,12 @@ Transform:
   m_GameObject: {fileID: 425792142}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 44.32}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &425792145
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425792142}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4, y: 3, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &425792146
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17789,6 +17767,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1517488346}
   - {fileID: 1751483387}
   - {fileID: 595575705}
   - {fileID: 678411146}
@@ -19966,7 +19945,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1517488346}
   - {fileID: 1190616612}
   - {fileID: 952651635}
   - {fileID: 636673174}
@@ -38452,11 +38430,11 @@ Transform:
   m_GameObject: {fileID: 1517488345}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.901602, y: -1.4503956, z: -0.36564636}
+  m_LocalPosition: {x: -9.51, y: -8.95, z: -8.309998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 595575705}
+  m_Father: {fileID: 478038652}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1517488347
 MonoBehaviour:
@@ -38470,11 +38448,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb747d9af4b71ff4b9c4aee380b00f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _endingNormal: 1
+  _normalEnding: 1
   _followPath: {fileID: 602382586}
   _endingCat: {fileID: 602382588}
   _chest: {fileID: 944818403}
   _cat: {fileID: 602382584}
+  _normalEndingText: '"Finally ! You have come to find this antique treasure. Congratulations
+    !"'
+  _normalEndingMusic: {fileID: 8300000, guid: cffb719329513624e8c0f748a1b557f8, type: 3}
+  _catEndingText: '"Hey !! That ca- Monster is stealing our treasure !!"'
+  _catEndingMusic: {fileID: 8300000, guid: f8de7ec61f1e0c44db005ce60448703c, type: 3}
 --- !u!65 &1517488348
 BoxCollider:
   m_ObjectHideFlags: 0

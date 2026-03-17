@@ -86,11 +86,10 @@ public class Door : EnigmeObject
             Debug.Log("ouvert");
         }
 
-        if (_healthBarUsed == true || _soundBarUsed == true) { 
+        if (_healthBarUsed == true || _soundBarUsed == true) {
 
 
-        //Check si tu peut intéragir
-        
+            //Check si tu peut intéragir
 
             //Vérifie la quantité de rotation
             float currentAngle = _barATourner.transform.eulerAngles.z;
@@ -156,12 +155,6 @@ public class Door : EnigmeObject
 
 
 
-
-
-
-
-
-
             //Si a bon hauteur ouvre la porte
             if (_totalRotation / 360f >= 2.01f || _totalRotation / 360f <= -2.0f)
             {
@@ -171,13 +164,9 @@ public class Door : EnigmeObject
             }
 
             //update la barre uniquement si tu est en porté
-            if (_inRange==true && _isInteracting ==true)
+            if (_inRange && _isInteracting)
             {
-
                 _barATourner.transform.Rotate(new Vector3(0, 0, Input.GetAxis("Mouse Y")) * Time.deltaTime * _rotationSpeed);
-
-
-
 
                 //  _barATournerUI.value = Input.mousePosition.y/2;
                 //  Debug.Log(_barATournerUI.value);
@@ -187,14 +176,17 @@ public class Door : EnigmeObject
                       _canBeInterracted = false;
                       OpenTheDoor();
                   }*/
-
-
-
-
-
             }
         }
     }
+
+
+    private void ForceBarToRotate()
+    {
+        _barATourner.transform.Rotate(new Vector3(0, 0, _rotationSpeed / 5) * Time.deltaTime);
+    }
+
+
 
     public void UpdateElementThxToDoor()
     {
@@ -228,17 +220,17 @@ public class Door : EnigmeObject
         _turn1Object.material.color = Color.green;
         _turn2Object.material.color = Color.green;
         _turn3Object.material.color = Color.green;
-
+        if (_soundBarUsed)
+        {
+            GameManager.Instance.GameLoop += ForceBarToRotate;
+        }
     }
 
 
 
     private void OnTriggerEnter(Collider other)
     {
-
         _inRange = true;
-        
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -246,6 +238,18 @@ public class Door : EnigmeObject
         _inRange = false;
         _isInteracting = false;
     }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            _isInteracting = true;
+        }
+        _isInteracting = false;
+    }
+
+
+    
 
     public void Engrenage()
     {

@@ -82,7 +82,9 @@ public class CharacterController : MonoBehaviour
             GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
     }
 
+
     #region Déplacement
+
     private void Move()
     {
         
@@ -150,11 +152,6 @@ public class CharacterController : MonoBehaviour
     }
     #endregion Déplacement
 
-    void MousePosition()
-    {
-
-    }
-
 
     #region HP
 
@@ -165,8 +162,6 @@ public class CharacterController : MonoBehaviour
         {
             GameManager.Instance.PlayerHUDController.TakeDammageStart();
         }
-        
-       
     }
 
     public void HPVisual()
@@ -212,7 +207,6 @@ public class CharacterController : MonoBehaviour
 
 
     void MouseClic()
-
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -228,8 +222,8 @@ public class CharacterController : MonoBehaviour
             {
                 hit.collider.gameObject.GetComponent<ClicableObject>().DisplayText();
             }
-                
         }
-
     }
+
+
 }

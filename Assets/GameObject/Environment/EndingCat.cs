@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EndingCat : MonoBehaviour
 {
-        [Header("Rotation")]
-      [SerializeField]  public float rotationSpeed = 90f;
-        private bool _catStart = false;
+    [Header("Rotation")]
+    [SerializeField]  public float rotationSpeed = 90f;
+    private bool _catStart = false;
     
     [Header("Bobbing")]
     [SerializeField] public float _bobHeight = 0.5f;
@@ -14,15 +14,15 @@ public class EndingCat : MonoBehaviour
 
     
 
-        private Vector3 startPosition;
+    private Vector3 startPosition;
 
-        void Start()
-        {
-            startPosition = transform.position;
-        }
+    void Start()
+    {
+        startPosition = transform.position;
+    }
 
-        void Update()
-        {
+    void Update()
+    {
         if (_catStart)
         {
             // Rotation sur l'axe Y
@@ -31,8 +31,8 @@ public class EndingCat : MonoBehaviour
             // Bobbing haut/bas
             float newY = startPosition.y + Mathf.Sin(Time.time * _bobSpeed) * _bobHeight;
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-         }
         }
+    }
 
     public void ActivateCat()
     {
