@@ -86,6 +86,18 @@ PrefabInstance:
       propertyPath: _atkSpeed
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4680428886729580293, guid: 2557a800c5ebfb345964a5bee38d8439, type: 3}
+      propertyPath: _hitTextEasy
+      value: He says "Are you..tickling me ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680428886729580293, guid: 2557a800c5ebfb345964a5bee38d8439, type: 3}
+      propertyPath: _hitTextHard
+      value: 'Oh woaw... I don''t think I want to make you angry. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680428886729580293, guid: 2557a800c5ebfb345964a5bee38d8439, type: 3}
+      propertyPath: _hitTextMedium
+      value: He says "Try to slay me as much as you can !"
+      objectReference: {fileID: 0}
     - target: {fileID: 5211608281344719565, guid: 2557a800c5ebfb345964a5bee38d8439, type: 3}
       propertyPath: m_Size.x
       value: 0.2
