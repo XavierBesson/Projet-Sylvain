@@ -18477,7 +18477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: Slight headache...
+  _clicText: Don't worry about him, he just got a slight headache...
 --- !u!65 &515567934
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20272,7 +20272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: Not much variety in assets...
+  _clicText: This dungeon doesn't have much variety in it's decoration.
 --- !u!65 &605391719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34675,7 +34675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: It's much too big for the door! (and to lift)
+  _clicText: What are you tinking ? It's way too big for such a tiny door.
 --- !u!4 &1337875968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aeb79abcaac54244cab173f7df15ec2d, type: 3}
@@ -49074,7 +49074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clicText: 'The most satisfying way to die: Drunk'
+  _clicText: I know him ! He died drinking that old booze... What a jerk.
 --- !u!65 &2033901760
 BoxCollider:
   m_ObjectHideFlags: 0
