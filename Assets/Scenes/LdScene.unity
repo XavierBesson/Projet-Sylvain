@@ -5740,6 +5740,7 @@ MonoBehaviour:
   _player: {fileID: 224599062}
   _door: {fileID: 60110430224775168}
   _audioSource: {fileID: 425792146}
+  _deadMusic: {fileID: 0}
   _playerHUDController: {fileID: 156982624}
   _soundMultiplier: 1
   _difficulty: 1
@@ -23141,7 +23142,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 386009309265587243, guid: 694e70c1cf5937d47891a6b19d72bfb0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 386009309265587243, guid: 694e70c1cf5937d47891a6b19d72bfb0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23149,7 +23150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 386009309265587243, guid: 694e70c1cf5937d47891a6b19d72bfb0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: 14.58
       objectReference: {fileID: 0}
     - target: {fileID: 386009309265587243, guid: 694e70c1cf5937d47891a6b19d72bfb0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -35613,8 +35614,9 @@ PrefabInstance:
       value: -155.933
       objectReference: {fileID: 0}
     - target: {fileID: 8660746717229744389, guid: f5f7bd3fa4d29044a93f6b32d0de2237, type: 3}
-      propertyPath: _maxHp
-      value: 20
+      propertyPath: _text
+      value: You tremble in fear as the monster says "YOU SHALL NOT PASS WITHOUT
+        MY AUTORISATION ! Give me a reason to crawl, or dare to slay me"
       objectReference: {fileID: 0}
     - target: {fileID: 8660746717229744389, guid: f5f7bd3fa4d29044a93f6b32d0de2237, type: 3}
       propertyPath: _easyBlood
@@ -35646,9 +35648,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6545703573516501973, guid: f5f7bd3fa4d29044a93f6b32d0de2237, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1379767269}
-    - targetCorrespondingSourceObject: {fileID: 6545703573516501973, guid: f5f7bd3fa4d29044a93f6b32d0de2237, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1379767270}
   m_SourcePrefab: {fileID: 100100000, guid: f5f7bd3fa4d29044a93f6b32d0de2237, type: 3}
 --- !u!4 &1379767264 stripped
@@ -35656,20 +35655,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7396707389396677875, guid: f5f7bd3fa4d29044a93f6b32d0de2237, type: 3}
   m_PrefabInstance: {fileID: 1379767263}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1379767269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120935797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clicText: You tremble in fear as the monster says "YOU SHALL NOT PASS WITHOUT
-    MY AUTORISATION ! Give me a reason to crawl, or dare to slay me"
 --- !u!65 &1379767270
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35687,10 +35672,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 1.5}
-  m_Center: {x: 0, y: 1, z: 2.3}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 1, z: 3}
 --- !u!1 &1385006306 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4904762452516703601, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}

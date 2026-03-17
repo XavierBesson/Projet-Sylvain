@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnigmeObject : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private protected CharacterController _player;
+
     void Start()
     {
-        
+        _player = GameManager.Instance.Player;
     }
 
     // Update is called once per frame

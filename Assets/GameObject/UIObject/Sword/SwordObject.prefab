@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8048413663022517560}
+  - component: {fileID: -1368837246407347623}
   - component: {fileID: -7753831751626184557}
-  - component: {fileID: 4680428886729580293}
   - component: {fileID: 5211608281344719565}
-  - component: {fileID: 1905693336890263340}
   m_Layer: 3
   m_Name: SwordObject
   m_TagString: Untagged
@@ -32,10 +31,27 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4549004757157902671}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1368837246407347623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9206243403870591314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da82b82a55126dd42b28340b7a7b8bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: -7753831751626184557}
+  _dragDistance: 3
+  _raycastMask:
+    serializedVersion: 2
+    m_Bits: 576
+  _objectType: 7
 --- !u!54 &-7753831751626184557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -63,29 +79,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4680428886729580293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9206243403870591314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5198e7cc84292984f9b978ddba1aedc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: -7753831751626184557}
-  _dragDistance: 3
-  _raycastMask:
-    serializedVersion: 2
-    m_Bits: 576
-  _detachableUI: {fileID: 0}
-  _power: 1
-  _atkSpeed: 10
-  _hitTextEasy: He says "Are you... Tickling me ?"
-  _hitTextMedium: He says "Try to slay me as much as you can !"
-  _hitTextHard: 'Oh woaw... I don''t think I want to make you angry. '
 --- !u!65 &5211608281344719565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,86 +100,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3, y: 0.2, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &1905693336890263340
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9206243403870591314}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.6, y: 0.4, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &4083628812729327268
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 8048413663022517560}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-      propertyPath: m_Name
-      value: Master Sword
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
---- !u!4 &4549004757157902671 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0041901c33b9c5a4e94068fae06a61ff, type: 3}
-  m_PrefabInstance: {fileID: 4083628812729327268}
-  m_PrefabAsset: {fileID: 0}

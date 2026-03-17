@@ -3,23 +3,45 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+public enum EUIObject
+{
+    NONE,
+    ENGRENAGE,
+    HEALTHBAR,
+    OBJECTIF,
+    PLATFORM,
+    VOLUMEBAR,
+    EASYSWORD,
+    MEDIUMSWORD,
+    HARDSWORD
+}
+
+
 public class UIObject : MonoBehaviour
 {
     [SerializeField] protected Rigidbody _rb;
     [SerializeField] private float _dragDistance = 3;
+    [SerializeField] private LayerMask _raycastMask;
+    [SerializeField] private EUIObject _objectType = EUIObject.NONE;
     private bool _isDragging = false;
     private CharacterController _playerCharacter = null;
-    [SerializeField] private LayerMask _raycastMask;
-    [SerializeField] private DetachableUi _detachableUI = null;
+    private DetachableUi _detachableUI = null;
 
     public CharacterController PlayerCharacter { get => _playerCharacter; set => _playerCharacter = value; }
     public bool IsDragging { get => _isDragging; set => _isDragging = value; }
     public DetachableUi DetachableUI { get => _detachableUI; set => _detachableUI = value; }
+    public EUIObject ObjectType { get => _objectType; set => _objectType = value; }
+
+
 
     private void Start()
     {
         PlayerCharacter = GameManager.Instance.Player;
     }
+
+
+    #region Dragging
 
     public virtual void Update()
     {
@@ -33,8 +55,7 @@ public class UIObject : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
             Drag();
     }
-
-
+   
 
     public void Drag()
     {
@@ -44,6 +65,7 @@ public class UIObject : MonoBehaviour
         GameManager.Instance.GameLoop += Move;
     }
 
+
     public virtual void Undrag()
     {
         _rb.isKinematic = false;
@@ -51,6 +73,8 @@ public class UIObject : MonoBehaviour
         GameManager.Instance.Player.CurrentUIObject = null;
         GameManager.Instance.GameLoop -= Move;
     }
+
+    #endregion Dragging
 
 
     public void Move()
@@ -72,6 +96,7 @@ public class UIObject : MonoBehaviour
     }
 
 
+    #region Despaw
 
     public void Despawn()
     {
@@ -86,11 +111,14 @@ public class UIObject : MonoBehaviour
             ReturnToUI();
     }
 
+
     public void ReturnToUI()
     {
         DetachableUI.ResetPosition();
         Despawn();
     }
+
+    #endregion Despaw
 
 
 }

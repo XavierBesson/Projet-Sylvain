@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class PiegedFloor : EnigmeObject
 {
-
-   
-
-  [SerializeField] private CharacterController _player;
-  [SerializeField] private float _damage = 1;
-  [SerializeField] private GameObject _platformHp = null;
+    [SerializeField] private float _damage = 1;
+    [SerializeField] private GameObject _platformHp = null;
     [SerializeField] private GameObject _platformBackground = null;
-    [SerializeField] private bool _isCovered;
     [SerializeField] private Door _door; 
 
-  private bool _inRange = false;
+    private bool _inRange = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,44 +32,44 @@ public class PiegedFloor : EnigmeObject
 
     public void TakeDamage()
     {
-        if (_inRange ==true && _isCovered == false)
+        if (_inRange)
         {
-
             _player.Hpdamage(_damage);
-
             _door.SpikeDamage(_damage); 
-          
-
-           Invoke("TakeDamage", 0.1f);
-            
+            Invoke("TakeDamage", 0.1f);
         }
     }
 
     public void IsCovered(bool hpbar)
     {
-        if ((hpbar == true))
-        {
-           // _isCovered = true;
+        if ((hpbar))
             _platformHp.SetActive(true);
-        }
-       else
-        {
-            _isCovered = true;
+        else
             _platformBackground.SetActive(true);
-        }
-            
-
-       
-
-
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
 
-        if (other.gameObject.GetComponentInParent<CharacterController>() == _player )
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
+        if (uiObject != null)
         {
-            GameManager.Instance.Player.IsInStairs(false);
+            switch (uiObject.ObjectType)
+            {
+                case EUIObject.PLATFORM:
+                    IsCovered(false);
+                    uiObject.Despawn();
+                    break;
+                case EUIObject.HEALTHBAR:
+                    IsCovered(true);
+                    uiObject.Despawn();
+                    break;
+            }
+        }
+        else if (collision.gameObject.GetComponentInParent<CharacterController>())
+        {
+            _player.IsInStairs(false);
 
             _inRange = true;
             TakeDamage();
@@ -83,12 +78,16 @@ public class PiegedFloor : EnigmeObject
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        _inRange = false;
-        Debug.Log("sort pique");
 
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.GetComponentInParent<CharacterController>())
+        {
+            _inRange = false;
+            Debug.Log("sort pique");
+        }
     }
+
 
 
 }

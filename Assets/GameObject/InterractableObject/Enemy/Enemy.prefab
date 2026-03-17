@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6f407cb4e52944db96a449b5655ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 3
+  _maxHp: 20
   _audioSource: {fileID: -8633775826594343855}
   _damageSound: {fileID: 0}
   _dieSound: {fileID: 0}
@@ -101,6 +101,16 @@ MonoBehaviour:
   _easySword: {fileID: 1570871022320055899}
   _mediumSword: {fileID: 5660222632663311117}
   _hardSword: {fileID: 9064433478209870658}
+  _appearText: 
+  _easySwordAtk: 1
+  _easySwordVelocity: 0.1
+  _easySwordText: He says "Are you... Tickling me ?"
+  _mediumSwordAtk: 5
+  _mediumSwordVelocity: 2
+  _mediumSwordText: He says "Try to slay me as much as you can !"
+  _hardSwordAtk: 100
+  _hardSwordVelocity: 5
+  _hardSwordText: 'Oh woaw... I don''t think I want to make you angry. '
 --- !u!114 &5269256711370871844
 MonoBehaviour:
   m_ObjectHideFlags: 0

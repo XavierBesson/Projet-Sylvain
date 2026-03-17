@@ -24,6 +24,8 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private GameObject _endingImageTroll;
     [SerializeField] private float _textTime = 3;
     [SerializeField] private float _actualTextTime = 0;
+    [SerializeField] private float _textSpeed = 0.01f;
+    private float _aditionnalTextTime = 0;
 
 
 
@@ -68,41 +70,41 @@ public class PlayerHUDController : MonoBehaviour
 
 
     #region Text
-    /*
+
     public void LoreText(string textToShow)
     {
-        await CharDisplay(textToShow);
+        StartCoroutine(CharDisplay(textToShow));
         _actualTextTime = 0;
+        _aditionnalTextTime = _textSpeed * textToShow.Length;
         GameManager.Instance.GameLoop -= TextTimer;
         GameManager.Instance.GameLoop += TextTimer;
     }
 
 
-    private async Awaitable CharDisplay(string Text)
+    IEnumerator CharDisplay(string Text)
     {
         char[] chars = Text.ToCharArray();
         _eventText.text = string.Empty;
 
         //audioSource[0].Play();
         //await Awaitable.WaitForSecondsAsync(audioSource[0].clip.length);
-        
+        /*
         if (SceneManager.GetActiveScene().buildIndex != 1)
-            return;
+            return;*/
 
         for (int i = 0; i < chars.Length; i++)
         {
             //audioSource[1].Play();
             _eventText.text += chars[i];
-            await Awaitable.WaitForSecondsAsync(.05f);
+            yield return new WaitForSeconds(_textSpeed);
         }
     }
-*/
 
 
     private void TextTimer()
     {
         _actualTextTime += Time.deltaTime;
-        if (_actualTextTime >= _textTime)
+        if (_actualTextTime >= _textTime + _aditionnalTextTime)
         {
             _actualTextTime = 0;
             _eventText.text = string.Empty;
@@ -177,7 +179,7 @@ public class PlayerHUDController : MonoBehaviour
 
     public void QuitBButton()
     {
-        Application.Quit();
+        UnityEngine.Application.Quit();
     }
 
     public void Ending(bool normal)

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4476571850271147625}
   - component: {fileID: 1055215203360297649}
   - component: {fileID: 4390151597113976292}
-  - component: {fileID: 9205346013926083863}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -331,27 +330,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7910068047252260715}
   m_Mesh: {fileID: 0}
---- !u!65 &9205346013926083863
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7910068047252260715}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 0.1, z: 4}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9206243403870591314
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +341,7 @@ GameObject:
   - component: {fileID: 8048413663022517560}
   - component: {fileID: -7753831751626184557}
   - component: {fileID: 1905693336890263340}
-  - component: {fileID: 5057249706393627109}
+  - component: {fileID: 8515544582564004798}
   m_Layer: 3
   m_Name: PlatformObject
   m_TagString: Untagged
@@ -429,13 +407,13 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 0.2, z: 4}
+  m_Size: {x: 2, y: 0.1, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5057249706393627109
+--- !u!114 &8515544582564004798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,7 +422,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9206243403870591314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0bb995b32bf1cc47ab1c56cd4ddaada, type: 3}
+  m_Script: {fileID: 11500000, guid: da82b82a55126dd42b28340b7a7b8bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -7753831751626184557}
@@ -452,4 +430,4 @@ MonoBehaviour:
   _raycastMask:
     serializedVersion: 2
     m_Bits: 576
-  _detachableUI: {fileID: 0}
+  _objectType: 4

@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5203477417582723547}
-  - component: {fileID: 7927761024066100254}
   - component: {fileID: 887590217354138897}
-  - component: {fileID: 7492150552641986443}
   - component: {fileID: 2266098351264611499}
+  - component: {fileID: 6837251028008545151}
   m_Layer: 8
   m_Name: Door 1
   m_TagString: Interactable
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 488332010801045699}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37,27 +36,6 @@ Transform:
   - {fileID: 210267381045503234}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7927761024066100254
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488332010801045699}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3, y: 1, z: 2}
-  m_Center: {x: 0, y: -1, z: -1.5}
 --- !u!114 &887590217354138897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,30 +59,7 @@ MonoBehaviour:
   _barprogressSpeed: 0.01
   _rotationSpeed: 200
   _barImageSound: {fileID: 21300000, guid: 9557cff678f683e41a81148b224b2d9e, type: 3}
-  _barColor: {r: 1, g: 1, b: 1, a: 1}
-  _previousAngle: 0
-  _totalRotation: 0
---- !u!65 &7492150552641986443
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488332010801045699}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3, y: 1, z: 3}
-  m_Center: {x: 0, y: -1, z: 2.5}
+  _doorCollider: {fileID: 6837251028008545151}
 --- !u!114 &2266098351264611499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +74,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clicText: 'That door seems to require a quite loooong key to open... Or maybe
     just some random mechanism. You should try something out. '
+--- !u!65 &6837251028008545151
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488332010801045699}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.3, y: 4, z: 0.5}
+  m_Center: {x: 0.1, y: 0.7, z: -0.3}
 --- !u!1 &3177494317952569903
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +628,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 25574599959916337}
+  - component: {fileID: 7409809640793073223}
   m_Layer: 8
   m_Name: CompletDoor
   m_TagString: Untagged
@@ -680,6 +657,27 @@ Transform:
   - {fileID: 1392315117885689822}
   m_Father: {fileID: 5203477417582723547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7409809640793073223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6721621327273905190}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 4}
+  m_Center: {x: 0, y: -1, z: -2}
 --- !u!1 &7524284829194059014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1081,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4256100711131890427, guid: a07f19f1b8acc78429f365d72d40cb8c, type: 3}
+      propertyPath: _rb
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1905693336890263340, guid: a07f19f1b8acc78429f365d72d40cb8c, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1170,6 +1172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door_Middle
       objectReference: {fileID: 0}
+    - target: {fileID: 5915041321441941656, guid: 4adae8232505e0e45b64cc3b61e9d9e1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7936834669806457470, guid: 4adae8232505e0e45b64cc3b61e9d9e1, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5750258
@@ -1218,7 +1224,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5915041321441941656, guid: 4adae8232505e0e45b64cc3b61e9d9e1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

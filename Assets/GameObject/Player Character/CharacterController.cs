@@ -103,6 +103,7 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+
     void TryMove(Vector3 dir)
     {
         Vector3 dir2 = -this.transform.up;
@@ -111,6 +112,8 @@ public class CharacterController : MonoBehaviour
             transform.position += dir * _stepDistance;
         }
     }
+
+
     private void Rotate()
     {
 
@@ -150,6 +153,7 @@ public class CharacterController : MonoBehaviour
             }
         }
     }
+
     #endregion Déplacement
 
 
@@ -164,6 +168,7 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+
     public void HPVisual()
     {
         if (Hp > _hpMax / 3)
@@ -176,10 +181,12 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+
     public void IsInStairs(bool stairs)
     {
         _isStairs = stairs;
     }
+
 
     public void Death()
     {
@@ -187,7 +194,6 @@ public class CharacterController : MonoBehaviour
        
         GameManager.Instance.PlayerHUDController.PlayerIsDead(_isStairs);
     }
-
 
 
     public void HpRegen()

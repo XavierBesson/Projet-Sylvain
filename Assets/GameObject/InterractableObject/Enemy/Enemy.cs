@@ -2,33 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
 public class Enemy : EnigmeObject
 {
+    [Header("HP")]
     [SerializeField] private int _maxHp = 3;
+    private int _currentHp;
+
+    [Header("Souds")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _damageSound;
     [SerializeField] private AudioClip _dieSound;
     [SerializeField] private AudioClip _fuiteSound;
 
+    [Header("Path")]
     [SerializeField] private GameObject _deathplacment;
-    private int _currentHp;
     [SerializeField] private FollowPath _followPath;
     [SerializeField] private Ending _endingObject;
 
+    [Header("Particles")]
     [SerializeField] private ParticleSystem _easyBlood;
     [SerializeField] private ParticleSystem _mediumBlood;
     [SerializeField] private ParticleSystem _hardBlood;
     [SerializeField] private GameObject _bloodPlacement;
 
+    [Header("Body")]
     [SerializeField] private GameObject _body1;
     [SerializeField]  private GameObject _body2;
     [SerializeField] private GameObject _body3;
-
     [SerializeField] private GameObject _easySword;
     [SerializeField] private GameObject _mediumSword;
     [SerializeField] private GameObject _hardSword;
+
+    [Header("Text")]
+    [SerializeField] private string _appearText = "";
+
+    [Header("EasySwordStats")]
+    [SerializeField] private int _easySwordAtk = 1;
+    [SerializeField] private float _easySwordVelocity = 0.1f;
+    [SerializeField] private string _easySwordText;
+
+    [Header("EasySwordStats")]
+    [SerializeField] private int _mediumSwordAtk = 5;
+    [SerializeField] private float _mediumSwordVelocity = 2f;
+    [SerializeField] private string _mediumSwordText;
+
+    [Header("EasySwordStats")]
+    [SerializeField] private int _hardSwordAtk = 100;
+    [SerializeField] private float _hardSwordVelocity = 5f;
+    [SerializeField] private string _hardSwordText;
 
 
     void Start()
@@ -37,81 +61,65 @@ public class Enemy : EnigmeObject
         _body1.gameObject.SetActive(true);
         _body2.gameObject.SetActive(false);
         _body3.gameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _easySword.gameObject.SetActive(false);
+        _mediumSword.gameObject.SetActive(false);
+        _hardSword.gameObject.SetActive(false);
     }
 
 
     public void TakeDamage(int damage, UIObject sword)
     {
         _currentHp -= damage;
-        print(_currentHp);
         PlaySound(_audioSource, _damageSound);
 
         if (_currentHp <= 0)
+            Die(sword);
+
+        switch (GameManager.Instance.Difficulty)
         {
-            PlaySound(_audioSource, _dieSound);
-            sword.Despawn();
-
-           //gameObject.transform.position = _deathplacment.transform.position;
-        //    gameObject.transform.localScale = _deathplacment.transform.localScale;
-          //  gameObject.transform.eulerAngles = _deathplacment.transform.eulerAngles;
-            //vérouiller la difficulté ? 
-            _body1.gameObject.SetActive(false);
-            _body2.gameObject.SetActive(true);
-            _body3.gameObject.SetActive(true);
-
-            if (GameManager.Instance.Difficulty == EDifficulty.EASY)
-            {
-                _easySword.gameObject.SetActive(true);
-                _mediumSword.gameObject.SetActive(false);
-                _hardSword.gameObject.SetActive(false);
-            }
-            else if (GameManager.Instance.Difficulty == EDifficulty.MEDIUM)
-            {
-                _easySword.gameObject.SetActive(false);
-                _mediumSword.gameObject.SetActive(true);
-                _hardSword.gameObject.SetActive(false);
-            }
-            else if (GameManager.Instance.Difficulty == EDifficulty.HARD)
-            {
-                _easySword.gameObject.SetActive(false);
-                _mediumSword.gameObject.SetActive(false);
-                _hardSword.gameObject.SetActive(true);
-            }
-
-            Destroy(GetComponent<BoxCollider>());
-
-
-           // GameManager.Instance.PlayerHUDController.LoreText("Une belle décapitation ! Même pas d'éffort !");
-
+            case EDifficulty.EASY:
+                _easyBlood = Instantiate(_easyBlood, _bloodPlacement.gameObject.transform.position, Quaternion.identity);
+                _easyBlood.Play();
+                break;
+            case EDifficulty.MEDIUM:
+                _mediumBlood = Instantiate(_mediumBlood, _bloodPlacement.gameObject.transform.position, Quaternion.identity);
+                _mediumBlood.Play();
+                break;
+            case EDifficulty.HARD:
+                _hardBlood = Instantiate(_hardBlood, _bloodPlacement.gameObject.transform.position, Quaternion.identity);
+                _hardBlood.Play();
+                break;
         }
-
-     if(GameManager.Instance.Difficulty == EDifficulty.EASY)
-        {
-            _easyBlood = Instantiate(_easyBlood, _bloodPlacement.gameObject.transform.position, Quaternion.identity);
-            _easyBlood.Play();
-        }
-     else if(GameManager.Instance.Difficulty == EDifficulty.MEDIUM)
-        {
-            _mediumBlood = Instantiate(_mediumBlood, _bloodPlacement.gameObject.transform.position, Quaternion.identity);
-            _mediumBlood.Play();
-
-        }
-     else if (GameManager.Instance.Difficulty == EDifficulty.HARD)
-        {
-            _hardBlood = Instantiate(_hardBlood, _bloodPlacement.gameObject.transform.position, Quaternion.identity);
-            _hardBlood.Play();
-        }
-
     }
 
 
-    public void Fuite()
+    private void Die(UIObject sword)
+    {
+        PlaySound(_audioSource, _dieSound);
+        sword.Despawn();
+
+        _body1.gameObject.SetActive(false);
+        _body2.gameObject.SetActive(true);
+        _body3.gameObject.SetActive(true);
+
+        switch (GameManager.Instance.Difficulty)
+        {
+            case EDifficulty.EASY:
+                _easySword.gameObject.SetActive(true);
+                break;
+            case EDifficulty.MEDIUM:
+                _mediumSword.gameObject.SetActive(true);
+                break;
+            case EDifficulty.HARD:
+                _hardSword.gameObject.SetActive(true);
+                break;
+        }
+
+        Destroy(GetComponent<BoxCollider>());
+    }
+
+
+    private void Fuite()
     {
         PlaySound(_audioSource, _fuiteSound);
         _endingObject.EndingCat();
@@ -120,5 +128,39 @@ public class Enemy : EnigmeObject
         GameManager.Instance.GoblinEnding = true;
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<CharacterController>())
+            GameManager.Instance.PlayerHUDController.LoreText(_appearText);
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
+        if (uiObject != null)
+        {
+            switch (uiObject.ObjectType)
+            {
+                case EUIObject.EASYSWORD:
+                    TakeDamage(_easySwordAtk, uiObject);
+                    GameManager.Instance.PlayerHUDController.LoreText(_easySwordText);
+                    break;
+                case EUIObject.MEDIUMSWORD:
+                    TakeDamage(_mediumSwordAtk, uiObject);
+                    GameManager.Instance.PlayerHUDController.LoreText(_mediumSwordText);
+                    break;
+                case EUIObject.HARDSWORD:
+                    TakeDamage(_hardSwordAtk, uiObject);
+                    GameManager.Instance.PlayerHUDController.LoreText(_hardSwordText);
+                    break;
+                case EUIObject.OBJECTIF:
+                    uiObject.Despawn();
+                    Fuite();
+                    break;
+            }
+        }
+    }
 
 }
