@@ -499,7 +499,7 @@ MonoBehaviour:
   _moving: 1
   _moveSpeed: 5
   _rotateSpeed: 0.8
-  _stepDistance: 2
+  _stepDistance: 2.05
   _snapRotation: 90
   _rotationRate: 10
   _obstacles:

@@ -114,7 +114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 14.2, y: 0}
+  m_AnchoredPosition: {x: -10, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &171076284643709392
@@ -595,7 +595,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 154.1, y: 15.2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &526043133742720160
 CanvasRenderer:
@@ -799,10 +799,8 @@ MonoBehaviour:
   _uiObject: {fileID: 629961711876241816, guid: 8acaf4dd20c3ecb4c9eb69ad47094a81, type: 3}
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8063265292862906139}
-  _attached: 1
   _imageRestante: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  _mouseTextureGrab: {fileID: 0}
-  _mouseTextureOriginal: {fileID: 0}
+  _slotScale: {x: 1, y: 1, z: 1}
 --- !u!1 &2137091468533318024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,10 +1130,8 @@ MonoBehaviour:
   _uiObject: {fileID: 9206243403870591314, guid: b3fd8d17b8485b943a1e84901754a75e, type: 3}
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8063265292862906139}
-  _attached: 1
   _imageRestante: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  _mouseTextureGrab: {fileID: 0}
-  _mouseTextureOriginal: {fileID: 0}
+  _slotScale: {x: 1, y: 1, z: 1}
 --- !u!114 &2041898206743852373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2605,10 +2601,8 @@ MonoBehaviour:
   _uiObject: {fileID: 9206243403870591314, guid: a07f19f1b8acc78429f365d72d40cb8c, type: 3}
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 8063265292862906139}
-  _attached: 1
   _imageRestante: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  _mouseTextureGrab: {fileID: 0}
-  _mouseTextureOriginal: {fileID: 0}
+  _slotScale: {x: 1, y: 1, z: 1}
 --- !u!1 &5839346049845354946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,10 +2892,8 @@ MonoBehaviour:
   _uiObject: {fileID: 9206243403870591314, guid: 8de8ad4e6b1092547864cde093e13673, type: 3}
   _uiSlot: {fileID: 6702550062105536190, guid: dc22591b6ada55c429fbfe1da8e74c70, type: 3}
   _uiSlotParent: {fileID: 230025874122481869}
-  _attached: 1
   _imageRestante: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  _mouseTextureGrab: {fileID: 2800000, guid: 5751c9b811671004d95cd9b54f9ad5fc, type: 3}
-  _mouseTextureOriginal: {fileID: 2800000, guid: 70942cb277bfb53409545f51c322d21d, type: 3}
+  _slotScale: {x: 1, y: 1, z: 1}
 --- !u!1 &6454660543434592690
 GameObject:
   m_ObjectHideFlags: 0
@@ -3749,8 +3741,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.19999695, y: -0.5}
-  m_SizeDelta: {x: -35, y: -13}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7378903277703013599
 CanvasRenderer:
@@ -3815,7 +3807,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4022,6 +4014,8 @@ MonoBehaviour:
   _damageImage: {fileID: 0}
   _endingImage: {fileID: 7693463614605284060}
   _endingImageTroll: {fileID: 6675499608808197379}
+  _textTime: 3
+  _actualTextTime: 0
 --- !u!95 &6140975555592430082
 Animator:
   serializedVersion: 5
