@@ -21,13 +21,14 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private GameObject _damageImage;
     [SerializeField] private GameObject _endingImage;
     [SerializeField] private GameObject _endingImageTroll;
+    [SerializeField] private float _textTime = 3;
+    [SerializeField] private float _actualTextTime = 0;
 
 
 
     void Start()
     {
-        _eventText.text = "Here you are ! Finally in the dungeon, where a treasure lies. Go get it, now !";
-        Invoke("LoreTextEmpty", 2);
+        LoreText("Here you are ! Finally in the dungeon, where a treasure lies. Go get it, now !");
     }
 
     void Update()
@@ -65,26 +66,40 @@ public class PlayerHUDController : MonoBehaviour
     }
 
 
+    #region Text
+
+    public void LoreText(string textToShow)
+    {
+        _eventText.text = textToShow;
+        _actualTextTime = 0;
+        GameManager.Instance.GameLoop -= TextTimer;
+        GameManager.Instance.GameLoop += TextTimer;
+    }
+
+    private void TextTimer()
+    {
+        _actualTextTime += Time.deltaTime;
+        if (_actualTextTime >= _textTime)
+        {
+            _actualTextTime = 0;
+            _eventText.text = string.Empty;
+        }
+    }
+
+    #endregion Text
+
+
     public void ChangeVolume()
     {
         GameManager.Instance.SoundMultiplier = _volumeBar.value;
     }
 
 
+    #region HP
+
     public void ChangeHPDisplay(float hp)
     {
         _hpBar.value = hp;
-    }
-
-    public void LoreText(string textToShow)
-    {
-        _eventText.text = textToShow;
-        Invoke("LoreTextEmpty", 2);
-    }
-
-    public void LoreTextEmpty ()
-    {
-        _eventText.text = string.Empty;
     }
 
     public void PlayerIsDead(bool stairs)
@@ -110,6 +125,7 @@ public class PlayerHUDController : MonoBehaviour
         _damageImage.gameObject.SetActive(true);
         Invoke("TakeDamageEnd",0.2f);
     }
+
     public void TakedamageEnd()
     {
         _damageImage.gameObject.SetActive(false);
@@ -127,6 +143,8 @@ public class PlayerHUDController : MonoBehaviour
         }
     }
 
+    #endregion HP
+
 
     public void ReloadButton()
     {
@@ -142,15 +160,12 @@ public class PlayerHUDController : MonoBehaviour
     {
         if(normal == true)
         {
-            _endingImage.gameObject.SetActive(true);
+            _endingImage.SetActive(true);
         }
         else
         {
-          _endingImageTroll.gameObject.SetActive(true);
+          _endingImageTroll.SetActive(true);
         }
-
-
-
     }
 
 
