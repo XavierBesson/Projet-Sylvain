@@ -77,17 +77,6 @@ public class Door : EnigmeObject
 
     }
 
-    public void RevealHint() 
-    {
-
-        if (_inRange)
-        {
-            _isInteracting=true;
-            GameManager.Instance.PlayerHUDController.LoreText("Il va me falloir une barre ou un engrenage...");
-        }
-        
-    }
-
     public void RotateElement()
     {
         if (_gearUsed)

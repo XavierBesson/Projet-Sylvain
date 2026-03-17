@@ -224,11 +224,7 @@ public class CharacterController : MonoBehaviour
 
             //Debug.Log(hit.collider.gameObject);
 
-            if (hit.collider.gameObject.GetComponentInParent<Door>() != null)
-            {
-                hit.collider.gameObject.GetComponentInParent<Door>().RevealHint();
-            }
-            else if (hit.collider.gameObject.GetComponentInParent<ClicableObject>() != null) 
+            if (hit.collider.gameObject.GetComponentInParent<ClicableObject>() != null) 
             {
                 hit.collider.gameObject.GetComponent<ClicableObject>().DisplayText();
             }
