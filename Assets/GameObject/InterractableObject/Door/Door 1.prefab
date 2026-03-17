@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7927761024066100254}
   - component: {fileID: 887590217354138897}
   - component: {fileID: 7492150552641986443}
+  - component: {fileID: 2266098351264611499}
   m_Layer: 8
   m_Name: Door 1
   m_TagString: Interactable
@@ -104,6 +105,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 1, z: 3}
   m_Center: {x: 0, y: -1, z: 2.5}
+--- !u!114 &2266098351264611499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488332010801045699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76458f62568b79040a9ad2905809d8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clicText: 'That door seems to require a quite loooong key to open... Or maybe
+    just some random mechanism. You should '
 --- !u!1 &3177494317952569903
 GameObject:
   m_ObjectHideFlags: 0
