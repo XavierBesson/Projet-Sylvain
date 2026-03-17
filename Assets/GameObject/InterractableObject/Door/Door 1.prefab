@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clicText: 'That door seems to require a quite loooong key to open... Or maybe
-    just some random mechanism. You should '
+    just some random mechanism. You should try something out. '
 --- !u!1 &3177494317952569903
 GameObject:
   m_ObjectHideFlags: 0
