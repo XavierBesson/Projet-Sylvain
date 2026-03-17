@@ -83,9 +83,9 @@ MonoBehaviour:
   _detachableUI: {fileID: 0}
   _power: 1
   _atkSpeed: 10
-  _hitTextEasy: '"Tu veux me chattouiller ?"'
-  _hitTextMedium: '"Essaye de me tuer on va voir !"'
-  _hitTextHard: '*Il explose avant de pouvoir dire un mot*'
+  _hitTextEasy: He says "Are you... Tickling me ?"
+  _hitTextMedium: He says "Try to slay me as much as you can !"
+  _hitTextHard: 'Oh woaw... I don''t think I want to make you angry. '
 --- !u!65 &5211608281344719565
 BoxCollider:
   m_ObjectHideFlags: 0
