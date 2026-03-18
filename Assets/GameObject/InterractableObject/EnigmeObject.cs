@@ -8,7 +8,7 @@ public class EnigmeObject : MonoBehaviour
 
     void Start()
     {
-        _player = GameManager.Instance.Player;
+
     }
 
     // Update is called once per frame

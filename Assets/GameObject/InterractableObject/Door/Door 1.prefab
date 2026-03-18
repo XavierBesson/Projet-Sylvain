@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 887590217354138897}
   - component: {fileID: 2266098351264611499}
   - component: {fileID: 6837251028008545151}
+  - component: {fileID: 903114960929142081}
   m_Layer: 8
   m_Name: Door 1
   m_TagString: Interactable
@@ -57,9 +58,8 @@ MonoBehaviour:
   _gearObject: {fileID: 9214821050599841841}
   _barATournerUI: {fileID: 6746665823104213746}
   _barprogressSpeed: 0.01
-  _rotationSpeed: 200
-  _barImageSound: {fileID: 21300000, guid: 9557cff678f683e41a81148b224b2d9e, type: 3}
   _doorCollider: {fileID: 6837251028008545151}
+  "_poign\xE9": {fileID: 2392704561792251686}
 --- !u!114 &2266098351264611499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +95,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.3, y: 4, z: 0.5}
   m_Center: {x: 0.1, y: 0.7, z: -0.3}
+--- !u!65 &903114960929142081
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488332010801045699}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 4}
+  m_Center: {x: 0, y: -1, z: -2}
 --- !u!1 &3177494317952569903
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +194,6 @@ GameObject:
   - component: {fileID: 1392315117885689822}
   - component: {fileID: 2914749424922764533}
   - component: {fileID: 3594064105388462815}
-  - component: {fileID: 5746894696253352774}
   m_Layer: 8
   m_Name: Lock3
   m_TagString: Untagged
@@ -246,27 +266,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5746894696253352774
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4301060864377447814}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4446021169527451588
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +524,6 @@ GameObject:
   - component: {fileID: 690758453683045760}
   - component: {fileID: 2146002153492681076}
   - component: {fileID: 1657802671059282331}
-  - component: {fileID: 2897752010382670426}
   m_Layer: 8
   m_Name: Lock1
   m_TagString: Untagged
@@ -598,27 +596,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2897752010382670426
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6643948570609540900}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6721621327273905190
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +605,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 25574599959916337}
-  - component: {fileID: 7409809640793073223}
   m_Layer: 8
   m_Name: CompletDoor
   m_TagString: Untagged
@@ -657,27 +633,6 @@ Transform:
   - {fileID: 1392315117885689822}
   m_Father: {fileID: 5203477417582723547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7409809640793073223
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6721621327273905190}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3, y: 1, z: 4}
-  m_Center: {x: 0, y: -1, z: -2}
 --- !u!1 &7524284829194059014
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +746,6 @@ GameObject:
   - component: {fileID: 3072526879632246087}
   - component: {fileID: 229845337188715956}
   - component: {fileID: 8685638577066545135}
-  - component: {fileID: 8562700406043620773}
   m_Layer: 8
   m_Name: Lock2
   m_TagString: Untagged
@@ -864,27 +818,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8562700406043620773
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7619434177579114647}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7942063340174796737
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,8 +902,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5191480863763004662}
+  - component: {fileID: 2392704561792251686}
   - component: {fileID: 49256732629949960}
-  - component: {fileID: 6191305280236128862}
   - component: {fileID: 276339655617547039}
   m_Layer: 8
   m_Name: BarATourner
@@ -996,6 +929,23 @@ Transform:
   - {fileID: 9010401254316287102}
   m_Father: {fileID: 25574599959916337}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &2392704561792251686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8831434001598589384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70c8e433c36b174e87e0da907a4304c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barATournerUI: {fileID: 6746665823104213746}
+  _rotationSpeed: 200
+  _barImageSound: {fileID: 21300000, guid: 51e9c522a9008514cab1f89bce1eb2a5, type: 3}
+  _minDistance: 5
+  _door: {fileID: 887590217354138897}
 --- !u!33 &49256732629949960
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1004,48 +954,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8831434001598589384}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6191305280236128862
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8831434001598589384}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: ec83cc9b7a7f906458c9f11e2ef308a0, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &276339655617547039
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1065,10 +973,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.5
+  m_Height: 2.2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &9776260506384739
 PrefabInstance:
   m_ObjectHideFlags: 0

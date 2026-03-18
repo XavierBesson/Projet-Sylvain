@@ -14,11 +14,10 @@ public class PiegedFloor : EnigmeObject
     // Start is called before the first frame update
     void Start()
     {
+        _player = GameManager.Instance.Player;
         _platformHp.SetActive(false);
         _platformBackground.SetActive(false);
         // Invoke("IsCovered", 5f);
-
-
     }
 
     // Update is called once per frame

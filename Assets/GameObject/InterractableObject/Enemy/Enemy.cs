@@ -54,6 +54,9 @@ public class Enemy : EnigmeObject
     [SerializeField] private float _hardSwordVelocity = 5f;
     [SerializeField] private string _hardSwordText;
 
+    private bool _doitFuir = false;
+    private UIObject _objectifObject = null;
+
 
     void Start()
     {
@@ -64,6 +67,16 @@ public class Enemy : EnigmeObject
         _easySword.gameObject.SetActive(false);
         _mediumSword.gameObject.SetActive(false);
         _hardSword.gameObject.SetActive(false);
+    }
+
+
+    private void Update()
+    {
+        if (_doitFuir && Input.GetMouseButtonUp(0))
+        {
+            _objectifObject.Despawn();
+            Fuite();
+        }
     }
 
 
@@ -156,11 +169,35 @@ public class Enemy : EnigmeObject
                     GameManager.Instance.PlayerHUDController.LoreText(_hardSwordText);
                     break;
                 case EUIObject.OBJECTIF:
-                    uiObject.Despawn();
-                    Fuite();
+                    _objectifObject = uiObject;
+                    _doitFuir = true;
                     break;
             }
         }
     }
+
+    /*
+    private void OnCollisionStay(Collision collision)
+    {
+        
+    }
+    */
+
+    private void OnCollisionExit(Collision collision)
+    {
+        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
+        if (uiObject != null)
+        {
+            switch (uiObject.ObjectType)
+            {
+                case EUIObject.OBJECTIF:
+                    _objectifObject = null;
+                    _doitFuir = false;
+                    break;
+            }
+        }
+
+    }
+
 
 }
