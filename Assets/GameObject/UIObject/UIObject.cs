@@ -140,6 +140,7 @@ public class UIObject : MonoBehaviour
 
     public void HighlightObject(bool highlight)
     {
-        _highlight.SetActive(highlight);
+        if (_highlight != null)
+            _highlight.SetActive(highlight);
     }
 }
