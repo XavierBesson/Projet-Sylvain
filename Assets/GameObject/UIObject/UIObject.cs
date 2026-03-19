@@ -24,6 +24,7 @@ public class UIObject : MonoBehaviour
     [SerializeField] private float _dragDistance = 3;
     [SerializeField] private LayerMask _raycastMask;
     [SerializeField] private EUIObject _objectType = EUIObject.NONE;
+    [SerializeField] private GameObject _highlight;
     private bool _isDragging = false;
     private CharacterController _playerCharacter = null;
     private DetachableUi _detachableUI = null;
@@ -40,6 +41,7 @@ public class UIObject : MonoBehaviour
     private void Start()
     {
         PlayerCharacter = GameManager.Instance.Player;
+        HighlightObject(false);
     }
 
 
@@ -136,5 +138,8 @@ public class UIObject : MonoBehaviour
 
     #endregion Despaw
 
-
+    public void HighlightObject(bool highlight)
+    {
+        _highlight.SetActive(highlight);
+    }
 }
