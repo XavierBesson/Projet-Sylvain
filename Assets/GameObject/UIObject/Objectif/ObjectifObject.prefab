@@ -250,6 +250,7 @@ MonoBehaviour:
     m_Bits: 576
   _objectType: 3
   _highlight: {fileID: 7468007454783524115}
+  _wallDistance: 0.1
 --- !u!65 &5211608281344719565
 BoxCollider:
   m_ObjectHideFlags: 0

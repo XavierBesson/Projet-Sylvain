@@ -185,12 +185,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: -7753831751626184557}
-  _dragDistance: 4
+  _dragDistance: 2
   _raycastMask:
     serializedVersion: 2
     m_Bits: 576
   _objectType: 1
   _highlight: {fileID: 410639446329786562}
+  _wallDistance: 0.2
 --- !u!1001 &2362769494792202511
 PrefabInstance:
   m_ObjectHideFlags: 0

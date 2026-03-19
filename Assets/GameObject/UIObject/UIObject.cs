@@ -25,6 +25,7 @@ public class UIObject : MonoBehaviour
     [SerializeField] private LayerMask _raycastMask;
     [SerializeField] private EUIObject _objectType = EUIObject.NONE;
     [SerializeField] private GameObject _highlight;
+    [SerializeField] private float _wallDistance = 0.2f;
     private bool _isDragging = false;
     private CharacterController _playerCharacter = null;
     private DetachableUi _detachableUI = null;
@@ -101,7 +102,7 @@ public class UIObject : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, GameManager.Instance.Player.Camera.nearClipPlane + _dragDistance, _raycastMask))
         {
-            _rb.MovePosition(hit.point - ray.direction * 0.2f);
+            _rb.MovePosition(hit.point - ray.direction * _wallDistance);
         }
         else
         {
