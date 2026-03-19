@@ -61,7 +61,6 @@ public class Poigne : MonoBehaviour
                     transform.rotation = Quaternion.Euler(0, 90, angle + 90);
                 else
                     transform.rotation = Quaternion.Euler(0, 0, angle + 90);
-                print(angle);
             }
         }
     }
@@ -79,7 +78,7 @@ public class Poigne : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)

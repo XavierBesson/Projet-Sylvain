@@ -27,6 +27,8 @@ public class UIObject : MonoBehaviour
     private bool _isDragging = false;
     private CharacterController _playerCharacter = null;
     private DetachableUi _detachableUI = null;
+    private float _despawnTimer = 0;
+    private float _maxDespawnTimer = 3;
 
     public CharacterController PlayerCharacter { get => _playerCharacter; set => _playerCharacter = value; }
     public bool IsDragging { get => _isDragging; set => _isDragging = value; }
@@ -61,6 +63,7 @@ public class UIObject : MonoBehaviour
     {
         IsDragging = true;
         _rb.isKinematic = true;
+        GameManager.Instance.GameLoop -= DespawnTimer;
         GameManager.Instance.Player.CurrentUIObject = this;
         GameManager.Instance.GameLoop += Move;
     }
@@ -70,8 +73,20 @@ public class UIObject : MonoBehaviour
     {
         _rb.isKinematic = false;
         IsDragging = false;
+        GameManager.Instance.GameLoop += DespawnTimer;
+        _despawnTimer = 0;
         GameManager.Instance.Player.CurrentUIObject = null;
         GameManager.Instance.GameLoop -= Move;
+    }
+
+
+    private void DespawnTimer()
+    {
+        _despawnTimer += Time.deltaTime;
+        if (_despawnTimer >= _maxDespawnTimer)
+        {
+            Despawn();
+        }
     }
 
     #endregion Dragging
@@ -101,6 +116,7 @@ public class UIObject : MonoBehaviour
     public void Despawn()
     {
         GameManager.Instance.GameLoop -= Move;
+        GameManager.Instance.GameLoop -= DespawnTimer;
         Destroy(gameObject);
     }
 

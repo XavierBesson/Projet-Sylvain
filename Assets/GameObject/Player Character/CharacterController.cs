@@ -30,15 +30,14 @@ public class CharacterController : MonoBehaviour
     [Header("Mouse Interractions")]
     [SerializeField] private float _interactRange = 100000f;
     [SerializeField] private LayerMask _interactile;
-    [SerializeField] private Vector3 _mousePosition;
     private UIObject _currentUIObject = null;
 
     [Header("HP")]
-    [SerializeField] private float _hp;
+    private float _hp;
     [SerializeField] private float _hpMax = 5f;
-    [SerializeField] private bool _hpRegen = false;
+    private bool _hpRegen = false;
     private bool _isDead = false;
-    [SerializeField] private bool _isStairs = false;
+    private bool _isStairs = false;
 
 
     public Camera Camera { get => _camera; set => _camera = value; }
@@ -75,7 +74,6 @@ public class CharacterController : MonoBehaviour
         }
         // MousePosition();
         MouseClic();
-        _mousePosition = Input.mousePosition;
         // HpRegen();
 
         if (GameManager.Instance.PlayerHUDController != null)
@@ -107,7 +105,7 @@ public class CharacterController : MonoBehaviour
     void TryMove(Vector3 dir)
     {
         Vector3 dir2 = -this.transform.up;
-        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles) && Physics.Raycast(transform.position, dir2, 1.1f, _floor))
+        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles, QueryTriggerInteraction.Ignore) && Physics.Raycast(transform.position, dir2, 1.1f, _floor, QueryTriggerInteraction.Ignore))
         {
             transform.position += dir * _stepDistance;
         }
@@ -224,8 +222,9 @@ public class CharacterController : MonoBehaviour
 
             //Debug.Log(hit.collider.gameObject);
 
-            if (hit.collider.gameObject.GetComponentInParent<ClicableObject>() != null) 
+            if (hit.collider.gameObject.GetComponent<ClicableObject>() != null) 
             {
+                print(hit.collider.gameObject.GetComponent<ClicableObject>());
                 hit.collider.gameObject.GetComponent<ClicableObject>().DisplayText();
             }
         }

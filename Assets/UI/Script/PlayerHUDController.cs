@@ -26,6 +26,7 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private float _actualTextTime = 0;
     [SerializeField] private float _textSpeed = 0.01f;
     private float _aditionnalTextTime = 0;
+    private bool _textIsDisplay = false;
 
 
 
@@ -73,11 +74,15 @@ public class PlayerHUDController : MonoBehaviour
 
     public void LoreText(string textToShow)
     {
-        StartCoroutine(CharDisplay(textToShow));
-        _actualTextTime = 0;
-        _aditionnalTextTime = _textSpeed * textToShow.Length;
-        GameManager.Instance.GameLoop -= TextTimer;
-        GameManager.Instance.GameLoop += TextTimer;
+        if (!_textIsDisplay)
+        {
+            StartCoroutine(CharDisplay(textToShow));
+            _textIsDisplay = true;
+            _actualTextTime = 0;
+            _aditionnalTextTime = _textSpeed * textToShow.Length;
+            GameManager.Instance.GameLoop -= TextTimer;
+            GameManager.Instance.GameLoop += TextTimer;
+        }
     }
 
 
@@ -108,6 +113,7 @@ public class PlayerHUDController : MonoBehaviour
         {
             _actualTextTime = 0;
             _eventText.text = string.Empty;
+            _textIsDisplay = false;
         }
     }
 
