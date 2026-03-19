@@ -157,13 +157,14 @@ public class CharacterController : MonoBehaviour
 
     #region HP
 
-    public void Hpdamage(float damage)
+    public void Hpdamage(float damage, bool inStairs = false)
     {
         Hp = Hp - damage;
         if (Hp > 0f)
         {
             GameManager.Instance.PlayerHUDController.TakeDammageStart();
         }
+        _isStairs = inStairs;
     }
 
 

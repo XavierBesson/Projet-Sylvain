@@ -4,29 +4,13 @@ using UnityEngine;
 
 public class Stairs : MonoBehaviour
 {
+    private bool _stairUsed = false;
 
-    [SerializeField] private GameObject _stopBackwardWalls;
-    [SerializeField] private bool _ramp;
-    [SerializeField] private bool _active; 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _stopBackwardWalls.gameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider collision)
-    {if (_ramp == true)
+    {
+        if (collision.gameObject.GetComponent<CharacterController>() && !_stairUsed)
         {
-            GameManager.Instance.Player.IsInStairs(false);
-
             if (GameManager.Instance.Difficulty == EDifficulty.EASY)
             {
                 //Rien
@@ -35,29 +19,16 @@ public class Stairs : MonoBehaviour
             else if (GameManager.Instance.Difficulty == EDifficulty.MEDIUM)
             {
                 //prend moitié PV
-                GameManager.Instance.Player.Hpdamage(1.5f);
-                // Empèche le jour de reculer 
-                _stopBackwardWalls.gameObject.SetActive(true);
+                GameManager.Instance.Player.Hpdamage(1.5f, true);
                 GameManager.Instance.PlayerHUDController.LoreText("Ouch ! That must have hurt ! Are you okay ?");
             }
             else if (GameManager.Instance.Difficulty == EDifficulty.HARD)
             {
                 //Prend tout pv
-                GameManager.Instance.Player.Hpdamage(GameManager.Instance.Player.Hp);
-                // Empèche le jour de reculer 
-                _stopBackwardWalls.gameObject.SetActive(true);
+                GameManager.Instance.Player.Hpdamage(GameManager.Instance.Player.Hp, true);
                 GameManager.Instance.PlayerHUDController.LoreText("Did you put the game in Difficult ? Too bad for you !");
             }
+            _stairUsed = true;
         }
-        else
-        {
-            _stopBackwardWalls.gameObject.SetActive(_active);
-            GameManager.Instance.Player.IsInStairs(true);
-        }
-
     }
-
-
-
-
-    }
+}
