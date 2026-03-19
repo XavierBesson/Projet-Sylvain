@@ -85,7 +85,7 @@ public class UIObject : MonoBehaviour
         _despawnTimer += Time.deltaTime;
         if (_despawnTimer >= _maxDespawnTimer)
         {
-            Despawn();
+            ReturnToUI();
         }
     }
 

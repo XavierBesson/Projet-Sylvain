@@ -72,7 +72,7 @@ public class Enemy : EnigmeObject
 
     private void Update()
     {
-        if (_doitFuir && Input.GetMouseButtonUp(0))
+        if (_doitFuir && Input.GetMouseButtonUp(1))
         {
             _objectifObject.Despawn();
             Fuite();
