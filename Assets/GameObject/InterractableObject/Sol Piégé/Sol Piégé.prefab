@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 2838744835098878733}
   - component: {fileID: -6809846614009757377}
   - component: {fileID: 296398585931017619}
+  - component: {fileID: 1810546002285636855}
   m_Layer: 0
   m_Name: "Sol Pi\xE9g\xE9"
   m_TagString: Untagged
@@ -302,7 +303,6 @@ MonoBehaviour:
   _damage: 1
   _platformHp: {fileID: 1937937840421884025}
   _platformBackground: {fileID: 8978623971789418296}
-  _isCovered: 0
   _door: {fileID: 0}
 --- !u!65 &296398585931017619
 BoxCollider:
@@ -325,6 +325,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 1, z: 10}
   m_Center: {x: 0, y: -0.4, z: 0}
+--- !u!54 &1810546002285636855
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5026103338346406780}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &8978623971789418296
 GameObject:
   m_ObjectHideFlags: 0

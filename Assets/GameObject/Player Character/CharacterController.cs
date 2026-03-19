@@ -51,6 +51,7 @@ public class CharacterController : MonoBehaviour
             if (Hp <= 0f) { Death(); }
         } }
     public UIObject CurrentUIObject { get { return _currentUIObject; } set => _currentUIObject = value; }
+    public bool IsDead { get => _isDead; set => _isDead = value; }
 
 
     void Start()
@@ -66,7 +67,7 @@ public class CharacterController : MonoBehaviour
     {
         if (_moving)
         {
-            if (!_isDead)
+            if (!IsDead)
             {
                 Move();
                 Rotate();
@@ -192,6 +193,7 @@ public class CharacterController : MonoBehaviour
         Debug.Log("Je suis mort");
        
         GameManager.Instance.PlayerHUDController.PlayerIsDead(_isStairs);
+        IsDead = true;
     }
 
 

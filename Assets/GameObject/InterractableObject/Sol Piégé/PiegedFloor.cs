@@ -33,8 +33,21 @@ public class PiegedFloor : EnigmeObject
     {
         if (_inRange)
         {
-            _player.Hpdamage(_damage);
-            _door.SpikeDamage(_damage); 
+            if (GameManager.Instance.Difficulty == EDifficulty.EASY)
+            {
+                _player.Hpdamage(_damage / 3);
+                _door.SpikeDamage(_damage/3);
+            }
+            else if (GameManager.Instance.Difficulty == EDifficulty.MEDIUM)
+            {
+                _player.Hpdamage(_damage);
+                _door.SpikeDamage(_damage);
+            }
+            else if (GameManager.Instance.Difficulty == EDifficulty.HARD)
+            {
+                _player.Hpdamage(_damage * 2);
+                _door.SpikeDamage(_damage * 2);
+            }
             Invoke("TakeDamage", 0.1f);
         }
     }
@@ -49,24 +62,33 @@ public class PiegedFloor : EnigmeObject
 
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
-            switch (uiObject.ObjectType)
+            if (Input.GetMouseButtonUp(1))
             {
-                case EUIObject.PLATFORM:
-                    IsCovered(false);
-                    uiObject.Despawn();
-                    break;
-                case EUIObject.HEALTHBAR:
-                    IsCovered(true);
-                    uiObject.Despawn();
-                    break;
+                switch (uiObject.ObjectType)
+                {
+                    case EUIObject.PLATFORM:
+                        IsCovered(false);
+                        uiObject.Despawn();
+                        break;
+                    case EUIObject.HEALTHBAR:
+                        IsCovered(true);
+                        uiObject.Despawn();
+                        break;
+                }
             }
         }
-        else if (collision.gameObject.GetComponentInParent<CharacterController>())
+    }
+
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponentInParent<CharacterController>())
         {
             _player.IsInStairs(false);
 
@@ -74,6 +96,22 @@ public class PiegedFloor : EnigmeObject
             TakeDamage();
 
             Debug.Log("marche pique");
+        }
+        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
+        if (uiObject != null)
+        {
+            switch (uiObject.ObjectType)
+            {
+                case EUIObject.PLATFORM:
+                    uiObject.DoNotDespawn = true;
+                    print(uiObject.DoNotDespawn);
+                    //uiObject.HighlightObject(true);
+                    break;
+                case EUIObject.HEALTHBAR:
+                    uiObject.DoNotDespawn = true;
+                    //uiObject.HighlightObject(true);
+                    break;
+            }
         }
     }
 
@@ -85,8 +123,20 @@ public class PiegedFloor : EnigmeObject
             _inRange = false;
             Debug.Log("sort pique");
         }
+        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
+        if (uiObject != null)
+        {
+            switch (uiObject.ObjectType)
+            {
+                case EUIObject.PLATFORM:
+                    uiObject.DoNotDespawn = false;
+                    //uiObject.HighlightObject(false);
+                    break;
+                case EUIObject.HEALTHBAR:
+                    uiObject.DoNotDespawn = false;
+                    //uiObject.HighlightObject(false);
+                    break;
+            }
+        }
     }
-
-
-
 }

@@ -29,13 +29,13 @@ public class UIObject : MonoBehaviour
     private DetachableUi _detachableUI = null;
     private float _despawnTimer = 0;
     private float _maxDespawnTimer = 3;
+    private bool _doNotDespawn = false;
 
     public CharacterController PlayerCharacter { get => _playerCharacter; set => _playerCharacter = value; }
     public bool IsDragging { get => _isDragging; set => _isDragging = value; }
     public DetachableUi DetachableUI { get => _detachableUI; set => _detachableUI = value; }
     public EUIObject ObjectType { get => _objectType; set => _objectType = value; }
-
-
+    public bool DoNotDespawn { get => _doNotDespawn; set => _doNotDespawn = value; }
 
     private void Start()
     {
@@ -130,8 +130,11 @@ public class UIObject : MonoBehaviour
 
     public void ReturnToUI()
     {
-        DetachableUI.ResetPosition();
-        Despawn();
+        if (!DoNotDespawn)
+        {
+            DetachableUI.ResetPosition();
+            Despawn();
+        }
     }
 
     #endregion Despaw

@@ -83,24 +83,63 @@ public class Poigne : MonoBehaviour
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            if (Input.GetMouseButtonUp(1))
+            {
+                switch (uiObject.ObjectType)
+                {
+                    case EUIObject.HEALTHBAR:
+                        _door.ObjectOnDoor = uiObject.ObjectType;
+                        _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
+                        _barATournerUI.gameObject.SetActive(true);
+                        uiObject.Despawn();
+                        break;
+
+                    case EUIObject.VOLUMEBAR:
+                        _door.ObjectOnDoor = uiObject.ObjectType;
+                        _barATournerUI.transform.Find("Background").GetComponent<Image>().sprite = _barImageSound;
+                        _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
+                        _barATournerUI.gameObject.SetActive(true);
+                        uiObject.Despawn();
+                        break;
+                }
+            }  
+        }
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
+        if (uiObject != null)
+        {
             switch (uiObject.ObjectType)
             {
                 case EUIObject.HEALTHBAR:
-                    _door.ObjectOnDoor = uiObject.ObjectType;
-                    _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
-                    _barATournerUI.gameObject.SetActive(true);
-                    uiObject.Despawn();
+                    //uiObject.HighlightObject(true);
                     break;
-
                 case EUIObject.VOLUMEBAR:
-                    _door.ObjectOnDoor = uiObject.ObjectType;
-                    _barATournerUI.transform.Find("Background").GetComponent<Image>().sprite = _barImageSound;
-                    _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
-                    _barATournerUI.gameObject.SetActive(true);
-                    uiObject.Despawn();
+                    //uiObject.HighlightObject(true);
                     break;
             }
         }
     }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
+        if (uiObject != null)
+        {
+            switch (uiObject.ObjectType)
+            {
+                case EUIObject.HEALTHBAR:
+                    //uiObject.HighlightObject(false);
+                    break;
+                case EUIObject.VOLUMEBAR:
+                    //uiObject.HighlightObject(false);
+                    break;
+            }
+        }
+    }
+
 
 }

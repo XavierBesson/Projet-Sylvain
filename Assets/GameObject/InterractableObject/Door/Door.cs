@@ -114,6 +114,28 @@ public class Door : EnigmeObject
     }
 
 
+
+    private void OnCollisionStay(Collision collision)
+    {
+        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
+        if (uiObject != null)
+        {
+            if (Input.GetMouseButtonUp(1))
+            {
+                switch (uiObject.ObjectType)
+                {
+                    case EUIObject.ENGRENAGE:
+                        ObjectOnDoor = uiObject.ObjectType;
+                        _gearObject.SetActive(true);
+                        OpenTheDoor();
+                        uiObject.Despawn();
+                        break;
+                }
+            }
+        }
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
@@ -122,10 +144,21 @@ public class Door : EnigmeObject
             switch (uiObject.ObjectType)
             {
                 case EUIObject.ENGRENAGE:
-                    ObjectOnDoor = uiObject.ObjectType;
-                    _gearObject.SetActive(true);
-                    OpenTheDoor();
-                    uiObject.Despawn();
+                    //uiObject.HighlightObject(true);
+                    break;
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
+        if (uiObject != null)
+        {
+            switch (uiObject.ObjectType)
+            {
+                case EUIObject.ENGRENAGE:
+                    //uiObject.HighlightObject(false);
                     break;
             }
         }

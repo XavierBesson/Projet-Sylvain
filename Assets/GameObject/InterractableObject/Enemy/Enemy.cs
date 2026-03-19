@@ -54,8 +54,7 @@ public class Enemy : EnigmeObject
     [SerializeField] private float _hardSwordVelocity = 5f;
     [SerializeField] private string _hardSwordText;
 
-    private bool _doitFuir = false;
-    private UIObject _objectifObject = null;
+
 
 
     void Start()
@@ -67,16 +66,6 @@ public class Enemy : EnigmeObject
         _easySword.gameObject.SetActive(false);
         _mediumSword.gameObject.SetActive(false);
         _hardSword.gameObject.SetActive(false);
-    }
-
-
-    private void Update()
-    {
-        if (_doitFuir && Input.GetMouseButtonUp(1))
-        {
-            _objectifObject.Despawn();
-            Fuite();
-        }
     }
 
 
@@ -169,19 +158,31 @@ public class Enemy : EnigmeObject
                     GameManager.Instance.PlayerHUDController.LoreText(_hardSwordText);
                     break;
                 case EUIObject.OBJECTIF:
-                    _objectifObject = uiObject;
-                    _doitFuir = true;
+                    //uiObject.HighlightObject(true);
                     break;
             }
         }
     }
 
-    /*
+    
     private void OnCollisionStay(Collision collision)
     {
-        
+        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
+        if (uiObject != null)
+        {
+            if (Input.GetMouseButtonUp(1))
+            {
+                switch (uiObject.ObjectType)
+                {
+                    case EUIObject.OBJECTIF:
+                        uiObject.Despawn();
+                        Fuite();
+                        break;
+                }
+            }
+        }
     }
-    */
+    
 
     private void OnCollisionExit(Collision collision)
     {
@@ -191,8 +192,7 @@ public class Enemy : EnigmeObject
             switch (uiObject.ObjectType)
             {
                 case EUIObject.OBJECTIF:
-                    _objectifObject = null;
-                    _doitFuir = false;
+                    //uiObject.HighlightObject(false);
                     break;
             }
         }
