@@ -144,7 +144,7 @@ public class Door : EnigmeObject
             switch (uiObject.ObjectType)
             {
                 case EUIObject.ENGRENAGE:
-                    //uiObject.HighlightObject(true);
+                    uiObject.HighlightObject(true);
                     break;
             }
         }
@@ -158,7 +158,7 @@ public class Door : EnigmeObject
             switch (uiObject.ObjectType)
             {
                 case EUIObject.ENGRENAGE:
-                    //uiObject.HighlightObject(false);
+                    uiObject.HighlightObject(false);
                     break;
             }
         }

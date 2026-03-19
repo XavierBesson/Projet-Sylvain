@@ -115,10 +115,10 @@ public class Poigne : MonoBehaviour
             switch (uiObject.ObjectType)
             {
                 case EUIObject.HEALTHBAR:
-                    //uiObject.HighlightObject(true);
+                    uiObject.HighlightObject(true);
                     break;
                 case EUIObject.VOLUMEBAR:
-                    //uiObject.HighlightObject(true);
+                    uiObject.HighlightObject(true);
                     break;
             }
         }
@@ -132,10 +132,10 @@ public class Poigne : MonoBehaviour
             switch (uiObject.ObjectType)
             {
                 case EUIObject.HEALTHBAR:
-                    //uiObject.HighlightObject(false);
+                    uiObject.HighlightObject(false);
                     break;
                 case EUIObject.VOLUMEBAR:
-                    //uiObject.HighlightObject(false);
+                    uiObject.HighlightObject(false);
                     break;
             }
         }

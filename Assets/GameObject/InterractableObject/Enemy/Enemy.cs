@@ -158,7 +158,7 @@ public class Enemy : EnigmeObject
                     GameManager.Instance.PlayerHUDController.LoreText(_hardSwordText);
                     break;
                 case EUIObject.OBJECTIF:
-                    //uiObject.HighlightObject(true);
+                    uiObject.HighlightObject(true);
                     break;
             }
         }
@@ -192,7 +192,7 @@ public class Enemy : EnigmeObject
             switch (uiObject.ObjectType)
             {
                 case EUIObject.OBJECTIF:
-                    //uiObject.HighlightObject(false);
+                    uiObject.HighlightObject(false);
                     break;
             }
         }

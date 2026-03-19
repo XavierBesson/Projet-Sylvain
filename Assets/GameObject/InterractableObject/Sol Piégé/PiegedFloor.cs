@@ -105,11 +105,11 @@ public class PiegedFloor : EnigmeObject
                 case EUIObject.PLATFORM:
                     uiObject.DoNotDespawn = true;
                     print(uiObject.DoNotDespawn);
-                    //uiObject.HighlightObject(true);
+                    uiObject.HighlightObject(true);
                     break;
                 case EUIObject.HEALTHBAR:
                     uiObject.DoNotDespawn = true;
-                    //uiObject.HighlightObject(true);
+                    uiObject.HighlightObject(true);
                     break;
             }
         }
@@ -130,11 +130,11 @@ public class PiegedFloor : EnigmeObject
             {
                 case EUIObject.PLATFORM:
                     uiObject.DoNotDespawn = false;
-                    //uiObject.HighlightObject(false);
+                    uiObject.HighlightObject(false);
                     break;
                 case EUIObject.HEALTHBAR:
                     uiObject.DoNotDespawn = false;
-                    //uiObject.HighlightObject(false);
+                    uiObject.HighlightObject(false);
                     break;
             }
         }
