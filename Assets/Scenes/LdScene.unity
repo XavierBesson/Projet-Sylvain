@@ -6378,10 +6378,6 @@ Transform:
   - {fileID: 672065797}
   - {fileID: 1704286473}
   - {fileID: 1120715301}
-  - {fileID: 743916163}
-  - {fileID: 825001215}
-  - {fileID: 2065296171}
-  - {fileID: 1239607374}
   - {fileID: 2049149896}
   - {fileID: 2081881081}
   - {fileID: 1686801802}
@@ -23730,72 +23726,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3823390919976579747, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
   m_PrefabInstance: {fileID: 454570608}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &743916160
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 743916163}
-  - component: {fileID: 743916162}
-  - component: {fileID: 743916161}
-  m_Layer: 0
-  m_Name: RampHitBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &743916161
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743916160}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &743916162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743916160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a327ca61f8b91a4fa9c6628dda503df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &743916163
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743916160}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7024244, z: -0, w: 0.71175843}
-  m_LocalPosition: {x: 9.27942, y: 17.457064, z: 3.248207}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 438060387}
-  m_LocalEulerAnglesHint: {x: 0, y: 89.244, z: 0}
 --- !u!1001 &745417453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24705,72 +24635,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8492440690643632977, guid: 9f2ed2ef64d0a59419c4791d6ddda859, type: 3}
   m_PrefabInstance: {fileID: 824600708}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &825001212
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 825001215}
-  - component: {fileID: 825001214}
-  - component: {fileID: 825001213}
-  m_Layer: 0
-  m_Name: RampHitBox (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &825001213
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825001212}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &825001214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825001212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a327ca61f8b91a4fa9c6628dda503df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &825001215
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 825001212}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7024244, z: -0, w: 0.71175843}
-  m_LocalPosition: {x: 2.73942, y: 17.457064, z: 3.248207}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 438060387}
-  m_LocalEulerAnglesHint: {x: 0, y: 89.244, z: 0}
 --- !u!1 &830332546 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1679256956862169429, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
@@ -33081,72 +32945,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 176110347830505372, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
   m_PrefabInstance: {fileID: 454570608}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1239607371
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1239607374}
-  - component: {fileID: 1239607373}
-  - component: {fileID: 1239607372}
-  m_Layer: 0
-  m_Name: RampHitBox (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &1239607372
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239607371}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1239607373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239607371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a327ca61f8b91a4fa9c6628dda503df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1239607374
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239607371}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7024244, z: -0, w: 0.71175843}
-  m_LocalPosition: {x: 2.73942, y: 17.457064, z: 3.248207}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 438060387}
-  m_LocalEulerAnglesHint: {x: 0, y: 89.244, z: 0}
 --- !u!4 &1240774985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8582451509887590953, guid: f8c0297a8d99e2747baeb5697c8ecb66, type: 3}
@@ -38473,7 +38271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1500536307
 Transform:
   m_ObjectHideFlags: 0
@@ -49912,72 +49710,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 515567934}
   m_SourcePrefab: {fileID: 100100000, guid: 3383c02c02ff290469b05876f9107076, type: 3}
---- !u!1 &2065296168
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2065296171}
-  - component: {fileID: 2065296170}
-  - component: {fileID: 2065296169}
-  m_Layer: 0
-  m_Name: RampHitBox (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &2065296169
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065296168}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2065296170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065296168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a327ca61f8b91a4fa9c6628dda503df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2065296171
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065296168}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7024244, z: -0, w: 0.71175843}
-  m_LocalPosition: {x: 2.73942, y: 17.457064, z: 3.248207}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 438060387}
-  m_LocalEulerAnglesHint: {x: 0, y: 89.244, z: 0}
 --- !u!1 &2066037146 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1845384927135391395, guid: b60437fc5aa8a6b44b106f58ceb70d0b, type: 3}
