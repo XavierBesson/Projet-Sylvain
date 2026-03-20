@@ -81,6 +81,8 @@ public class Door : EnigmeObject
         {
             _turn3Object.material.color = Color.green;
             OpenTheDoor();
+             _doorOpen = true;
+
             Debug.Log("ouvert");
         }
         else
