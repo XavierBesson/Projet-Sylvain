@@ -8,6 +8,8 @@ public class DeathMenuSkel : MonoBehaviour
 {
     [SerializeField] private DeathMenuButtons _mainMenu;
     [SerializeField] private float _delayBeforeLoadingScene = 1f;
+    [SerializeField] private GameObject _skeleton;
+    [SerializeField] private GameObject _grave;
     [SerializeField] private DeathMenuObject _usedObject;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,7 @@ public class DeathMenuSkel : MonoBehaviour
                 Invoke("Retry", _delayBeforeLoadingScene);
                 break;
             case EDeathObjectType.QUIT:
+                SpawnGrave();
                 Invoke("Quit", _delayBeforeLoadingScene);
                 break;
         }
@@ -57,5 +60,11 @@ public class DeathMenuSkel : MonoBehaviour
     private void Quit()
     {
         _mainMenu.QuitGame();
+    }
+
+    private void SpawnGrave()
+    {
+        _skeleton.SetActive(false);
+        _grave.SetActive(true);
     }
 }
