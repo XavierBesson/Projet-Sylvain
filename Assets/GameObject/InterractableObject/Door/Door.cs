@@ -23,6 +23,8 @@ public class Door : EnigmeObject
     private bool open = false;
     [SerializeField] private Poigne _poigné = null;
 
+    private bool _doorOpen = false;
+
 
     public bool Open { get => open; set => open = value; }
     public EUIObject ObjectOnDoor { get => objectOnDoor; set => objectOnDoor = value; }
@@ -39,6 +41,10 @@ public class Door : EnigmeObject
     void Update()
     {
         UpdateProgresseBar();
+        if (_doorOpen)
+        {
+            OpenTheDoor();
+        }
     }
 
 
@@ -101,9 +107,8 @@ public class Door : EnigmeObject
     public void OpenTheDoor() 
     {
         Debug.Log("ouvert");
-        //bouger la porte vers la position et rotation spécifier
-        _entireDoor.transform.position = _openDoorTransform.transform.position;
-        _entireDoor.transform.rotation = _openDoorTransform.transform.rotation;
+        _entireDoor.transform.position = Vector3.Lerp(_entireDoor.transform.position, _openDoorTransform.transform.position, Time.deltaTime * 10);
+        _entireDoor.transform.rotation = Quaternion.Lerp(_entireDoor.transform.rotation, _openDoorTransform.transform.rotation, Time.deltaTime * 15);
         Open = true;
         _doorCollider.enabled = false;
         if (ObjectOnDoor == EUIObject.VOLUMEBAR)
@@ -124,7 +129,8 @@ public class Door : EnigmeObject
                 case EUIObject.ENGRENAGE:
                     ObjectOnDoor = _uiObjectToUse.ObjectType;
                     _gearObject.SetActive(true);
-                    OpenTheDoor();
+                    //OpenTheDoor();
+                    _doorOpen = true;
                     _uiObjectToUse.Despawn();
                     break;
             }
