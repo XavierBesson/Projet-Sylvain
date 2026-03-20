@@ -19,8 +19,10 @@ public class Poigne : EnigmeObject
     [SerializeField] private Door _door;
     private CharacterController _player;
     private bool canRotate = true;
+    private bool _inTransition = false;
 
     public bool CanRotate { get => canRotate; set => canRotate = value; }
+    public bool InTransition { get => _inTransition; set => _inTransition = value; }
 
     void Start()
     {
@@ -60,7 +62,7 @@ public class Poigne : EnigmeObject
                 if (_door.Open)
                 {
                     float angle = Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.Euler(0, 45, angle);
+                    transform.rotation = Quaternion.Euler(0, 90, angle);
                 }
                 else
                 {
@@ -80,7 +82,8 @@ public class Poigne : EnigmeObject
 
     private void OnMouseOver()
     {
-        RotateElement();
+        if (!InTransition)
+            RotateElement();
     }
 
 

@@ -23,8 +23,6 @@ public class Door : EnigmeObject
     private bool open = false;
     [SerializeField] private Poigne _poigné = null;
 
-    private bool _doorOpen = false;
-
 
     public bool Open { get => open; set => open = value; }
     public EUIObject ObjectOnDoor { get => objectOnDoor; set => objectOnDoor = value; }
@@ -41,10 +39,6 @@ public class Door : EnigmeObject
     void Update()
     {
         UpdateProgresseBar();
-        if (_doorOpen)
-        {
-            OpenTheDoor();
-        }
     }
 
 
@@ -81,7 +75,6 @@ public class Door : EnigmeObject
         {
             _turn3Object.material.color = Color.green;
             OpenTheDoor();
-             _doorOpen = true;
 
             Debug.Log("ouvert");
         }
@@ -109,14 +102,28 @@ public class Door : EnigmeObject
     public void OpenTheDoor() 
     {
         Debug.Log("ouvert");
-        _entireDoor.transform.position = Vector3.Lerp(_entireDoor.transform.position, _openDoorTransform.transform.position, Time.deltaTime * 10);
-        _entireDoor.transform.rotation = Quaternion.Lerp(_entireDoor.transform.rotation, _openDoorTransform.transform.rotation, Time.deltaTime * 15);
         Open = true;
+        _poigné.InTransition = true;
+        GameManager.Instance.GameLoop += OpeningDoorTransition;
         _doorCollider.enabled = false;
         if (ObjectOnDoor == EUIObject.VOLUMEBAR)
         {
             _poigné.CanRotate = false;
             GameManager.Instance.GameLoop += _poigné.ForceBarToRotate;
+        }
+    }
+
+
+    private void OpeningDoorTransition()
+    {
+        _entireDoor.transform.position = Vector3.Lerp(_entireDoor.transform.position, _openDoorTransform.transform.position, Time.deltaTime * 10);
+        _entireDoor.transform.rotation = Quaternion.Lerp(_entireDoor.transform.rotation, _openDoorTransform.transform.rotation, Time.deltaTime * 15);
+        _poigné.transform.rotation = Quaternion.Euler(0, _entireDoor.transform.rotation.y + 90, 90);
+        if (Vector3.Distance(_entireDoor.transform.position, _openDoorTransform.transform.position) <= 0.1f)
+        {
+            GameManager.Instance.GameLoop -= OpeningDoorTransition;
+            _poigné.InTransition = false;
+            _poigné.transform.rotation = Quaternion.Euler(0, 90, 90);
         }
     }
 
@@ -131,8 +138,7 @@ public class Door : EnigmeObject
                 case EUIObject.ENGRENAGE:
                     ObjectOnDoor = _uiObjectToUse.ObjectType;
                     _gearObject.SetActive(true);
-                    //OpenTheDoor();
-                    _doorOpen = true;
+                    OpenTheDoor();
                     _uiObjectToUse.Despawn();
                     break;
             }
