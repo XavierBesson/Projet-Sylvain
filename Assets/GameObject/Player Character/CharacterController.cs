@@ -12,6 +12,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private bool _oldSchoolMove = false;
     [SerializeField] private bool _moving = true;
+    [SerializeField] private Vector3 _positionToMove = Vector3.zero;
 
     [Header("Déplacement Moderne")]
     [SerializeField] private float _moveSpeed = 5;
@@ -56,6 +57,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
+        _positionToMove = transform.position;
         Hp = _hpMax;
         GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
         _currentRotation = transform.rotation.eulerAngles.y;
@@ -69,8 +71,13 @@ public class CharacterController : MonoBehaviour
         {
             if (!IsDead)
             {
-                Move();
-                Rotate();
+                Vector3 dir2 = -this.transform.up;
+                if (Physics.Raycast(transform.position, dir2, 1.1f, _floor, QueryTriggerInteraction.Ignore) )
+                    {
+                    MoveLerp();
+                    }
+                else { _positionToMove = transform.position; Move(); }
+                    Rotate();
             }
         }
         // MousePosition();
@@ -102,6 +109,35 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+
+    private void MoveLerp()
+    {
+        transform.position = Vector3.Lerp(transform.position, _positionToMove, Time.deltaTime*60 ); 
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            TryMoveLerp(this.transform.forward);
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            TryMoveLerp(-this.transform.forward);
+    }
+
+    private void TryMoveLerp(Vector3 dir)
+    {
+        Vector3 dir2 = -this.transform.up;
+        if (!Physics.Raycast(_positionToMove, dir, _stepDistance + 0.5f, _obstacles, QueryTriggerInteraction.Ignore))
+        {
+            Vector3 freeTarget = _positionToMove + dir * (_stepDistance + 0.5f);
+             Vector3 rayOrigin = new Vector3(freeTarget.x, freeTarget.y + 2f, freeTarget.z);
+
+             if (Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit groundHit, 10f, _obstacles, QueryTriggerInteraction.Ignore))
+             {
+                 Vector3 groundPoint = groundHit.point;
+
+                 _positionToMove += dir * _stepDistance;
+                 _positionToMove.y = groundPoint.y;
+             }
+            else _positionToMove += dir * _stepDistance;
+        }
+    }
 
     void TryMove(Vector3 dir)
     {
