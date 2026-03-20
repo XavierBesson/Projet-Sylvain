@@ -138,11 +138,29 @@ public class Enemy : EnigmeObject
     }
 
 
+    public override void ActivedObject()
+    {
+        base.ActivedObject();
+        if (_uiObjectToUse != null && Input.GetMouseButtonUp(1))
+        {
+            switch (_uiObjectToUse.ObjectType)
+            {
+                case EUIObject.OBJECTIF:
+                    _uiObjectToUse.Despawn();
+                    Fuite();
+                    break;
+            }
+            GameManager.Instance.GameLoop -= ActivedObject;
+        }
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            GameManager.Instance.GameLoop += ActivedObject;
             switch (uiObject.ObjectType)
             {
                 case EUIObject.EASYSWORD:
@@ -158,37 +176,20 @@ public class Enemy : EnigmeObject
                     GameManager.Instance.PlayerHUDController.LoreText(_hardSwordText);
                     break;
                 case EUIObject.OBJECTIF:
-                    uiObject.HighlightObject(true);
+                    InRangeUIObject(uiObject);
                     break;
             }
         }
     }
 
-    
-    private void OnCollisionStay(Collision collision)
-    {
-        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
-        if (uiObject != null)
-        {
-            if (Input.GetMouseButtonUp(1))
-            {
-                switch (uiObject.ObjectType)
-                {
-                    case EUIObject.OBJECTIF:
-                        uiObject.Despawn();
-                        Fuite();
-                        break;
-                }
-            }
-        }
-    }
-    
 
     private void OnCollisionExit(Collision collision)
     {
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            _uiObjectToUse = null;
+            GameManager.Instance.GameLoop -= ActivedObject;
             switch (uiObject.ObjectType)
             {
                 case EUIObject.OBJECTIF:

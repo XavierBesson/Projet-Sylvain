@@ -13,8 +13,6 @@ public class Door : EnigmeObject
     [SerializeField] MeshRenderer _turn2Object = null;
     [SerializeField] MeshRenderer _turn3Object = null;
 
-    private bool _doorOpen = false;
-
     [SerializeField] GameObject _barATourner = null;
     [SerializeField] GameObject _gearObject = null;
     [SerializeField] Slider _barATournerUI = null;
@@ -41,11 +39,6 @@ public class Door : EnigmeObject
     void Update()
     {
         UpdateProgresseBar();
-
-        if (_doorOpen)
-        { 
-            OpenTheDoor();
-        }
     }
 
 
@@ -109,10 +102,8 @@ public class Door : EnigmeObject
     {
         Debug.Log("ouvert");
         //bouger la porte vers la position et rotation spécifier
-        _entireDoor.transform.position = Vector3.Lerp(_entireDoor.transform.position, _openDoorTransform.transform.position, Time.deltaTime * 5);
-        _entireDoor.transform.rotation = Quaternion.Lerp(_entireDoor.transform.rotation, _openDoorTransform.transform.rotation, Time.deltaTime * 2);
-        //   _entireDoor.transform.position = _openDoorTransform.transform.position;
-        //  _entireDoor.transform.rotation = _openDoorTransform.transform.rotation;
+        _entireDoor.transform.position = _openDoorTransform.transform.position;
+        _entireDoor.transform.rotation = _openDoorTransform.transform.rotation;
         Open = true;
         _doorCollider.enabled = false;
         if (ObjectOnDoor == EUIObject.VOLUMEBAR)
@@ -123,25 +114,21 @@ public class Door : EnigmeObject
     }
 
 
-
-    private void OnCollisionStay(Collision collision)
+    public override void ActivedObject()
     {
-        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
-        if (uiObject != null)
+        base.ActivedObject();
+        if (_uiObjectToUse != null && Input.GetMouseButtonUp(1))
         {
-            if (Input.GetMouseButtonUp(1))
+            switch (_uiObjectToUse.ObjectType)
             {
-                switch (uiObject.ObjectType)
-                {
-                    case EUIObject.ENGRENAGE:
-                        ObjectOnDoor = uiObject.ObjectType;
-                        _gearObject.SetActive(true);
-                       // OpenTheDoor();
-                       _doorOpen = true;    
-                        uiObject.Despawn();
-                        break;
-                }
+                case EUIObject.ENGRENAGE:
+                    ObjectOnDoor = _uiObjectToUse.ObjectType;
+                    _gearObject.SetActive(true);
+                    OpenTheDoor();
+                    _uiObjectToUse.Despawn();
+                    break;
             }
+            GameManager.Instance.GameLoop -= ActivedObject;
         }
     }
 
@@ -151,20 +138,24 @@ public class Door : EnigmeObject
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            GameManager.Instance.GameLoop += ActivedObject;
             switch (uiObject.ObjectType)
             {
                 case EUIObject.ENGRENAGE:
-                    uiObject.HighlightObject(true);
+                    InRangeUIObject(uiObject);
                     break;
             }
         }
     }
+
 
     private void OnCollisionExit(Collision collision)
     {
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            _uiObjectToUse = null;
+            GameManager.Instance.GameLoop -= ActivedObject;
             switch (uiObject.ObjectType)
             {
                 case EUIObject.ENGRENAGE:

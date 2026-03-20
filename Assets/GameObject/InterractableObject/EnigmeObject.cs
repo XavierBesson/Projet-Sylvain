@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnigmeObject : MonoBehaviour
 {
     private protected CharacterController _player;
+    private protected UIObject _uiObjectToUse;
 
     void Start()
     {
@@ -32,5 +33,18 @@ public class EnigmeObject : MonoBehaviour
         audioSource.Play();
     }
 
+
+    public virtual void ActivedObject()
+    {
+
+    }
+
+
+
+    protected void InRangeUIObject(UIObject uiObject)
+    {
+        _uiObjectToUse = uiObject;
+        uiObject.HighlightObject(true);
+    }
 
 }
