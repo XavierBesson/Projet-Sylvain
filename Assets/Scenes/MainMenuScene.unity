@@ -3720,6 +3720,7 @@ MonoBehaviour:
   _player: {fileID: 63786510}
   _door: {fileID: 0}
   _audioSource: {fileID: 1148209927}
+  _deadMusic: {fileID: 0}
   _playerHUDController: {fileID: 0}
   _soundMultiplier: 1
   _difficulty: 1
@@ -7911,6 +7912,14 @@ PrefabInstance:
       propertyPath: _isMainMenu
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3076354496779216224, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
+      propertyPath: _mouseTextureGrab
+      value: 
+      objectReference: {fileID: 2800000, guid: 5751c9b811671004d95cd9b54f9ad5fc, type: 3}
+    - target: {fileID: 3076354496779216224, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
+      propertyPath: _mouseTextureOriginal
+      value: 
+      objectReference: {fileID: 2800000, guid: 70942cb277bfb53409545f51c322d21d, type: 3}
     - target: {fileID: 4047849332414679428, guid: 4e1728220bcc21447a3c899541fe13f5, type: 3}
       propertyPath: _uiObject
       value: 
