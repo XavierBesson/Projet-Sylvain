@@ -40,6 +40,7 @@ public class CharacterController : MonoBehaviour
     private bool _isDead = false;
     private bool _isStairs = false;
 
+    private bool _isGrounded = false;
 
     public Camera Camera { get => _camera; set => _camera = value; }
     public float Hp { get => _hp;
@@ -72,12 +73,12 @@ public class CharacterController : MonoBehaviour
             if (!IsDead)
             {
                 Vector3 dir2 = -this.transform.up;
-                if (Physics.Raycast(transform.position, dir2, 1.1f, _floor, QueryTriggerInteraction.Ignore) )
-                    {
-                    MoveLerp();
-                    }
+                if (Physics.Raycast(transform.position, dir2, 1.1f, _floor, QueryTriggerInteraction.Ignore) && _isGrounded)
+                {
+                    Move();
+                }
                 else { _positionToMove = transform.position; Move(); }
-                    Rotate();
+                Rotate();
             }
         }
         // MousePosition();
@@ -114,35 +115,40 @@ public class CharacterController : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, _positionToMove, Time.deltaTime*60 ); 
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && _isGrounded)
             TryMoveLerp(this.transform.forward);
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && _isGrounded)
             TryMoveLerp(-this.transform.forward);
     }
 
     private void TryMoveLerp(Vector3 dir)
     {
         Vector3 dir2 = -this.transform.up;
+        _isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, _floor, QueryTriggerInteraction.Ignore);
         if (!Physics.Raycast(_positionToMove, dir, _stepDistance + 0.5f, _obstacles, QueryTriggerInteraction.Ignore))
         {
             Vector3 freeTarget = _positionToMove + dir * (_stepDistance + 0.5f);
-             Vector3 rayOrigin = new Vector3(freeTarget.x, freeTarget.y + 2f, freeTarget.z);
+            //Vector3 rayOrigin = new Vector3(freeTarget.x, freeTarget.y + 2f, freeTarget.z);
 
-             if (Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit groundHit, 10f, _obstacles, QueryTriggerInteraction.Ignore))
-             {
-                 Vector3 groundPoint = groundHit.point;
+            if (Physics.Raycast(freeTarget, Vector3.down, out RaycastHit groundHit, 10f, _obstacles, QueryTriggerInteraction.Ignore))
+            {
+                Vector3 groundPoint = groundHit.point;
 
-                 _positionToMove += dir * _stepDistance;
-                 _positionToMove.y = groundPoint.y;
-             }
-            else _positionToMove += dir * _stepDistance;
+                _positionToMove += dir * _stepDistance;
+                _positionToMove.y = groundPoint.y + 1;
+                
+            }
+            else
+                _positionToMove += dir * _stepDistance;
         }
     }
 
     void TryMove(Vector3 dir)
     {
-        Vector3 dir2 = -this.transform.up;
-        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles, QueryTriggerInteraction.Ignore) && Physics.Raycast(transform.position, dir2, 1.1f, _floor, QueryTriggerInteraction.Ignore))
+        _isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, _floor, QueryTriggerInteraction.Ignore);
+
+        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles, QueryTriggerInteraction.Ignore) && 
+            _isGrounded)
         {
             transform.position += dir * _stepDistance;
         }
