@@ -34,4 +34,17 @@ public class EnigmeObject : MonoBehaviour
     }
 
 
+    public virtual void ActivedObject()
+    {
+
+    }
+
+
+
+    protected void InRangeUIObject(UIObject uiObject)
+    {
+        _uiObjectToUse = uiObject;
+        uiObject.HighlightObject(true);
+    }
+
 }

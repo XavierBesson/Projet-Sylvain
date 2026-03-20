@@ -61,29 +61,25 @@ public class PiegedFloor : EnigmeObject
     }
 
 
-
-    private void OnCollisionStay(Collision collision)
+    public override void ActivedObject()
     {
-        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
-        if (uiObject != null)
+        base.ActivedObject();
+        if (_uiObjectToUse != null && Input.GetMouseButtonUp(1))
         {
-            if (Input.GetMouseButtonUp(1))
+            switch (_uiObjectToUse.ObjectType)
             {
-                switch (uiObject.ObjectType)
-                {
-                    case EUIObject.PLATFORM:
-                        IsCovered(false);
-                        uiObject.Despawn();
-                        break;
-                    case EUIObject.HEALTHBAR:
-                        IsCovered(true);
-                        uiObject.Despawn();
-                        break;
-                }
+                case EUIObject.PLATFORM:
+                    IsCovered(false);
+                    _uiObjectToUse.Despawn();
+                    break;
+                case EUIObject.HEALTHBAR:
+                    IsCovered(true);
+                    _uiObjectToUse.Despawn();
+                    break;
             }
+            GameManager.Instance.GameLoop -= ActivedObject;
         }
     }
-
 
 
     private void OnCollisionEnter(Collision collision)
@@ -91,25 +87,23 @@ public class PiegedFloor : EnigmeObject
         if (collision.gameObject.GetComponentInParent<CharacterController>())
         {
             _player.IsInStairs(false);
-
             _inRange = true;
             TakeDamage();
-
-            Debug.Log("marche pique");
         }
+
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            GameManager.Instance.GameLoop += ActivedObject;
             switch (uiObject.ObjectType)
             {
                 case EUIObject.PLATFORM:
+                    InRangeUIObject(uiObject);
                     uiObject.DoNotDespawn = true;
-                    print(uiObject.DoNotDespawn);
-                    uiObject.HighlightObject(true);
                     break;
                 case EUIObject.HEALTHBAR:
+                    InRangeUIObject(uiObject);
                     uiObject.DoNotDespawn = true;
-                    uiObject.HighlightObject(true);
                     break;
             }
         }
@@ -126,6 +120,8 @@ public class PiegedFloor : EnigmeObject
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            _uiObjectToUse = null;
+            GameManager.Instance.GameLoop -= ActivedObject;
             switch (uiObject.ObjectType)
             {
                 case EUIObject.PLATFORM:

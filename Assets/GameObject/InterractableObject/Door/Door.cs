@@ -114,24 +114,21 @@ public class Door : EnigmeObject
     }
 
 
-
-    private void OnCollisionStay(Collision collision)
+    public override void ActivedObject()
     {
-        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
-        if (uiObject != null)
+        base.ActivedObject();
+        if (_uiObjectToUse != null && Input.GetMouseButtonUp(1))
         {
-            if (Input.GetMouseButtonUp(1))
+            switch (_uiObjectToUse.ObjectType)
             {
-                switch (uiObject.ObjectType)
-                {
-                    case EUIObject.ENGRENAGE:
-                        ObjectOnDoor = uiObject.ObjectType;
-                        _gearObject.SetActive(true);
-                        OpenTheDoor();
-                        uiObject.Despawn();
-                        break;
-                }
+                case EUIObject.ENGRENAGE:
+                    ObjectOnDoor = _uiObjectToUse.ObjectType;
+                    _gearObject.SetActive(true);
+                    OpenTheDoor();
+                    _uiObjectToUse.Despawn();
+                    break;
             }
+            GameManager.Instance.GameLoop -= ActivedObject;
         }
     }
 
@@ -141,20 +138,24 @@ public class Door : EnigmeObject
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            GameManager.Instance.GameLoop += ActivedObject;
             switch (uiObject.ObjectType)
             {
                 case EUIObject.ENGRENAGE:
-                    uiObject.HighlightObject(true);
+                    InRangeUIObject(uiObject);
                     break;
             }
         }
     }
+
 
     private void OnCollisionExit(Collision collision)
     {
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            _uiObjectToUse = null;
+            GameManager.Instance.GameLoop -= ActivedObject;
             switch (uiObject.ObjectType)
             {
                 case EUIObject.ENGRENAGE:

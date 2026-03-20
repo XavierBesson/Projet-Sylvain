@@ -4,7 +4,7 @@ using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 using UnityEngine.UI;
 
-public class Poigne : MonoBehaviour
+public class Poigne : EnigmeObject
 {
     [SerializeField] Slider _barATournerUI = null;
     [SerializeField] float _rotationSpeed = 200f;
@@ -84,31 +84,30 @@ public class Poigne : MonoBehaviour
     }
 
 
-    private void OnCollisionStay(Collision collision)
-    {
-        UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
-        if (uiObject != null)
-        {
-            if (Input.GetMouseButtonUp(1))
-            {
-                switch (uiObject.ObjectType)
-                {
-                    case EUIObject.HEALTHBAR:
-                        _door.ObjectOnDoor = uiObject.ObjectType;
-                        _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
-                        _barATournerUI.gameObject.SetActive(true);
-                        uiObject.Despawn();
-                        break;
 
-                    case EUIObject.VOLUMEBAR:
-                        _door.ObjectOnDoor = uiObject.ObjectType;
-                        _barATournerUI.transform.Find("Background").GetComponent<Image>().sprite = _barImageSound;
-                        _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
-                        _barATournerUI.gameObject.SetActive(true);
-                        uiObject.Despawn();
-                        break;
-                }
-            }  
+    public override void ActivedObject()
+    {
+        base.ActivedObject();
+        if (_uiObjectToUse != null && Input.GetMouseButtonUp(1))
+        {
+            switch (_uiObjectToUse.ObjectType)
+            {
+                case EUIObject.HEALTHBAR:
+                    _door.ObjectOnDoor = _uiObjectToUse.ObjectType;
+                    _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
+                    _barATournerUI.gameObject.SetActive(true);
+                    _uiObjectToUse.Despawn();
+                    break;
+
+                case EUIObject.VOLUMEBAR:
+                    _door.ObjectOnDoor = _uiObjectToUse.ObjectType;
+                    _barATournerUI.transform.Find("Background").GetComponent<Image>().sprite = _barImageSound;
+                    _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
+                    _barATournerUI.gameObject.SetActive(true);
+                    _uiObjectToUse.Despawn();
+                    break;
+            }
+            GameManager.Instance.GameLoop -= ActivedObject;
         }
     }
 
@@ -118,13 +117,14 @@ public class Poigne : MonoBehaviour
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            GameManager.Instance.GameLoop += ActivedObject;
             switch (uiObject.ObjectType)
             {
                 case EUIObject.HEALTHBAR:
-                    uiObject.HighlightObject(true);
+                    InRangeUIObject(uiObject);
                     break;
                 case EUIObject.VOLUMEBAR:
-                    uiObject.HighlightObject(true);
+                    InRangeUIObject(uiObject);
                     break;
             }
         }
@@ -135,6 +135,8 @@ public class Poigne : MonoBehaviour
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
+            _uiObjectToUse = null;
+            GameManager.Instance.GameLoop -= ActivedObject;
             switch (uiObject.ObjectType)
             {
                 case EUIObject.HEALTHBAR:
