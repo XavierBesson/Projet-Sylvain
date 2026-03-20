@@ -60,7 +60,7 @@ public class Poigne : EnigmeObject
                 if (_door.Open)
                 {
                     float angle = Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.Euler(0, 90, angle);
+                    transform.rotation = Quaternion.Euler(0, 45, angle);
                 }
                 else
                 {
