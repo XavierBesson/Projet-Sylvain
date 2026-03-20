@@ -56,11 +56,17 @@ public class Poigne : MonoBehaviour
                 Vector3 mousePos = hit.point;
                 Vector3 direction = mousePos - transform.position;
 
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                
                 if (_door.Open)
-                    transform.rotation = Quaternion.Euler(0, 90, angle + 90);
+                {
+                    float angle = Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.Euler(0, 90, angle);
+                }
                 else
+                {
+                    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                     transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+                }
             }
         }
     }

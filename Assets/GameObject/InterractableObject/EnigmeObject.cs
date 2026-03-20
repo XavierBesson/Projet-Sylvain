@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnigmeObject : MonoBehaviour
 {
     private protected CharacterController _player;
+    private protected UIObject _uiObjectToUse;
 
     void Start()
     {
