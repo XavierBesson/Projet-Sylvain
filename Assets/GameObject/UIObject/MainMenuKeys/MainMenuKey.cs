@@ -16,7 +16,7 @@ public enum EMainMenuKey
 
 public class MainMenuKey : UIObject
 {
-    [SerializeField] private EMainMenuKey key;
+    [SerializeField] private EMainMenuKey _key;
 
-    public EMainMenuKey Key { get => key; set => key = value; }
+    public EMainMenuKey Key { get => _key; set => _key = value; }
 }
