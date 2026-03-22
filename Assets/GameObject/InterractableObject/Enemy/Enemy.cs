@@ -16,6 +16,7 @@ public class Enemy : EnigmeObject
     [SerializeField] private AudioClip _damageSound;
     [SerializeField] private AudioClip _dieSound;
     [SerializeField] private AudioClip _fuiteSound;
+    [SerializeField] private AudioClip _fuiteCancelSound;
 
     [Header("Path")]
     [SerializeField] private GameObject _deathplacment;
@@ -128,6 +129,12 @@ public class Enemy : EnigmeObject
         GameManager.Instance.GoblinEnding = true;
         GameManager.Instance.GameLoop += _followPath.ActivateFollowPath;
         GameManager.Instance.GoblinEnding = true;
+        Invoke("FuiteEndSound", 5f); 
+    }
+
+    private void FuiteEndSound()
+    {
+        PlaySound(_audioSource, _fuiteCancelSound);
     }
 
 

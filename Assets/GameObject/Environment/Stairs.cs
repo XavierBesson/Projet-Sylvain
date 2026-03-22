@@ -5,7 +5,8 @@ using UnityEngine;
 public class Stairs : MonoBehaviour
 {
     private bool _stairUsed = false;
-
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _FallingDamageSound;
 
     private void OnTriggerEnter(Collider collision)
     {

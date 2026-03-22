@@ -17,8 +17,8 @@ public class Ending : MonoBehaviour
     [Header("CatEnding")]
     [SerializeField] private string _catEndingText;
     [SerializeField] private AudioClip _catEndingMusic;
-
-
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _catEndingSound; 
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,6 +45,7 @@ public class Ending : MonoBehaviour
 
     private void CatEnding()
     {
+        GameManager.PlaySouds(_audioSource, _catEndingSound); 
         GameManager.Instance.PlayerHUDController.LoreText(_catEndingText);
         GameManager.Instance.PlayGameManagerSouds(_catEndingMusic);
         _chest.SpinChest();

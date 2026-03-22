@@ -23,6 +23,9 @@ public class Door : EnigmeObject
     private bool open = false;
     [SerializeField] private Poigne _poigné = null;
 
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _openSound;
+
 
     public bool Open { get => open; set => open = value; }
     public EUIObject ObjectOnDoor { get => objectOnDoor; set => objectOnDoor = value; }
@@ -103,6 +106,7 @@ public class Door : EnigmeObject
     {
         Debug.Log("ouvert");
         Open = true;
+        GameManager.PlaySouds(_audioSource, _openSound);
         _poigné.InTransition = true;
         GameManager.Instance.GameLoop += OpeningDoorTransition;
         _doorCollider.enabled = false;

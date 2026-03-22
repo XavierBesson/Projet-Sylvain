@@ -40,6 +40,11 @@ public class CharacterController : MonoBehaviour
     private bool _isDead = false;
     private bool _isStairs = false;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _moveSound;
+    [SerializeField] private AudioClip _rotateSound;
+
     private bool _isGrounded = false;
 
     public Camera Camera { get => _camera; set => _camera = value; }
@@ -102,7 +107,7 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-          
+
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                 TryMove(this.transform.forward);
             if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
@@ -150,6 +155,7 @@ public class CharacterController : MonoBehaviour
         if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles, QueryTriggerInteraction.Ignore) && 
             _isGrounded)
         {
+            GameManager.PlaySouds(_audioSource, _moveSound);
             transform.position += dir * _stepDistance;
         }
     }
@@ -167,6 +173,7 @@ public class CharacterController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                GameManager.PlaySouds(_audioSource, _rotateSound);
                 _targetRotation -= _snapRotation;
                 //transform.Rotate(0f, -_snapRotation, 0f);
                 if (_currentUIObject != null)
@@ -176,6 +183,7 @@ public class CharacterController : MonoBehaviour
             // Rotation droite
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
+                GameManager.PlaySouds(_audioSource, _rotateSound);
                 _targetRotation += _snapRotation;
                 //transform.Rotate(0f, _snapRotation, 0f);
                 if (_currentUIObject != null)
