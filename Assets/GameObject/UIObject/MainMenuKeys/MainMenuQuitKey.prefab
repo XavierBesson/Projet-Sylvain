@@ -52,8 +52,10 @@ MonoBehaviour:
   _raycastMask:
     serializedVersion: 2
     m_Bits: 576
-  _detachableUI: {fileID: 0}
-  key: 2
+  _objectType: 0
+  _highlight: {fileID: 0}
+  _wallDistance: 0.2
+  _key: 2
 --- !u!54 &5571049385815281590
 Rigidbody:
   m_ObjectHideFlags: 0

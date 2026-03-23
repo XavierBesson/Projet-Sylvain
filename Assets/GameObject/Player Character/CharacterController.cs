@@ -58,44 +58,57 @@ public class CharacterController : MonoBehaviour
             if (Hp <= 0f) { Death(); }
         } }
     public UIObject CurrentUIObject { get { return _currentUIObject; } set => _currentUIObject = value; }
-    public bool IsDead { get => _isDead; set => _isDead = value; }
-
+    public bool IsDead { get => _isDead; set { _isDead = value; IsMoving = value; } }
+    public bool IsMoving
+    {
+        get => _moving;
+        set
+        {
+            _moving = value;
+            if (value) { GameManager.Instance.GameLoop += Actions; }
+            else { GameManager.Instance.GameLoop -= Actions; }
+        }
+    }
 
     void Start()
     {
         _positionToMove = transform.position;
         Hp = _hpMax;
-        GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
         _currentRotation = transform.rotation.eulerAngles.y;
         _targetRotation = _currentRotation;
+
+        if (IsMoving)
+        {
+            GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
+            GameManager.Instance.GameLoop += Actions;
+        }
     }
 
 
     void Update()
     {
-        if (_moving)
+
+    }
+
+
+    #region Déplacement
+
+    private void Actions()
+    {
+        Vector3 dir2 = -this.transform.up;
+        if (Physics.Raycast(transform.position, dir2, 1.1f, _floor, QueryTriggerInteraction.Ignore) && _isGrounded)
         {
-            if (!IsDead)
-            {
-                Vector3 dir2 = -this.transform.up;
-                if (Physics.Raycast(transform.position, dir2, 1.1f, _floor, QueryTriggerInteraction.Ignore) && _isGrounded)
-                {
-                    Move();
-                }
-                else { _positionToMove = transform.position; Move(); }
-                Rotate();
-            }
+            Move();
         }
-        // MousePosition();
+        else { _positionToMove = transform.position; Move(); }
+        ActivateRotation();
         MouseClic();
-        // HpRegen();
 
         if (GameManager.Instance.PlayerHUDController != null)
             GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
     }
 
 
-    #region Déplacement
 
     private void Move()
     {
@@ -161,7 +174,7 @@ public class CharacterController : MonoBehaviour
     }
 
 
-    private void Rotate()
+    private void ActivateRotation()
     {
 
         if (_oldSchoolMove == false)
@@ -175,33 +188,48 @@ public class CharacterController : MonoBehaviour
             {
                 GameManager.PlaySouds(_audioSource, _rotateSound);
                 _targetRotation -= _snapRotation;
-                //transform.Rotate(0f, -_snapRotation, 0f);
+                IsMoving = false;
+                GameManager.Instance.GameLoop += Rotate;
                 if (_currentUIObject != null)
                     CurrentUIObject.Move();
             }
 
             // Rotation droite
-            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 GameManager.PlaySouds(_audioSource, _rotateSound);
                 _targetRotation += _snapRotation;
+                IsMoving = false;
+                GameManager.Instance.GameLoop += Rotate;
                 //transform.Rotate(0f, _snapRotation, 0f);
                 if (_currentUIObject != null)
                     CurrentUIObject.Move();
             }
-
-            if (_currentRotation < _targetRotation)
-            {
-                transform.Rotate(0, _rotationRate, 0);
-                _currentRotation += _rotationRate;
-            }
-            if (_currentRotation > _targetRotation)
-            {
-                transform.Rotate(0, -_rotationRate, 0);
-                _currentRotation -= _rotationRate;
-            }
         }
     }
+
+
+
+    private void Rotate()
+    {
+        if (_currentRotation < _targetRotation)
+        {
+            transform.Rotate(0, _rotationRate, 0);
+            _currentRotation += _rotationRate;
+        }
+        else if (_currentRotation > _targetRotation)
+        {
+            transform.Rotate(0, -_rotationRate, 0);
+            _currentRotation -= _rotationRate;
+        }
+        else
+        {
+            _currentRotation = _targetRotation;
+            GameManager.Instance.GameLoop -= Rotate;
+            IsMoving = true;
+        }
+    }
+
 
     #endregion Déplacement
 
@@ -281,6 +309,12 @@ public class CharacterController : MonoBehaviour
                 hit.collider.gameObject.GetComponent<ClicableObject>().DisplayText();
             }
         }
+    }
+
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.GameLoop -= Actions;
     }
 
 

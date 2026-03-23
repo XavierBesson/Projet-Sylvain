@@ -31,11 +31,13 @@ public class Enemy : EnigmeObject
 
     [Header("Body")]
     [SerializeField] private GameObject _body1;
-    [SerializeField]  private GameObject _body2;
+    [SerializeField] private GameObject _body2;
     [SerializeField] private GameObject _body3;
     [SerializeField] private GameObject _easySword;
     [SerializeField] private GameObject _mediumSword;
     [SerializeField] private GameObject _hardSword;
+    [SerializeField] private Collider[] _boxColliderList;
+
 
     [Header("Text")]
     [SerializeField] private string _appearText = "";
@@ -45,12 +47,12 @@ public class Enemy : EnigmeObject
     [SerializeField] private float _easySwordVelocity = 0.1f;
     [SerializeField] private string _easySwordText;
 
-    [Header("EasySwordStats")]
+    [Header("MediumSwordStats")]
     [SerializeField] private int _mediumSwordAtk = 5;
     [SerializeField] private float _mediumSwordVelocity = 2f;
     [SerializeField] private string _mediumSwordText;
 
-    [Header("EasySwordStats")]
+    [Header("HardSwordStats")]
     [SerializeField] private int _hardSwordAtk = 100;
     [SerializeField] private float _hardSwordVelocity = 5f;
     [SerializeField] private string _hardSwordText;
@@ -118,7 +120,10 @@ public class Enemy : EnigmeObject
                 break;
         }
 
-        Destroy(GetComponent<BoxCollider>());
+        foreach (Collider collider in _boxColliderList)
+        {
+            collider.enabled = false;
+        }
     }
 
 

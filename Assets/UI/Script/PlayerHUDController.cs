@@ -27,6 +27,7 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private float _textSpeed = 0.01f;
     private float _aditionnalTextTime = 0;
     private bool _textIsDisplay = false;
+    private Coroutine _textShowingCoroutine;
 
 
 
@@ -74,21 +75,23 @@ public class PlayerHUDController : MonoBehaviour
 
     public void LoreText(string textToShow)
     {
-        if (!_textIsDisplay)
+        if (_textIsDisplay)
         {
-            StartCoroutine(CharDisplay(textToShow));
-            _textIsDisplay = true;
-            _actualTextTime = 0;
-            _aditionnalTextTime = _textSpeed * textToShow.Length;
-            GameManager.Instance.GameLoop -= TextTimer;
-            GameManager.Instance.GameLoop += TextTimer;
+            StopCoroutine(_textShowingCoroutine);
+            _textShowingCoroutine = null;
         }
+        _textShowingCoroutine = StartCoroutine(CharDisplay(textToShow));
+        _textIsDisplay = true;
+        _actualTextTime = 0;
+        _aditionnalTextTime = _textSpeed * textToShow.Length;
+        GameManager.Instance.GameLoop -= TextTimer;
+        GameManager.Instance.GameLoop += TextTimer;
     }
 
 
-    IEnumerator CharDisplay(string Text)
+    IEnumerator CharDisplay(string text)
     {
-        char[] chars = Text.ToCharArray();
+        char[] chars = text.ToCharArray();
         _eventText.text = string.Empty;
 
         //audioSource[0].Play();

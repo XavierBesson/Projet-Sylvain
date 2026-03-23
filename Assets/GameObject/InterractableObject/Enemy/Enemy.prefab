@@ -88,6 +88,7 @@ MonoBehaviour:
   _damageSound: {fileID: 0}
   _dieSound: {fileID: 0}
   _fuiteSound: {fileID: 8300000, guid: 0f6081952c6364241bd1e7f288f4d7b9, type: 3}
+  _fuiteCancelSound: {fileID: 0}
   _deathplacment: {fileID: 6424343482810391348}
   _followPath: {fileID: 5269256711370871844}
   _endingObject: {fileID: 0}
@@ -101,6 +102,8 @@ MonoBehaviour:
   _easySword: {fileID: 1570871022320055899}
   _mediumSword: {fileID: 5660222632663311117}
   _hardSword: {fileID: 9064433478209870658}
+  _boxCollider: {fileID: 4062232492496794943}
+  _triggerCollider: {fileID: 0}
   _appearText: 
   _easySwordAtk: 1
   _easySwordVelocity: 0.1
