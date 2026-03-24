@@ -22,9 +22,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float _stepDistance = 1.5f;
     [SerializeField] private float _snapRotation = 45f;
     [SerializeField] private float _rotationRate = 2f;
-    [SerializeField] private LayerMask _obstacles;
-    [SerializeField] private LayerMask _floor;
-    [SerializeField] private LayerMask _stairs;
+    [SerializeField] private LayerMask _obstaclesLayer;
+    [SerializeField] private LayerMask _floorLayer;
     private float _targetRotation;
     private float _currentRotation;
 
@@ -44,6 +43,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _moveSound;
     [SerializeField] private AudioClip _rotateSound;
+    [SerializeField] private AudioClip _damageSound;
+
 
     private bool _isGrounded = false;
 
@@ -96,7 +97,7 @@ public class CharacterController : MonoBehaviour
     private void Actions()
     {
         Vector3 dir2 = -this.transform.up;
-        if (Physics.Raycast(transform.position, dir2, 1.1f, _floor, QueryTriggerInteraction.Ignore) && _isGrounded)
+        if (Physics.Raycast(transform.position, dir2, 1.1f, _floorLayer, QueryTriggerInteraction.Ignore) && _isGrounded)
         {
             Move();
         }
@@ -120,7 +121,6 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                 TryMove(this.transform.forward);
             if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
@@ -142,13 +142,13 @@ public class CharacterController : MonoBehaviour
     private void TryMoveLerp(Vector3 dir)
     {
         Vector3 dir2 = -this.transform.up;
-        _isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, _floor, QueryTriggerInteraction.Ignore);
-        if (!Physics.Raycast(_positionToMove, dir, _stepDistance + 0.5f, _obstacles, QueryTriggerInteraction.Ignore))
+        _isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, _floorLayer, QueryTriggerInteraction.Ignore);
+        if (!Physics.Raycast(_positionToMove, dir, _stepDistance + 0.5f, _obstaclesLayer, QueryTriggerInteraction.Ignore))
         {
             Vector3 freeTarget = _positionToMove + dir * (_stepDistance + 0.5f);
             //Vector3 rayOrigin = new Vector3(freeTarget.x, freeTarget.y + 2f, freeTarget.z);
 
-            if (Physics.Raycast(freeTarget, Vector3.down, out RaycastHit groundHit, 10f, _obstacles, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(freeTarget, Vector3.down, out RaycastHit groundHit, 10f, _obstaclesLayer, QueryTriggerInteraction.Ignore))
             {
                 Vector3 groundPoint = groundHit.point;
 
@@ -163,9 +163,9 @@ public class CharacterController : MonoBehaviour
 
     void TryMove(Vector3 dir)
     {
-        _isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, _floor, QueryTriggerInteraction.Ignore);
+        _isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, _floorLayer, QueryTriggerInteraction.Ignore);
 
-        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstacles, QueryTriggerInteraction.Ignore) && 
+        if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstaclesLayer, QueryTriggerInteraction.Ignore) && 
             _isGrounded)
         {
             GameManager.PlaySouds(_audioSource, _moveSound);
@@ -242,6 +242,7 @@ public class CharacterController : MonoBehaviour
         if (Hp > 0f)
         {
             GameManager.Instance.PlayerHUDController.TakeDammageStart();
+            GameManager.PlaySouds(_audioSource, _damageSound);
         }
         _isStairs = inStairs;
     }

@@ -5,8 +5,7 @@ using UnityEngine;
 public class Stairs : MonoBehaviour
 {
     private bool _stairUsed = false;
-    [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _FallingDamageSound;
+    [SerializeField] private bool _oneTry = false;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -29,7 +28,10 @@ public class Stairs : MonoBehaviour
                 GameManager.Instance.Player.Hpdamage(GameManager.Instance.Player.Hp, true);
                 GameManager.Instance.PlayerHUDController.LoreText("Did you put the game in Difficult ? Too bad for you !");
             }
-            _stairUsed = true;
+            if (_oneTry)
+            {
+                _stairUsed = true;
+            }
         }
     }
 }

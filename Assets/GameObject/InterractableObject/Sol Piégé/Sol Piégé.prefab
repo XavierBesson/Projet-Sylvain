@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901ec13b067efdb41bdf658f5b674bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  _damage: 0.3
   _platformHp: {fileID: 1937937840421884025}
   _platformBackground: {fileID: 8978623971789418296}
   _door: {fileID: 0}

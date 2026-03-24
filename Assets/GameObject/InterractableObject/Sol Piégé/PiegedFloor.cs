@@ -8,8 +8,6 @@ public class PiegedFloor : EnigmeObject
     [SerializeField] private GameObject _platformHp = null;
     [SerializeField] private GameObject _platformBackground = null;
     [SerializeField] private Door _door;
-    [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _damageSound;
 
     private bool _inRange = false;
 
@@ -35,22 +33,18 @@ public class PiegedFloor : EnigmeObject
     {
         if (_inRange)
         {
-            GameManager.PlaySouds(_audioSource, _damageSound);
             if (GameManager.Instance.Difficulty == EDifficulty.EASY)
             {
-                GameManager.PlaySouds(_audioSource, _damageSound);
                 _player.Hpdamage(_damage / 3);
                 _door.SpikeDamage(_damage/3);
             }
             else if (GameManager.Instance.Difficulty == EDifficulty.MEDIUM)
             {
-                GameManager.PlaySouds(_audioSource, _damageSound);
                 _player.Hpdamage(_damage);
                 _door.SpikeDamage(_damage);
             }
             else if (GameManager.Instance.Difficulty == EDifficulty.HARD)
             {
-                GameManager.PlaySouds(_audioSource, _damageSound);
                 _player.Hpdamage(_damage * 2);
                 _door.SpikeDamage(_damage * 2);
             }
