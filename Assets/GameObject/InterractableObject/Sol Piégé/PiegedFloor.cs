@@ -94,17 +94,34 @@ public class PiegedFloor : EnigmeObject
         UIObject uiObject = collision.gameObject.GetComponent<UIObject>();
         if (uiObject != null)
         {
-            GameManager.Instance.GameLoop += ActivedObject;
-            switch (uiObject.ObjectType)
+            if (uiObject.IsDragging)
             {
-                case EUIObject.PLATFORM:
-                    InRangeUIObject(uiObject);
-                    uiObject.DoNotDespawn = true;
-                    break;
-                case EUIObject.HEALTHBAR:
-                    InRangeUIObject(uiObject);
-                    uiObject.DoNotDespawn = true;
-                    break;
+                GameManager.Instance.GameLoop += ActivedObject;
+                switch (uiObject.ObjectType)
+                {
+                    case EUIObject.PLATFORM:
+                        InRangeUIObject(uiObject);
+                        uiObject.DoNotDespawn = true;
+                        break;
+                    case EUIObject.HEALTHBAR:
+                        InRangeUIObject(uiObject);
+                        uiObject.DoNotDespawn = true;
+                        break;
+                }
+            }
+            else
+            {
+                switch (uiObject.ObjectType)
+                {
+                    case EUIObject.PLATFORM:
+                        IsCovered(false);
+                        uiObject.Despawn();
+                        break;
+                    case EUIObject.HEALTHBAR:
+                        IsCovered(true);
+                        uiObject.Despawn();
+                        break;
+                }
             }
         }
     }
