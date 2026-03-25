@@ -202,7 +202,7 @@ public class PlayerHUDController : MonoBehaviour
         SceneManager.LoadScene("LdScene"); 
     }
 
-    public void QuitBButton()
+    public void QuitButton()
     {
         UnityEngine.Application.Quit();
     }
