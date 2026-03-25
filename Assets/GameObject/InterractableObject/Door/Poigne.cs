@@ -16,7 +16,6 @@ public class Poigne : EnigmeObject
     private float _totalRotation = 0f;
 
     [SerializeField] private Door _door;
-    private CharacterController _player;
     private bool canRotate = true;
     private bool _inTransition = false;
 

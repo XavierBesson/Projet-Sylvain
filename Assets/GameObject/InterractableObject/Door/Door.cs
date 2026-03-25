@@ -106,7 +106,7 @@ public class Door : EnigmeObject
     {
         Debug.Log("ouvert");
         Open = true;
-        GameManager.PlaySouds(_audioSource, _openSound);
+        GameManager.PlaySounds(_audioSource, _openSound);
         _poigné.InTransition = true;
         GameManager.Instance.GameLoop += OpeningDoorTransition;
         _doorCollider.enabled = false;
