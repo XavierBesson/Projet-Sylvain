@@ -75,9 +75,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93c594773456d04092fe9babcf014a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playSceneToLoad: LdScene
   _skeleton: {fileID: 1851020651839077353}
   _grave: {fileID: 3814990071855388728}
+  _playSceneToLoad: LdScene
+  _delayBeforeLoadingScene: 2
 --- !u!65 &8401476637188738397
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -626,7 +627,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7678348113584099444, guid: 2ad000dab9a13804d93c8fcee761f739, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
