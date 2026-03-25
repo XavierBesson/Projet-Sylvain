@@ -40,6 +40,7 @@ public class Ending : MonoBehaviour
         _chest.Endings();
         GameManager.Instance.PlayerHUDController.LoreText(_normalEndingText);
         GameManager.Instance.PlayGameManagerSounds(_normalEndingMusic);
+        GameManager.Instance.Player.IsMoving= false; 
     }
 
 
@@ -52,6 +53,7 @@ public class Ending : MonoBehaviour
         _followPath.ActivateFollowPath();
         _cat.SetActive(true);
         _endingCat.ActivateCat();
+        GameManager.Instance.Player.IsMoving = false;
     }
 
 
