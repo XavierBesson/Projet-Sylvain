@@ -2008,7 +2008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HA ! You're dead booooh, go cry alone.
+  m_text: Didn't die yet !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1066d3c989ebc134e8d12d4ae4bc9087, type: 2}
   m_sharedMaterial: {fileID: -6361412477313163177, guid: 1066d3c989ebc134e8d12d4ae4bc9087, type: 2}
@@ -7468,7 +7468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: Retry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0bcbffdcee0df54d8f1cfa3d70f62ed, type: 2}
   m_sharedMaterial: {fileID: -2260406579270252897, guid: d0bcbffdcee0df54d8f1cfa3d70f62ed, type: 2}
