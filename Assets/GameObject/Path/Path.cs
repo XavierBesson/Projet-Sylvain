@@ -2,24 +2,26 @@ using UnityEngine;
 
 public class Path : MonoBehaviour
 {
-    public Transform[] waypoints;
+    public Transform[] _waypoints;
+
+    public int Length => _waypoints.Length;
+
 
     public Vector3 GetPoint(int index)
     {
-        return waypoints[index].position;
+        return _waypoints[index].position;
     }
 
-    public int Length => waypoints.Length;
 
     private void OnDrawGizmos()
     {
-        if (waypoints == null || waypoints.Length < waypoints.Length-1) return;
+        if (_waypoints == null || _waypoints.Length < _waypoints.Length-1) return;
 
         Gizmos.color = Color.cyan;
 
-        for (int i = 0; i < waypoints.Length - 1; i++)
+        for (int i = 0; i < _waypoints.Length - 1; i++)
         {
-            Gizmos.DrawLine(waypoints[i].position, waypoints[i + 1].position);
+            Gizmos.DrawLine(_waypoints[i].position, _waypoints[i + 1].position);
         }
     }
 }
