@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ending : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class Ending : MonoBehaviour
         }
         Invoke("EndingScreenDelay", 5);
         Invoke("CloseDoor", 6);
+        Invoke("LoadMainMenu", 8.5f);
     }
 
     private void Update()
@@ -100,5 +102,10 @@ public class Ending : MonoBehaviour
     private void CloseDoor()
     {
         _doorAnimation.Play();
+    }
+
+    private void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
     }
 }
