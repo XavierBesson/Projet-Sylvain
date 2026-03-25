@@ -22,9 +22,14 @@ public class PlayerHUDController : MonoBehaviour
     [SerializeField] private GameObject _damageImage;
     [SerializeField] private GameObject _endingImage;
     [SerializeField] private GameObject _endingImageTroll;
+    
     [SerializeField] private float _textTime = 3;
     [SerializeField] private float _actualTextTime = 0;
     [SerializeField] private float _textSpeed = 0.01f;
+
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _textSound;
+
     private float _aditionnalTextTime = 0;
     private bool _textIsDisplay = false;
     private Coroutine _textShowingCoroutine;
@@ -34,6 +39,7 @@ public class PlayerHUDController : MonoBehaviour
     void Start()
     {
         LoreText("Here you are ! Finally in the dungeon, where a treasure lies. Go get it, now !");
+
     }
 
     void Update()
@@ -104,7 +110,9 @@ public class PlayerHUDController : MonoBehaviour
         {
             //audioSource[1].Play();
             _eventText.text += chars[i];
+            GameManager.PlaySounds(_audioSource, _textSound);
             yield return new WaitForSeconds(_textSpeed);
+            
         }
     }
 
