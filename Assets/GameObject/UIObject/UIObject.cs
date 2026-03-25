@@ -14,7 +14,9 @@ public enum EUIObject
     VOLUMEBAR,
     EASYSWORD,
     MEDIUMSWORD,
-    HARDSWORD
+    HARDSWORD,
+    QUITGAME,
+    RETRYGAME
 }
 
 
