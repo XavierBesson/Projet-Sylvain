@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: _dragDistance
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7690086160301774746, guid: 11f1bd16d0da2b64daaf4de74d13437b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 54aef87db450e754e83b1112e3bc649e, type: 2}
     - target: {fileID: 7859597006823311159, guid: 11f1bd16d0da2b64daaf4de74d13437b, type: 3}
       propertyPath: m_Name
       value: Potion_Red Variant
