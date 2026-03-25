@@ -168,7 +168,7 @@ public class CharacterController : MonoBehaviour
         if (!Physics.Raycast(transform.position, dir, _stepDistance + 0.5f, _obstaclesLayer, QueryTriggerInteraction.Ignore) && 
             _isGrounded)
         {
-            GameManager.PlaySouds(_audioSource, _moveSound);
+            GameManager.PlaySounds(_audioSource, _moveSound);
             transform.position += dir * _stepDistance;
         }
     }
@@ -186,7 +186,7 @@ public class CharacterController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                GameManager.PlaySouds(_audioSource, _rotateSound);
+                GameManager.PlaySounds(_audioSource, _rotateSound);
                 _targetRotation -= _snapRotation;
                 IsMoving = false;
                 GameManager.Instance.GameLoop += Rotate;
@@ -197,7 +197,7 @@ public class CharacterController : MonoBehaviour
             // Rotation droite
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                GameManager.PlaySouds(_audioSource, _rotateSound);
+                GameManager.PlaySounds(_audioSource, _rotateSound);
                 _targetRotation += _snapRotation;
                 IsMoving = false;
                 GameManager.Instance.GameLoop += Rotate;
@@ -242,7 +242,7 @@ public class CharacterController : MonoBehaviour
         if (Hp > 0f)
         {
             GameManager.Instance.PlayerHUDController.TakeDammageStart();
-            GameManager.PlaySouds(_audioSource, _damageSound);
+            GameManager.PlaySounds(_audioSource, _damageSound);
         }
         _isStairs = inStairs;
     }

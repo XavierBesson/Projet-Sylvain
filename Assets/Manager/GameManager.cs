@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     public void DeadPlayer()
     {
-        PlayGameManagerSouds(_deadMusic);
+        PlayGameManagerSounds(_deadMusic);
     }
 
     #region Statics
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
 
     #region Sounds
-    public static void PlaySouds(AudioSource audioSource, AudioClip sound)
+    public static void PlaySounds(AudioSource audioSource, AudioClip sound)
     {
         audioSource.clip = sound;
         audioSource.volume = GameManager.Instance.SoundMultiplier;
@@ -118,13 +118,13 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public static void StopSouds(AudioSource audioSource)
+    public static void StopSounds(AudioSource audioSource)
     {
         audioSource.Stop();
     }
 
 
-    public void PlayGameManagerSouds(AudioClip sound)
+    public void PlayGameManagerSounds(AudioClip sound)
     {
         _audioSource.clip = sound;
         _audioSource.volume = GameManager.Instance.SoundMultiplier;
@@ -132,5 +132,5 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion Sounds
-
+  
 }
