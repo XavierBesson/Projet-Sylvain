@@ -39,15 +39,15 @@ public class Ending : MonoBehaviour
     {
         _chest.Endings();
         GameManager.Instance.PlayerHUDController.LoreText(_normalEndingText);
-        GameManager.Instance.PlayGameManagerSouds(_normalEndingMusic);
+        GameManager.Instance.PlayGameManagerSounds(_normalEndingMusic);
     }
 
 
     private void CatEnding()
     {
-        GameManager.PlaySouds(_audioSource, _catEndingSound); 
+        GameManager.PlaySounds(_audioSource, _catEndingSound); 
         GameManager.Instance.PlayerHUDController.LoreText(_catEndingText);
-        GameManager.Instance.PlayGameManagerSouds(_catEndingMusic);
+        GameManager.Instance.PlayGameManagerSounds(_catEndingMusic);
         _chest.SpinChest();
         _followPath.ActivateFollowPath();
         _cat.SetActive(true);
