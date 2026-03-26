@@ -128,7 +128,7 @@ public class UIObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!IsDragging && collision.gameObject.layer == 9)
+        if (!IsDragging && collision.gameObject.layer == 9 && !collision.gameObject.GetComponent<PiegedFloor>())
             ReturnToUI();
     }
 
