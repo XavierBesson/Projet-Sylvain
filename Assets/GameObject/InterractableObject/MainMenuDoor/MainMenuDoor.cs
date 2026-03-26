@@ -14,6 +14,10 @@ public class MainMenuDoor : EnigmeObject
     [SerializeField] private Material _quitMat;
     [SerializeField] private Material _returnMat;
 
+    [Header("Sound Settings")]
+    [SerializeField] private AudioSource _doorSource;
+    [SerializeField] private AudioClip _keySound;
+
     [Header("Ejection settings")]
     [SerializeField] private float _delayBeforeLoadingScene = 0.5f;
     [SerializeField] private Transform _ejectionTransform;
@@ -75,6 +79,7 @@ public class MainMenuDoor : EnigmeObject
         }
         _keyInSerrure.ReturnToUI();
         _keyInSerrure = null;
+        PlaySound(_doorSource, _keySound);
     }
 
     private void DisplayKey(Material mat)

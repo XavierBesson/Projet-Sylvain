@@ -55857,6 +55857,7 @@ MonoBehaviour:
   _minShake: 0.001
   _shakeRate: 0.2
   _maxBreakJauge: 150
+  _rippingSound: {fileID: 8300000, guid: d946d1a872185234489ea146cf742caa, type: 3}
 --- !u!222 &6272052318699341086
 CanvasRenderer:
   m_ObjectHideFlags: 0

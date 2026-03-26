@@ -30,6 +30,10 @@ public class DragHandler : MonoBehaviour
     private float _uiScale = 1.0f;
     private bool _dragging = false;
 
+    [Header("Sound UI Settings")]
+    [SerializeField] private AudioClip _rippingSound;
+    private AudioSource _uiSource;
+
     public DetachableUi UiElement { get => _uiElement; }
 
     #region Methods
@@ -46,6 +50,9 @@ public class DragHandler : MonoBehaviour
 
         if (GetComponent<Canvas>())
             _uiScale = GetComponent<Canvas>().transform.localScale.x;
+
+        _uiSource = gameObject.AddComponent<AudioSource>();
+        _uiSource.volume = 0.3f;
     }
 
     // Update is called once per frame
@@ -78,6 +85,7 @@ public class DragHandler : MonoBehaviour
                 if (_breakJauge >= _maxBreakJauge)
                 {
                     _uiElement.Attached = false;
+                    _uiSource.PlayOneShot(_rippingSound);
                     //particle effect
                     PlayParticle(_uiElement.InitialPosition);
                     _uiElement.SetUiSlotState(true);

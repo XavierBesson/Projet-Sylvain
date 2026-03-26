@@ -8425,6 +8425,7 @@ MonoBehaviour:
   _minShake: 0.001
   _shakeRate: 0.2
   _maxBreakJauge: 200
+  _rippingSound: {fileID: 8300000, guid: d946d1a872185234489ea146cf742caa, type: 3}
 --- !u!1 &8155264523703030784
 GameObject:
   m_ObjectHideFlags: 0
