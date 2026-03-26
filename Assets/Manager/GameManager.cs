@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
     {
         if (_gameLoop != null)
             _gameLoop();
+        _audioSource.volume = SoundMultiplier;
     }
 
 
@@ -127,7 +128,7 @@ public class GameManager : MonoBehaviour
     public void PlayGameManagerSounds(AudioClip sound)
     {
         _audioSource.clip = sound;
-        _audioSource.volume = GameManager.Instance.SoundMultiplier;
+        _audioSource.volume = SoundMultiplier;
         _audioSource.Play();
     }
 

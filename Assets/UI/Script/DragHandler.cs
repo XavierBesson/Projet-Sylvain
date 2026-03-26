@@ -51,8 +51,8 @@ public class DragHandler : MonoBehaviour
         if (GetComponent<Canvas>())
             _uiScale = GetComponent<Canvas>().transform.localScale.x;
 
+        // SFX
         _uiSource = gameObject.AddComponent<AudioSource>();
-        _uiSource.volume = 0.3f;
     }
 
     // Update is called once per frame
@@ -85,8 +85,9 @@ public class DragHandler : MonoBehaviour
                 if (_breakJauge >= _maxBreakJauge)
                 {
                     _uiElement.Attached = false;
-                    _uiSource.PlayOneShot(_rippingSound);
-                    //particle effect
+                    // SFX
+                    GameManager.PlaySounds(_uiSource,_rippingSound);
+                    // particle effect
                     PlayParticle(_uiElement.InitialPosition);
                     _uiElement.SetUiSlotState(true);
                     ExitDrag();

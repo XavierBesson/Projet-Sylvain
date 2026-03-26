@@ -8,6 +8,7 @@ public class PiegedFloor : EnigmeObject
     [SerializeField] private GameObject _platformHp = null;
     [SerializeField] private GameObject _platformBackground = null;
     [SerializeField] private Door _door;
+    [SerializeField] private AudioSource _sawSource;
 
     private bool _inRange = false;
 
@@ -23,7 +24,7 @@ public class PiegedFloor : EnigmeObject
     // Update is called once per frame
     void Update()
     {
-        
+        _sawSource.volume = GameManager.Instance.SoundMultiplier;
     }
 
 
