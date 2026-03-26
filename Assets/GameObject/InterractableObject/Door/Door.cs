@@ -52,11 +52,11 @@ public class Door : EnigmeObject
 
         //Si la rotation est au dessus augment la valeur
         if (barRotation > 130f && barRotation < 230f)
-            _barATournerUI.value = _barATournerUI.value - _barprogressSpeed;
+            _barATournerUI.value -= _barprogressSpeed;
 
         //Si plus petit reduit la valeur
         else if (barRotation < 60f || barRotation > 300f)
-            _barATournerUI.value = _barATournerUI.value + _barprogressSpeed;
+            _barATournerUI.value += _barprogressSpeed;
 
         UpdateElementThxToDoor();
     }
@@ -65,7 +65,7 @@ public class Door : EnigmeObject
     public void UpdateElementThxToDoor()
     {
         if (ObjectOnDoor == EUIObject.HEALTHBAR)
-            _player.Hp = _barATournerUI.value;
+            _player.Hp = _barATournerUI.value * _player.HpMax;
         else if (ObjectOnDoor == EUIObject.VOLUMEBAR)
             GameManager.Instance.SoundMultiplier = _barATournerUI.value;
     }

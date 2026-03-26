@@ -304,6 +304,7 @@ MonoBehaviour:
   _platformHp: {fileID: 1937937840421884025}
   _platformBackground: {fileID: 8978623971789418296}
   _door: {fileID: 0}
+  _sawSource: {fileID: 0}
 --- !u!65 &296398585931017619
 BoxCollider:
   m_ObjectHideFlags: 0

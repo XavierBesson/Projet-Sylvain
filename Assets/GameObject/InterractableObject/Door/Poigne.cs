@@ -12,6 +12,11 @@ public class Poigne : EnigmeObject
 
     [SerializeField] private float _minDistance = 5;
 
+    [SerializeField] private Image _backgroundImage = null;
+    [SerializeField] private Image _fillImage = null;
+    [SerializeField] private Color _lifeColor;
+    [SerializeField] private Color _soundColor;
+
     private float _previousAngle;
     private float _totalRotation = 0f;
 
@@ -95,16 +100,16 @@ public class Poigne : EnigmeObject
             {
                 case EUIObject.HEALTHBAR:
                     _door.ObjectOnDoor = _uiObjectToUse.ObjectType;
-                    _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
                     _barATournerUI.gameObject.SetActive(true);
+                    _fillImage.color = _lifeColor;
                     _uiObjectToUse.Despawn();
                     break;
 
                 case EUIObject.VOLUMEBAR:
                     _door.ObjectOnDoor = _uiObjectToUse.ObjectType;
-                    _barATournerUI.transform.Find("Background").GetComponent<Image>().sprite = _barImageSound;
-                    _barATournerUI.transform.Find("Background").GetComponent<Image>().color = Color.white;
+                    _backgroundImage.sprite = _barImageSound;
                     _barATournerUI.gameObject.SetActive(true);
+                    _fillImage.color = _soundColor;
                     _uiObjectToUse.Despawn();
                     break;
             }

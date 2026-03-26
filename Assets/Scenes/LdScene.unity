@@ -6644,7 +6644,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -39295,15 +39295,14 @@ MonoBehaviour:
   _endingCat: {fileID: 602382588}
   _chest: {fileID: 944818403}
   _cat: {fileID: 602382584}
+  _audioSource: {fileID: 1517488349}
   _startPosition: {fileID: 630026366}
   _endPosition: {fileID: 630026365}
   _lerpSpeedMultiplier: 0.4
   _normalEndingText: 
-  _normalEndingMusic: {fileID: 0}
+  _normalEndingMusic: {fileID: 8300000, guid: cffb719329513624e8c0f748a1b557f8, type: 3}
   _catEndingText: 
-  _catEndingMusic: {fileID: 0}
-  _audioSource: {fileID: 1517488349}
-  _catEndingSound: {fileID: 8300000, guid: deb89478a6e13f74ba34d60ed03f046d, type: 3}
+  _catEndingMusic: {fileID: 8300000, guid: f8de7ec61f1e0c44db005ce60448703c, type: 3}
   _doorAnimation: {fileID: 406756485}
 --- !u!65 &1517488348
 BoxCollider:
@@ -51836,18 +51835,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 7656671124311803684, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7656671124311803684, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7656671124311803684, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7927761024066100254, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
       propertyPath: m_Size.x
       value: 4
@@ -52725,11 +52712,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8453793999939025282, guid: c63488cdd0b95cc4fbacd9f6c7311130, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8453793999939025282, guid: c63488cdd0b95cc4fbacd9f6c7311130, type: 3}
       propertyPath: m_MaxValue
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8453793999939025282, guid: c63488cdd0b95cc4fbacd9f6c7311130, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

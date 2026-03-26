@@ -50,7 +50,7 @@ public class CharacterController : MonoBehaviour
 
     public Camera Camera { get => _camera; set => _camera = value; }
     public float Hp { get => _hp;
-        set {_hp = value;
+        set {_hp = Mathf.Clamp(value, 0, HpMax);
             if (GameManager.Instance.PlayerHUDController != null)
             {
                 GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
@@ -70,11 +70,13 @@ public class CharacterController : MonoBehaviour
             else { GameManager.Instance.GameLoop -= Actions; }
         }
     }
+    public float HpMax { get => _hpMax; set => _hpMax = value; }
+    
 
     void Start()
     {
         _positionToMove = transform.position;
-        Hp = _hpMax;
+        Hp = HpMax;
         _currentRotation = transform.rotation.eulerAngles.y;
         _targetRotation = _currentRotation;
 
@@ -250,7 +252,7 @@ public class CharacterController : MonoBehaviour
 
     public void HPVisual()
     {
-        if (Hp > _hpMax / 3)
+        if (Hp > HpMax / 3)
         {
             GameManager.Instance.PlayerHUDController.LowHpVisuelFeedback(false);
         }

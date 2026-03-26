@@ -11,6 +11,7 @@ public class PiegedFloor : EnigmeObject
     [SerializeField] private AudioSource _sawSource;
 
     private bool _inRange = false;
+    private bool _takeDamega = true;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class PiegedFloor : EnigmeObject
 
     public void TakeDamage()
     {
-        if (_inRange)
+        if (_inRange && _takeDamega)
         {
             if (GameManager.Instance.Difficulty == EDifficulty.EASY)
             {
@@ -53,12 +54,18 @@ public class PiegedFloor : EnigmeObject
         }
     }
 
-    public void IsCovered(bool hpbar)
+    private void Covered(EUIObject uiObject)
     {
-        if ((hpbar))
-            _platformHp.SetActive(true);
-        else
-            _platformBackground.SetActive(true);
+        switch (uiObject)
+        {
+            case EUIObject.PLATFORM:
+                _platformBackground.SetActive(true);
+                _takeDamega = false;
+                break;
+            case EUIObject.HEALTHBAR:
+                _platformHp.SetActive(true);
+                break;
+        }  
     }
 
 
@@ -70,11 +77,11 @@ public class PiegedFloor : EnigmeObject
             switch (_uiObjectToUse.ObjectType)
             {
                 case EUIObject.PLATFORM:
-                    IsCovered(false);
+                    Covered(_uiObjectToUse.ObjectType);
                     _uiObjectToUse.Despawn();
                     break;
                 case EUIObject.HEALTHBAR:
-                    IsCovered(true);
+                    Covered(_uiObjectToUse.ObjectType);
                     _uiObjectToUse.Despawn();
                     break;
             }
@@ -115,12 +122,12 @@ public class PiegedFloor : EnigmeObject
                 switch (uiObject.ObjectType)
                 {
                     case EUIObject.PLATFORM:
-                        IsCovered(false);
+                        Covered(uiObject.ObjectType);
                         uiObject.DoNotDespawn = true;
                         uiObject.Despawn();
                         break;
                     case EUIObject.HEALTHBAR:
-                        IsCovered(true);
+                        Covered(uiObject.ObjectType);
                         uiObject.DoNotDespawn = true;
                         uiObject.Despawn();
                         break;

@@ -39,7 +39,7 @@ public class PlayerHUDController : MonoBehaviour
     void Start()
     {
         LoreText("Here you are ! Finally in the dungeon, where a treasure lies. Go get it, now !");
-
+        GameManager.Instance.SoundMultiplier = _volumeBar.value;
     }
 
     void Update()

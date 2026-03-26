@@ -10,6 +10,7 @@ public class Ending : MonoBehaviour
     [SerializeField] private EndingCat _endingCat;
     [SerializeField] private ChestBehavior _chest;
     [SerializeField] private GameObject _cat;
+    [SerializeField] private AudioSource _audioSource;
 
     [Header("Character Setup")]
     [SerializeField] private Transform _startPosition;
@@ -25,8 +26,6 @@ public class Ending : MonoBehaviour
     [Header("Cat Ending")]
     [SerializeField] private string _catEndingText;
     [SerializeField] private AudioClip _catEndingMusic;
-    [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _catEndingSound;
 
     [Header("Door Setup")]
     [SerializeField] private Animation _doorAnimation;
@@ -66,7 +65,6 @@ public class Ending : MonoBehaviour
 
     private void CatEnding()
     {
-        GameManager.PlaySounds(_audioSource, _catEndingSound); 
         GameManager.Instance.PlayerHUDController.LoreText(_catEndingText);
         GameManager.Instance.PlayGameManagerSounds(_catEndingMusic);
         _chest.SpinChest();
