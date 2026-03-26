@@ -14,6 +14,7 @@ public class DeadBody : EnigmeObject
     [SerializeField] private GameObject _grave;
     [SerializeField] private string _playSceneToLoad;
     [SerializeField] private float _delayBeforeLoadingScene = 2;
+    [SerializeField] private AudioSource _graveSource;
     [SerializeField] private AudioClip _graveSound;
 
 
@@ -27,6 +28,7 @@ public class DeadBody : EnigmeObject
     {
         _skeleton.SetActive(false);
         _grave.SetActive(true);
+        PlaySound(_graveSource, _graveSound);
         Invoke("QuitGame", _delayBeforeLoadingScene);
     }
 
