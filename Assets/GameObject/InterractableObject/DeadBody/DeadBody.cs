@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -10,10 +11,14 @@ using UnityEngine.UI;
 
 public class DeadBody : EnigmeObject
 {
+    [Header("Refs")]
     [SerializeField] private GameObject _skeleton;
     [SerializeField] private GameObject _grave;
+    [SerializeField] private TMP_Text _deathText;
+    [Header("Scenes")]
     [SerializeField] private string _playSceneToLoad;
     [SerializeField] private float _delayBeforeLoadingScene = 2;
+    [Header("Sounds")]
     [SerializeField] private AudioSource _graveSource;
     [SerializeField] private AudioClip _graveSound;
 
@@ -29,6 +34,7 @@ public class DeadBody : EnigmeObject
         _skeleton.SetActive(false);
         _grave.SetActive(true);
         PlaySound(_graveSource, _graveSound);
+        _deathText.text = "Nevermind";
         Invoke("QuitGame", _delayBeforeLoadingScene);
     }
 

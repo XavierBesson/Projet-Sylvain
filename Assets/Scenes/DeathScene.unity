@@ -408,6 +408,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7632992973590235442, guid: 70cc38368f4e1794f9b4c440f1f6e068, type: 3}
+      propertyPath: _deathText
+      value: 
+      objectReference: {fileID: 451509078}
+    - target: {fileID: 7632992973590235442, guid: 70cc38368f4e1794f9b4c440f1f6e068, type: 3}
       propertyPath: _graveSound
       value: 
       objectReference: {fileID: 8300000, guid: 2d99c3c4011138143b5ce086c92ba46b, type: 3}
@@ -2213,7 +2217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 120}
+  m_AnchoredPosition: {x: 0, y: 107}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &482613304
