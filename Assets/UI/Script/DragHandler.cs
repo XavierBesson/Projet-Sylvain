@@ -19,8 +19,8 @@ public class DragHandler : MonoBehaviour
     [SerializeField] private Texture2D _mouseTextureOriginal = null;
 
     [Header("UI Settings")]
-    private DetachableUi _uiElement = null;
-    private List<DetachableUi> _detachableUis = null;
+    [SerializeField] private DetachableUi _uiElement = null;
+    [SerializeField] private List<DetachableUi> _detachableUis = null;
     [SerializeField] private float _minShake = 0.1f;
     [SerializeField] private float _shakeRate = 1.0f;
     //[SerializeField] private float _maxDistanceBeforeBreaking = 20;
