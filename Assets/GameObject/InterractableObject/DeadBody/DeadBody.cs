@@ -14,6 +14,7 @@ public class DeadBody : EnigmeObject
     [SerializeField] private GameObject _grave;
     [SerializeField] private string _playSceneToLoad;
     [SerializeField] private float _delayBeforeLoadingScene = 2;
+    [SerializeField] private AudioClip _graveSound;
 
 
     private void Revive()

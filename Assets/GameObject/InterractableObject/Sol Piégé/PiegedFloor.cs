@@ -115,10 +115,12 @@ public class PiegedFloor : EnigmeObject
                 {
                     case EUIObject.PLATFORM:
                         IsCovered(false);
+                        uiObject.DoNotDespawn = true;
                         uiObject.Despawn();
                         break;
                     case EUIObject.HEALTHBAR:
                         IsCovered(true);
+                        uiObject.DoNotDespawn = true;
                         uiObject.Despawn();
                         break;
                 }
