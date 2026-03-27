@@ -101,6 +101,7 @@ public class Poigne : EnigmeObject
                 case EUIObject.HEALTHBAR:
                     _door.ObjectOnDoor = _uiObjectToUse.ObjectType;
                     _barATournerUI.gameObject.SetActive(true);
+                    _barATournerUI.value = _player.Hp / _player.HpMax;
                     _fillImage.color = _lifeColor;
                     _uiObjectToUse.Despawn();
                     break;
@@ -109,6 +110,7 @@ public class Poigne : EnigmeObject
                     _door.ObjectOnDoor = _uiObjectToUse.ObjectType;
                     _backgroundImage.sprite = _barImageSound;
                     _barATournerUI.gameObject.SetActive(true);
+                    _barATournerUI.value = GameManager.Instance.SoundMultiplier;
                     _fillImage.color = _soundColor;
                     _uiObjectToUse.Despawn();
                     break;

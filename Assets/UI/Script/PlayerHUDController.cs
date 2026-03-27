@@ -144,32 +144,6 @@ public class PlayerHUDController : MonoBehaviour
         _hpBar.value = hp;
     }
 
-    public void PlayerIsDead(bool stairs)
-    {
-        /*GameManager.Instance.DeadPlayer();
-        foreach (GameObject gameobject in _deadUiObjects)
-        {
-            gameobject.SetActive(true);
-        }
-        */
-
-        if (stairs == true)
-        {
-            //_deathText.text = "That was one step too far...";
-            GameManager.Instance.DeathMessage = "That was one step too far...";
-        }
-        else
-        {
-
-            //_deathText.text = "What a razor-sharp death.";
-            GameManager.Instance.DeathMessage = "What a razor-sharp death.";
-        }
-
-        SceneManager.LoadScene("DeathScene");
-        //Afficher text 
-        //Couper la visibilité
-        //Bouton recommencer et quitter
-    }
 
     public void TakeDammageStart()
     {

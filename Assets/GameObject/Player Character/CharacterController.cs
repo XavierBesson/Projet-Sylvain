@@ -241,6 +241,7 @@ public class CharacterController : MonoBehaviour
     public void Hpdamage(float damage, bool inStairs = false)
     {
         Hp = Hp - damage;
+        GameManager.Instance.Door.SpikeDamage(damage);
         if (Hp > 0f)
         {
             GameManager.Instance.PlayerHUDController.TakeDammageStart();
@@ -273,7 +274,7 @@ public class CharacterController : MonoBehaviour
     {
         Debug.Log("Je suis mort");
        
-        GameManager.Instance.PlayerHUDController.PlayerIsDead(_isStairs);
+        GameManager.Instance.Die();
         IsDead = true;
     }
 

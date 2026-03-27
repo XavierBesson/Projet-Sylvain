@@ -74,7 +74,7 @@ public class Door : EnigmeObject
     public void TurnLighting(float tours)
     {
         tours = Mathf.Abs(tours);
-        if (tours >= 2)
+        if (tours >= 3)
         {
             _turn3Object.material.color = Color.green;
             OpenTheDoor();
@@ -82,23 +82,23 @@ public class Door : EnigmeObject
             Debug.Log("ouvert");
         }
         else
-            _turn3Object.material.color = Color.white;
+            _turn3Object.material.color = Color.Lerp(Color.white, Color.green, tours - 2);
 
-        if (tours >= 1)
+        if (tours >= 2)
             _turn2Object.material.color = Color.green;
         else
-            _turn2Object.material.color = Color.white;
+            _turn2Object.material.color = Color.Lerp(Color.white, Color.green, tours - 1);
 
-        if (tours >= 0.1f)
+        if (tours >= 1f)
             _turn1Object.material.color = Color.green;
         else
-            _turn1Object.material.color = Color.white;
+            _turn1Object.material.color = Color.Lerp(Color.white, Color.green, tours);
     }
 
 
     public void SpikeDamage(float damage)
     {
-        _barATournerUI.value = _barATournerUI.value - damage;
+        _barATournerUI.value = _barATournerUI.value - damage / _player.HpMax;
     }
 
 

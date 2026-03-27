@@ -38,17 +38,14 @@ public class PiegedFloor : EnigmeObject
             if (GameManager.Instance.Difficulty == EDifficulty.EASY)
             {
                 _player.Hpdamage(_damage / 3);
-                _door.SpikeDamage(_damage/3);
             }
             else if (GameManager.Instance.Difficulty == EDifficulty.MEDIUM)
             {
                 _player.Hpdamage(_damage);
-                _door.SpikeDamage(_damage);
             }
             else if (GameManager.Instance.Difficulty == EDifficulty.HARD)
             {
                 _player.Hpdamage(_damage * 2);
-                _door.SpikeDamage(_damage * 2);
             }
             Invoke("TakeDamage", 0.1f);
         }

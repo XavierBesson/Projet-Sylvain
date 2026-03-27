@@ -3720,7 +3720,6 @@ MonoBehaviour:
   _player: {fileID: 63786510}
   _door: {fileID: 0}
   _audioSource: {fileID: 1148209927}
-  _deadMusic: {fileID: 0}
   _playerHUDController: {fileID: 0}
   _soundMultiplier: 1
   _difficulty: 1
@@ -3754,7 +3753,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

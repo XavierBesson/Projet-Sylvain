@@ -25,14 +25,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _deadMusic;
 
     [Header("UI Values")]
     private DragHandler _dragHandler = null;
     [SerializeField] private PlayerHUDController _playerHUDController = null;
     [SerializeField] private float _soundMultiplier = 1;
     [SerializeField] private EDifficulty _difficulty = EDifficulty.MEDIUM;
-    [SerializeField] private string _deathMessage = "Didn't die yet";
 
 
     #region Properties
@@ -44,7 +42,6 @@ public class GameManager : MonoBehaviour
     public EDifficulty Difficulty { get => _difficulty; set => _difficulty = value; }
     public PlayerHUDController PlayerHUDController { get => _playerHUDController; set => _playerHUDController = value; }
     public DragHandler DragHandlerM { get => _dragHandler; set => _dragHandler = value; }
-    public string DeathMessage { get => _deathMessage; set => _deathMessage = value; }
 
     #endregion Properties
 
@@ -90,10 +87,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void DeadPlayer()
+    public void Die()
     {
-        PlayGameManagerSounds(_deadMusic);
+        SceneManager.LoadScene("DeathScene");
     }
+
 
     #region Statics
 

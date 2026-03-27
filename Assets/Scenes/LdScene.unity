@@ -6610,11 +6610,9 @@ MonoBehaviour:
   _player: {fileID: 224599062}
   _door: {fileID: 60110430224775168}
   _audioSource: {fileID: 425792146}
-  _deadMusic: {fileID: 0}
   _playerHUDController: {fileID: 6505965171908579892}
   _soundMultiplier: 1
   _difficulty: 1
-  _deathMessage: Didn't die yet
 --- !u!4 &425792144
 Transform:
   m_ObjectHideFlags: 0
@@ -51635,7 +51633,7 @@ PrefabInstance:
       objectReference: {fileID: 714148249}
     - target: {fileID: 887590217354138897, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
       propertyPath: _barprogressSpeed
-      value: 0.03
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1475308630751411699, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
       propertyPath: m_Layer
@@ -51665,6 +51663,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.14978641
       objectReference: {fileID: 0}
+    - target: {fileID: 2392704561792251686, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
+      propertyPath: _lifeColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392704561792251686, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
+      propertyPath: _soundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392704561792251686, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
+      propertyPath: _barImageSound
+      value: 
+      objectReference: {fileID: 21300000, guid: 9557cff678f683e41a81148b224b2d9e, type: 3}
     - target: {fileID: 2580655686809588258, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -51816,12 +51826,8 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6746665823104213746, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
-      propertyPath: m_Value
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6746665823104213746, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
       propertyPath: m_MaxValue
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6746665823104213746, guid: 60de5e58f7177eb46b43b35456496c3d, type: 3}
       propertyPath: m_MinValue
