@@ -1012,6 +1012,7 @@ GameObject:
   - component: {fileID: 49256732629949960}
   - component: {fileID: 276339655617547039}
   - component: {fileID: 2443147157295718620}
+  - component: {fileID: 6024411166124624257}
   m_Layer: 8
   m_Name: BarATourner
   m_TagString: Untagged
@@ -1057,6 +1058,9 @@ MonoBehaviour:
   _lifeColor: {r: 0.8470589, g: 0.15294118, b: 0.14901961, a: 0}
   _soundColor: {r: 0.8941177, g: 0.78823537, b: 0.5372549, a: 0}
   _door: {fileID: 887590217354138897}
+  _twitchAnimation: {fileID: 6024411166124624257}
+  _hoverImage: {fileID: 2800000, guid: 3ae26b7ae780c9b4e98870489740d652, type: 3}
+  _unhoverImage: {fileID: 2800000, guid: 70942cb277bfb53409545f51c322d21d, type: 3}
 --- !u!33 &49256732629949960
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1115,6 +1119,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!111 &6024411166124624257
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8831434001598589384}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &9776260506384739
 PrefabInstance:
   m_ObjectHideFlags: 0

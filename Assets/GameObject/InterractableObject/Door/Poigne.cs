@@ -21,10 +21,17 @@ public class Poigne : EnigmeObject
     private float _totalRotation = 0f;
 
     [SerializeField] private Door _door;
-    private bool canRotate = true;
+    private bool _canRotate = true;
     private bool _inTransition = false;
 
-    public bool CanRotate { get => canRotate; set => canRotate = value; }
+    [Header("Animation")]
+    [SerializeField] private Animation _twitchAnimation;
+
+    [Header("Cursor Image")]
+    [SerializeField] private Texture2D _hoverImage;
+    [SerializeField] private Texture2D _unhoverImage;
+
+    public bool CanRotate { get => _canRotate; set => _canRotate = value; }
     public bool InTransition { get => _inTransition; set => _inTransition = value; }
 
     void Start()
@@ -41,6 +48,7 @@ public class Poigne : EnigmeObject
         //Check si tu peut intéragir
         if (CanRotate && Vector3.Distance(_player.transform.position, transform.position) <= _minDistance && Input.GetMouseButton(0) && (_door.ObjectOnDoor == EUIObject.VOLUMEBAR || _door.ObjectOnDoor == EUIObject.HEALTHBAR))
         {
+            _twitchAnimation.Stop();
             //Vérifie la quantité de rotation
             float currentAngle = transform.eulerAngles.z;
             float delta = Mathf.DeltaAngle(_previousAngle, currentAngle);
@@ -61,7 +69,7 @@ public class Poigne : EnigmeObject
                 Vector3 mousePos = hit.point;
                 Vector3 direction = mousePos - transform.position;
 
-                
+
                 if (_door.Open)
                 {
                     float angle = Mathf.Atan2(direction.z, direction.y) * Mathf.Rad2Deg;
@@ -87,6 +95,18 @@ public class Poigne : EnigmeObject
     {
         if (!InTransition)
             RotateElement();
+        if (CanRotate && (_door.ObjectOnDoor == EUIObject.HEALTHBAR || _door.ObjectOnDoor == EUIObject.VOLUMEBAR))
+        {
+            Cursor.SetCursor(_hoverImage, Vector2.zero, CursorMode.Auto);
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        if (CanRotate && (_door.ObjectOnDoor == EUIObject.HEALTHBAR || _door.ObjectOnDoor == EUIObject.VOLUMEBAR))
+        {
+            Cursor.SetCursor(_unhoverImage, Vector2.zero, CursorMode.Auto);
+        }
     }
 
 
@@ -104,6 +124,7 @@ public class Poigne : EnigmeObject
                     _barATournerUI.value = _player.Hp / _player.HpMax;
                     _fillImage.color = _lifeColor;
                     _uiObjectToUse.Despawn();
+                    _twitchAnimation.Play();
                     break;
 
                 case EUIObject.VOLUMEBAR:
@@ -113,6 +134,7 @@ public class Poigne : EnigmeObject
                     _barATournerUI.value = GameManager.Instance.SoundMultiplier;
                     _fillImage.color = _soundColor;
                     _uiObjectToUse.Despawn();
+                    _twitchAnimation.Play();
                     break;
             }
             GameManager.Instance.GameLoop -= ActivedObject;
