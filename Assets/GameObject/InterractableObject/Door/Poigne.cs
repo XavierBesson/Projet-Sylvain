@@ -23,6 +23,7 @@ public class Poigne : EnigmeObject
     [SerializeField] private Door _door;
     private bool _canRotate = true;
     private bool _inTransition = false;
+    [SerializeField] private AudioClip _placingSound;
 
     [Header("Animation")]
     [SerializeField] private Animation _twitchAnimation;
@@ -125,6 +126,7 @@ public class Poigne : EnigmeObject
                     _fillImage.color = _lifeColor;
                     _uiObjectToUse.Despawn();
                     _twitchAnimation.Play();
+                    //GameManager.PlaySounds(_door.AudioSource, _placingSound);
                     break;
 
                 case EUIObject.VOLUMEBAR:
