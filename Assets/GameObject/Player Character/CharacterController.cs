@@ -35,6 +35,7 @@ public class CharacterController : MonoBehaviour
     [Header("HP")]
     private float _hp;
     [SerializeField] private float _hpMax = 5f;
+    [SerializeField] private Animation _damageAnim;
     private bool _hpRegen = false;
     private bool _isDead = false;
     private bool _isStairs = false;
@@ -246,6 +247,9 @@ public class CharacterController : MonoBehaviour
         {
             GameManager.Instance.PlayerHUDController.TakeDammageStart();
             GameManager.PlaySounds(_audioSource, _damageSound);
+            // anim dégâts
+            _damageAnim.Stop();
+            _damageAnim.Play();
         }
         _isStairs = inStairs;
     }

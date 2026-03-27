@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 5053834459620792582}
   - component: {fileID: 8027638222376549387}
   - component: {fileID: 2026675497339866412}
+  - component: {fileID: -8107546428227553684}
   m_Layer: 12
   m_Name: Character
   m_TagString: Untagged
@@ -291,6 +292,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 384
   _hpMax: 5
+  _damageAnim: {fileID: -8107546428227553684}
   _audioSource: {fileID: 2026675497339866412}
   _moveSound: {fileID: 8300000, guid: c2b51777e8d049945a6fd8b41d45f0eb, type: 3}
   _rotateSound: {fileID: 8300000, guid: e3c4afc4f437d084aa2f5dccc0514747, type: 3}
@@ -439,3 +441,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!111 &-8107546428227553684
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589442661748539324}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 7678ed67436d8e243bd870ec44c127a0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7678ed67436d8e243bd870ec44c127a0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
