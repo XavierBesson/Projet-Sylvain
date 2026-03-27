@@ -54,7 +54,7 @@ public class CharacterController : MonoBehaviour
         set {_hp = Mathf.Clamp(value, 0, HpMax);
             if (GameManager.Instance.PlayerHUDController != null)
             {
-                GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
+                GameManager.Instance.PlayerHUDController.ChangeHpDisplay(Hp);
                 HPVisual();
             }
             if (Hp <= 0f) { Death(); }
@@ -83,7 +83,7 @@ public class CharacterController : MonoBehaviour
 
         if (IsMoving)
         {
-            GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
+            GameManager.Instance.PlayerHUDController.ChangeHpDisplay(Hp);
             GameManager.Instance.GameLoop += Actions;
         }
     }
@@ -109,7 +109,7 @@ public class CharacterController : MonoBehaviour
         MouseClic();
 
         if (GameManager.Instance.PlayerHUDController != null)
-            GameManager.Instance.PlayerHUDController.ChangeHPDisplay(Hp);
+            GameManager.Instance.PlayerHUDController.ChangeHpDisplay(Hp);
     }
 
 
@@ -245,7 +245,7 @@ public class CharacterController : MonoBehaviour
         GameManager.Instance.Door.SpikeDamage(damage);
         if (Hp > 0f)
         {
-            GameManager.Instance.PlayerHUDController.TakeDammageStart();
+            GameManager.Instance.PlayerHUDController.TakeDamageStart();
             GameManager.PlaySounds(_audioSource, _damageSound);
             // anim dégâts
             _damageAnim.Stop();

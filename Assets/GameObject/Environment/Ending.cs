@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -40,6 +41,7 @@ public class Ending : MonoBehaviour
         {
             CatEnding();
         }
+        GameManager.Instance.PlayerHUDController.HideUi();
         Invoke("EndingScreenDelay", 5);
         Invoke("CloseDoor", 6);
         Invoke("LoadMainMenu", 8.5f);

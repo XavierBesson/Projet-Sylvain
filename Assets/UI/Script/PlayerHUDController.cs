@@ -52,6 +52,10 @@ public class PlayerHUDController : MonoBehaviour
         _animator.SetBool("OptionIsOpen", !_animator.GetBool("OptionIsOpen"));
     }
 
+    public void HideUi()
+    {
+        _animator.SetTrigger("HideUi");
+    }
 
     public void ChangeDifficulty()
     {
@@ -139,19 +143,19 @@ public class PlayerHUDController : MonoBehaviour
 
     #region HP
 
-    public void ChangeHPDisplay(float hp)
+    public void ChangeHpDisplay(float hp)
     {
         _hpBar.value = hp;
     }
 
 
-    public void TakeDammageStart()
+    public void TakeDamageStart()
     {
         _damageImage.gameObject.SetActive(true);
         Invoke("TakeDamageEnd",0.2f);
     }
 
-    public void TakedamageEnd()
+    public void TakeDamageEnd()
     {
         _damageImage.gameObject.SetActive(false);
     }
