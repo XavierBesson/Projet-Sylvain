@@ -126,7 +126,7 @@ public class Poigne : EnigmeObject
                     _fillImage.color = _lifeColor;
                     _uiObjectToUse.Despawn();
                     _twitchAnimation.Play();
-                    //GameManager.PlaySounds(_door.AudioSource, _placingSound);
+                    GameManager.PlaySounds(_door.AudioSource, _placingSound);
                     break;
 
                 case EUIObject.VOLUMEBAR:
